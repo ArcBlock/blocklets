@@ -1,0 +1,9 @@
+---
+# - repo: https://github.com/ArcBlock/forge-dapp-starters
+- repo: /Users/wangshijun/Develop/arcblock/forge-dapp-starters
+  blocklets:
+  - packages/forge-react-starter
+  - packages/forge-next-starter
+  - packages/forge-keystone-starter
+  - packages/forge-gatsby-starter
+- repo: https://github.com/wangshijun/forge-product-factory-contract
