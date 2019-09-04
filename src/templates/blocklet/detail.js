@@ -5,9 +5,10 @@ import styled from 'styled-components';
 import withTheme from '@arcblock/ux/lib/withTheme';
 import withI18n from '@arcblock/www/components/withI18n';
 import Layout from '@arcblock/www/components/layouts/default';
-import Container from '@material-ui/core/Container';
+import Container from '@arcblock/www/components/container';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Tag from '@arcblock/ux/lib/Tag';
 
 import { translations } from '../../libs/constant';
 import renderAst from '../../components/renderAst';
@@ -19,16 +20,38 @@ class BlockletDetail extends React.PureComponent {
   };
 
   render() {
-    const { pageContext } = this.props;
-    console.log(this.props);
+    const { name, version, keywords, group, htmlAst, logoUrl } = this.props.pageContext.blocklet;
+    // TODO: use default logo
 
     return (
-      <Layout location={this.props.location} title={pageContext.blocklet.name}>
+      <Layout location={this.props.location} title={name}>
         <Div>
           <Grid container spacing={24} className="wrapper">
+            <Grid item xs={12} md={12} className={`header header--${group}`}>
+              <Typography component="span" className="header__text">
+                <Typography component="span" className="header__text__title">
+                  Blocklet.
+                </Typography>
+                <Typography component="span" className="header__text__group">
+                  {group}
+                </Typography>
+              </Typography>
+              <Typography component="span" className="header__logo">
+                <img src={logoUrl} className="header__logo__image" alt={name} />
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={12} className="meta">
+              <Typography component="h2" variant="h2">{name}</Typography>
+              <Typography component="p">
+                <Tag className="header__tag">{version}</Tag>
+                {Array.isArray(keywords) &&
+                  keywords.length > 0 &&
+                  keywords.map(keyword => <Tag className="header__tag">{keyword}</Tag>)}
+              </Typography>
+            </Grid>
             <Grid item xs={12} md={9} className="main">
               <PostContent component="div" className="content-wrapper markdown-body post-content">
-                {renderAst(pageContext.blocklet.htmlAst)}
+                {renderAst(htmlAst)}
               </PostContent>
             </Grid>
             <Grid item xs={12} md={3} className="sidebar">
@@ -45,6 +68,10 @@ export default withTheme(withI18n(translations)(BlockletDetail));
 
 const codeFont = 'source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace !important';
 const Div = styled(Container)`
+
+  .header {
+  }
+
   .markdown-body .highlight pre,
   .markdown-body pre {
     background-color: #222;
