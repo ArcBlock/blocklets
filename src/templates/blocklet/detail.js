@@ -43,6 +43,7 @@ class BlockletDetail extends React.PureComponent {
 
 export default withTheme(withI18n(translations)(BlockletDetail));
 
+const codeFont = 'source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace !important';
 const Div = styled(Container)`
   .markdown-body .highlight pre,
   .markdown-body pre {
@@ -50,12 +51,12 @@ const Div = styled(Container)`
     border-radius: 5px;
   }
   .markdown-body code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace !important;
+    font-family: ${codeFont};
   }
   .markdown-body pre code {
     color: #fff;
     font-size: 14px;
-    font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace !important;
+    font-family: ${codeFont};
   }
 
   .markdown-body h1,
