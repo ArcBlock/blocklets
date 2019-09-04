@@ -13,12 +13,7 @@ const templates = {
 exports.createPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
     {
-      allFile(
-        filter: {
-          sourceInstanceName: { ne: "" }
-          internal: { mediaType: { eq: "application/json" } }
-        }
-      ) {
+      allFile(filter: { sourceInstanceName: { ne: "" } }) {
         edges {
           node {
             id
@@ -35,6 +30,10 @@ exports.createPages = async ({ actions, graphql }) => {
               href
             }
             base
+            publicURL
+            childMarkdownRemark {
+              htmlAst
+            }
           }
         }
       }
@@ -57,12 +56,31 @@ exports.createPages = async ({ actions, graphql }) => {
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].npm = node;
     }
+
+    // Append logo url
+    if (node.base.startsWith('logo.') && node.internal.mediaType.startsWith('image/')) {
+      const dir = path.dirname(path.dirname(node.absolutePath));
+      blocklets[dir] = blocklets[dir] || {};
+      blocklets[dir].logoUrl = node.publicURL;
+    }
+
+    // Append readme
+    if (
+      node.base.endsWith('.md') &&
+      node.internal.mediaType === 'text/markdown' &&
+      node.childMarkdownRemark &&
+      node.childMarkdownRemark.htmlAst
+    ) {
+      const dir = path.dirname(path.dirname(node.absolutePath));
+      blocklets[dir] = blocklets[dir] || {};
+      blocklets[dir].htmlAst = node.childMarkdownRemark.htmlAst;
+    }
   });
 
   // 2. merge blocklet config
   blocklets = Object.keys(blocklets)
     .map(x => {
-      const { dir, main, npm } = blocklets[x];
+      const { dir, main, npm, logoUrl, htmlAst } = blocklets[x];
       if (!main) {
         return null;
       }
@@ -71,6 +89,8 @@ exports.createPages = async ({ actions, graphql }) => {
         dir,
         main: main ? main.absolutePath : null,
         npm: npm ? npm.absolutePath : null,
+        logoUrl,
+        htmlAst,
       };
 
       if (npm && fs.existsSync(npm.absolutePath)) {
@@ -83,6 +103,9 @@ exports.createPages = async ({ actions, graphql }) => {
       const selectedAttrs = pick(attrs, [
         'dir',
         'main',
+        'npm',
+        'logoUrl',
+        'htmlAst',
         'npm',
         'name',
         'version',
@@ -99,6 +122,8 @@ exports.createPages = async ({ actions, graphql }) => {
       ]);
       const requiredAttrs = [
         'name',
+        'logoUrl',
+        'htmlAst',
         'version',
         'description',
         'author',
