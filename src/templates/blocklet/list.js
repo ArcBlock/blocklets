@@ -29,7 +29,7 @@ function BlockletList({ pageContext, location }) {
             ArcBlock is dedicated to continuously deliver innovation, tools and features to help you
             accelerate your blockchain projects.
           </Typography>
-          <Button variant="outlined" className="hero__button" href={docLink}>
+          <Button variant="outlined" size="large" className="hero__button" href={docLink}>
             Create New Blocklet
           </Button>
         </Container>
@@ -82,7 +82,7 @@ export default withTheme(withI18n(translations)(BlockletList));
 
 const Div = styled.div`
   .hero {
-    margin-top: 150px;
+    margin-top: 120px;
     text-align: center;
 
     .hero__title {
@@ -99,13 +99,13 @@ const Div = styled.div`
     }
 
     .hero__button {
-      width: 200px;
+      width: 240px;
       margin: 0 auto;
     }
   }
 
   .blocklets {
-    margin: 60px auto;
+    margin: 80px auto;
   }
 
   .blocklet {
@@ -115,10 +115,10 @@ const Div = styled.div`
       height: 60px;
       background-color: ${props => props.theme.palette.primary.light};
       background-image: radial-gradient(
-        ${props => props.theme.palette.primary.main} 8%,
+        ${props => props.theme.palette.primary.main} 10%,
         transparent 0
       );
-      background-size: 20px 20px;
+      background-size: 10px 10px;
     }
 
     .blocklet__image {
