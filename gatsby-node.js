@@ -121,7 +121,7 @@ exports.createPages = async ({ actions, graphql }) => {
         return null;
       }
 
-      const allAttrs = {
+      const rawAttrs = {
         dir,
         main: main ? main.absolutePath : null,
         npm: npm ? npm.absolutePath : null,
@@ -132,10 +132,10 @@ exports.createPages = async ({ actions, graphql }) => {
       };
 
       if (npm && fs.existsSync(npm.absolutePath)) {
-        Object.assign(allAttrs, JSON.parse(fs.readFileSync(npm.absolutePath).toString()));
+        Object.assign(rawAttrs, JSON.parse(fs.readFileSync(npm.absolutePath).toString()));
       }
       if (main && fs.existsSync(main.absolutePath)) {
-        Object.assign(allAttrs, JSON.parse(fs.readFileSync(main.absolutePath).toString()));
+        Object.assign(rawAttrs, JSON.parse(fs.readFileSync(main.absolutePath).toString()));
       }
 
       const attrs = {
@@ -161,7 +161,7 @@ exports.createPages = async ({ actions, graphql }) => {
         version: true,
       };
 
-      const selectedAttrs = pick(allAttrs, Object.keys(attrs));
+      const selectedAttrs = pick(rawAttrs, Object.keys(attrs));
       const requiredAttrs = Object.keys(attrs).filter(a => attrs[a]);
 
       // eslint-disable-next-line no-restricted-syntax
@@ -173,7 +173,7 @@ exports.createPages = async ({ actions, graphql }) => {
       }
 
       // TODO: detect duplicate blocklet names
-      selectedAttrs.path = `/blocklet/${attrs.group}/${attrs.name}`;
+      selectedAttrs.path = `/blocklet/${selectedAttrs.group}/${selectedAttrs.name}`;
 
       // Assign a color
       const colors = ['primary', 'secondary', 'error'];
