@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import useWindowSize from 'react-use/lib/useWindowSize';
 import useMeasure from 'react-use/lib/useMeasure';
+import { Link } from 'gatsby';
 
 import withTheme from '@arcblock/ux/lib/withTheme';
 import withI18n from '@arcblock/www/components/withI18n';
@@ -42,14 +43,16 @@ function BlockletDetail({ location, pageContext }) {
       <Div>
         <div className={`header header--${group}`}>
           <Container className="header__inner">
-            <Typography component="span" className="header__text" ref={ref}>
-              <Typography component="span" variant="h2" className="header__text__title">
+            <Link to="/blocklets">
+              <Typography component="span" className="header__text" ref={ref}>
+                <Typography component="span" variant="h2" className="header__text__title">
                 Blocklet.
+                </Typography>
+                <Typography component="span" variant="h2" className="header__text__group">
+                  {group}
+                </Typography>
               </Typography>
-              <Typography component="span" variant="h2" className="header__text__group">
-                {group}
-              </Typography>
-            </Typography>
+            </Link>
             <div
               component="span"
               className="header__logo"
