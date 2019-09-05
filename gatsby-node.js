@@ -50,6 +50,7 @@ exports.createPages = async ({ actions, graphql }) => {
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].dir = dir;
       blocklets[dir].main = node;
+      blocklets[dir].gitUrl = node.gitRemote.href;
     }
     if (node.base === 'package.json') {
       const dir = path.dirname(node.absolutePath);
@@ -80,7 +81,7 @@ exports.createPages = async ({ actions, graphql }) => {
   // 2. merge blocklet config
   blocklets = Object.keys(blocklets)
     .map(x => {
-      const { dir, main, npm, logoUrl, htmlAst } = blocklets[x];
+      const { dir, main, npm, logoUrl, gitUrl, htmlAst } = blocklets[x];
       if (!main) {
         return null;
       }
@@ -89,6 +90,7 @@ exports.createPages = async ({ actions, graphql }) => {
         dir,
         main: main ? main.absolutePath : null,
         npm: npm ? npm.absolutePath : null,
+        gitUrl,
         logoUrl,
         htmlAst,
       };
@@ -104,6 +106,7 @@ exports.createPages = async ({ actions, graphql }) => {
         'dir',
         'main',
         'npm',
+        'gitUrl',
         'logoUrl',
         'htmlAst',
         'npm',
@@ -122,6 +125,7 @@ exports.createPages = async ({ actions, graphql }) => {
       ]);
       const requiredAttrs = [
         'name',
+        'gitUrl',
         'logoUrl',
         'htmlAst',
         'version',

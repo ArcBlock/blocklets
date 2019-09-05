@@ -19,16 +19,16 @@
     remark-containers "^1.1.0"
     remark-generic-extensions "^1.4.0"
 
-"@arcblock/gatsby-theme-www@^6.9.0":
-  version "6.9.0"
-  resolved "https://registry.npmjs.org/@arcblock/gatsby-theme-www/-/gatsby-theme-www-6.9.0.tgz#c796c625a0a00d45a969926fabc715da2b39873b"
-  integrity sha512-KJ5yuVB28+4uoY30AsfcYHwXgyRfUBR56EWiToy7VXKuqMmxsmnjBdZZ12hj2ZgBJY3zmx+t6bCS48mdgczZKg==
+"@arcblock/gatsby-theme-www@^6.12.0":
+  version "6.12.0"
+  resolved "https://registry.npmjs.org/@arcblock/gatsby-theme-www/-/gatsby-theme-www-6.12.0.tgz#3780b16cb23d485b8ee52093bd56a9901b0c3166"
+  integrity sha512-heuSMND+SjT487jBgsjHwrRqg0jCd2yDNgvLDTd6i5701OgwxrPf6W00liWa6AxkXZ6b+JW0yNUzVuJQpVvmbg==
   dependencies:
     "@arcblock/gatsby-awesome-pagination" "^0.3.4"
     "@arcblock/gatsby-remark-extensions" "^6.0.0"
     "@arcblock/gatsby-transformer-remark" "^6.0.0"
     "@arcblock/remark-include" "^6.0.0"
-    "@arcblock/www" "^6.7.0"
+    "@arcblock/www" "^6.12.0"
     "@svgr/webpack" "^4.1.0"
     "@xmark/core" "^0.14.0"
     "@xmark/theme-section-template" "^0.14.0"
@@ -92,26 +92,6 @@
   dependencies:
     vfile "^2.0.0"
 
-"@arcblock/ux@^0.18.0":
-  version "0.18.0"
-  resolved "https://registry.npmjs.org/@arcblock/ux/-/ux-0.18.0.tgz#b7970c2518334e23c9ab01e548d0ef4a64b7147f"
-  integrity sha512-hs+yFfKRzP9qHYGKCrYfLdoX5oCajRQQfMUTb6H8J7H3JD6GnmdTNvSGeUC+tvj0xiQvQeqlj5FR6k0b79l8dg==
-  dependencies:
-    "@babel/plugin-syntax-dynamic-import" "^7.2.0"
-    copy-to-clipboard "^3.2.0"
-    d3-geo "^1.11.6"
-    graphiql "^0.13.2"
-    graphiql-code-exporter "^2.0.5"
-    graphiql-explorer "^0.4.3"
-    graphql "^14.4.2"
-    highlight.js "^9.15.8"
-    js-cookie "^2.2.0"
-    react-helmet "^5.2.1"
-    react-load-script "^0.0.6"
-    rebound "^0.1.0"
-    topojson-client "^3.0.0"
-    versor "^0.0.4"
-
 "@arcblock/ux@^0.21.0":
   version "0.21.0"
   resolved "https://registry.npmjs.org/@arcblock/ux/-/ux-0.21.0.tgz#42dccbe6fcb341722956f786dcba69f63889b23e"
@@ -133,12 +113,12 @@
     topojson-client "^3.0.0"
     versor "^0.0.4"
 
-"@arcblock/www@^6.7.0":
-  version "6.7.0"
-  resolved "https://registry.npmjs.org/@arcblock/www/-/www-6.7.0.tgz#88036b796534a1c152279e7a3e28e609312d7805"
-  integrity sha512-msukySSrrlSxRXRgAgwIDLbvwtf/sG0Si2I4ZyDQdQG6iY0ubUyfEjWMIX/9njmw2Sc+Nn3strDFgKFaGjDhyQ==
+"@arcblock/www@^6.12.0":
+  version "6.12.0"
+  resolved "https://registry.npmjs.org/@arcblock/www/-/www-6.12.0.tgz#036fc2af50ba9c60a98a61e37f948d015ab1da52"
+  integrity sha512-NVYJ4oxJ7WaF+DR5QFTvsoc5xn1M2xBDoFhncADhSapMVNZ9mtFS//N8vvFw6sWhSYmYvkgPZVOaet0H9y4jjg==
   dependencies:
-    "@arcblock/ux" "^0.18.0"
+    "@arcblock/ux" "^0.21.0"
     "@material-ui/core" "4.1.1"
     "@material-ui/icons" "^3.0.2"
     axios "^0.19.0"

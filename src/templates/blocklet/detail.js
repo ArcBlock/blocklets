@@ -6,10 +6,14 @@ import withTheme from '@arcblock/ux/lib/withTheme';
 import withI18n from '@arcblock/www/components/withI18n';
 import Layout from '@arcblock/www/components/layouts/default';
 import Container from '@arcblock/www/components/container';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Tag from '@arcblock/ux/lib/Tag';
+import CodeBlock from '@arcblock/ux/lib/CodeBlock';
+import Button from '@arcblock/ux/lib/Button';
 
+import 'github-markdown-css/github-markdown.css';
+
+import { ReactComponent as GithubLogo } from './images/github.svg';
 import { translations } from '../../libs/constant';
 import renderAst from '../../components/renderAst';
 
@@ -20,8 +24,16 @@ class BlockletDetail extends React.PureComponent {
   };
 
   render() {
-    const { name, version, keywords, group, htmlAst, logoUrl } = this.props.pageContext.blocklet;
-    // TODO: use default logo
+    const {
+      name,
+      version,
+      provider,
+      keywords,
+      group,
+      htmlAst,
+      logoUrl,
+      gitUrl,
+    } = this.props.pageContext.blocklet;
 
     return (
       <Layout location={this.props.location} title={name}>
@@ -43,29 +55,34 @@ class BlockletDetail extends React.PureComponent {
           </div>
           <div className="main">
             <Container>
-              <Grid container spacing={24}>
-                <Grid item xs={12} md={12} className="meta">
-                  <Typography component="h2" variant="h2">
-                    {name}
-                  </Typography>
-                  <Typography component="p">
-                    <Tag className="header__tag">{version}</Tag>
-                    {Array.isArray(keywords) &&
-                      keywords.length > 0 &&
-                      keywords.map(keyword => <Tag className="header__tag">{keyword}</Tag>)}
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} md={9} className="main">
-                  <PostContent
-                    component="div"
-                    className="content-wrapper markdown-body post-content">
-                    {renderAst(htmlAst)}
-                  </PostContent>
-                </Grid>
-                <Grid item xs={12} md={3} className="sidebar">
-                  This is sidebar
-                </Grid>
-              </Grid>
+              <div className="meta">
+                <Typography component="h2" variant="h2" className="title">
+                  {name}
+                  <Button href={gitUrl} target="_blank" className="github">
+                    <GithubLogo style={{ marginRight: 5 }} />
+                    View on Github
+                  </Button>
+                </Typography>
+                <Typography component="p" className="tags">
+                  <Tag className="tag" type="success">
+                    {provider}
+                  </Tag>
+                  <Tag className="tag" type="success">
+                    {version}
+                  </Tag>
+                  {Array.isArray(keywords) &&
+                    keywords.length > 0 &&
+                    keywords.map(keyword => <Tag className="tag">{keyword}</Tag>)}
+                </Typography>
+              </div>
+              <div className="markdown-body">
+                <Typography component="h2">Usage</Typography>
+                <CodeBlock>{`forge blocklet:use ${name}`}</CodeBlock>
+                <Typography component="h2">Documentation</Typography>
+                <PostContent component="div" className="content-wrapper post-content">
+                  {renderAst(htmlAst)}
+                </PostContent>
+              </div>
             </Container>
           </div>
         </Div>
@@ -127,14 +144,41 @@ const Div = styled.div`
       }
 
       img {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
       }
     }
   }
 
   .main {
     margin: 100px 0;
+
+    .title {
+      font-size: 40px;
+      font-weight: bold;
+      color: ${props => props.theme.colors.primary};
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tags {
+      margin: 16px 0 48px;
+
+      .tag {
+        margin-right: 8px;
+        text-transform: capitalize;
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .github {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .markdown-body .highlight pre,
