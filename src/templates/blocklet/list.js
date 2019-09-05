@@ -1,78 +1,172 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-// import { graphql } from 'gatsby';
+import { Link } from 'gatsby';
 
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Tag from '@arcblock/ux/lib/Tag';
+import Button from '@arcblock/ux/lib/Button';
 import withTheme from '@arcblock/ux/lib/withTheme';
-
 import withI18n from '@arcblock/www/components/withI18n';
 import Layout from '@arcblock/www/components/layouts/default';
+import Container from '@material-ui/core/Container';
 
 import { translations } from '../../libs/constant';
 
-class BlockletList extends React.PureComponent {
-  static propTypes = {
-    data: PropTypes.object.isRequired,
-    pageContext: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-  };
-
-  render() {
-    const { data, pageContext } = this.props;
-
-    return (
-      <Layout location={this.props.location} title="Blocklets">
-        <Div>
-          <pre>
-            <code>{JSON.stringify(data, true, 2)}</code>
-          </pre>
-          <pre>
-            <code>{JSON.stringify(pageContext, true, 2)}</code>
-          </pre>
-        </Div>
-      </Layout>
-    );
-  }
+function BlockletList({ pageContext, location }) {
+  const { blocklets } = pageContext;
+  const docLink = 'https://arcblock-docs.netlify.com/en/docs/tutorials/writing-blocklets';
+  console.log(blocklets);
+  return (
+    <Layout location={location} title="Blocklets">
+      <Div>
+        <Container className="hero" maxWidth="lg">
+          <Typography className="hero__title" component="h2">
+            Powerful Blocklets.
+          </Typography>
+          <Typography className="hero__description" component="p">
+            ArcBlock is dedicated to continuously deliver innovation, tools and features to help you
+            accelerate your blockchain projects.
+          </Typography>
+          <Button variant="outlined" className="hero__button" href={docLink}>
+            Create New Blocklet
+          </Button>
+        </Container>
+        <Container className="blocklets" maxWidth="lg">
+          <Grid container spacing={4}>
+            {blocklets.map(blocklet => (
+              <Grid item md={3} sm={6} xs={12} key={blocklet.bane}>
+                <Link to={blocklet.path} className="blocklet">
+                  <div className="blocklet__header">
+                    <div className="blocklet__image">
+                      <img
+                        src={blocklet.logoUrl}
+                        className="header__logo__image"
+                        alt={blocklet.name}
+                      />
+                    </div>
+                  </div>
+                  <div className="blocklet__info">
+                    <Typography component="h2" className="blocklet__title">
+                      {blocklet.name}
+                    </Typography>
+                    <Typography component="p" className="blocklet__description">
+                      {blocklet.description}
+                    </Typography>
+                    <Typography component="div" className="blocklet__tags">
+                      <Tag className="blocklet__tag" type="default">
+                        {blocklet.provider}
+                      </Tag>
+                      <Tag className="blocklet__tag" type="default">
+                        v{blocklet.version}
+                      </Tag>
+                    </Typography>
+                  </div>
+                </Link>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Div>
+    </Layout>
+  );
 }
+
+BlockletList.propTypes = {
+  pageContext: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+};
 
 export default withTheme(withI18n(translations)(BlockletList));
 
-// export const query = graphql`
-//   query($path: String!) {
-//     markdownRemark(frontmatter: { path: { eq: $path }, layout: { eq: "page" } }) {
-//       id
-//       pageHtmlAst
-//       frontmatter {
-//         path
-//         date
-//         tags
-//         categories
-//         language
-//         title
-//         description
-//         keywords
-//         robots
-//         disableHeader
-//         darkHeader
-//         layout
-//         pageType
-//         backgroundImage {
-//           id
-//           publicURL
-//           childImageSharp {
-//             fluid(maxWidth: 2000) {
-//               ...GatsbyImageSharpFluid_noBase64
-//             }
-//           }
-//         }
-//         logoColor
-//         logoImage {
-//           id
-//           publicURL
-//         }
-//       }
-//     }
-//   }
-// `;
+const Div = styled.div`
+  .hero {
+    margin-top: 150px;
+    text-align: center;
 
-const Div = styled.div``;
+    .hero__title {
+      font-size: 32px;
+      font-weight: bold;
+      color: #404040;
+      margin-bottom: 24px;
+    }
+
+    .hero__description {
+      font-size: 16px;
+      color: #404040;
+      margin-bottom: 24px;
+    }
+
+    .hero__button {
+      width: 200px;
+      margin: 0 auto;
+    }
+  }
+
+  .blocklets {
+    margin: 60px auto;
+  }
+
+  .blocklet {
+    margin-bottom: 40px;
+
+    .blocklet__header {
+      height: 60px;
+      background-color: ${props => props.theme.palette.primary.light};
+      background-image: radial-gradient(
+        ${props => props.theme.palette.primary.main} 8%,
+        transparent 0
+      );
+      background-size: 20px 20px;
+    }
+
+    .blocklet__image {
+      width: 80px;
+      height: 60px;
+      border-radius: 0 40px 40px 0;
+      padding-right: 10px;
+      background-color: ${props => props.theme.palette.primary.main};
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 40px;
+        height: 40px;
+        transition: all 200ms ease-in-out;
+      }
+    }
+
+    .blocklet__info {
+      padding: 24px 12px;
+    }
+
+    .blocklet__title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #404040;
+      margin-bottom: 15px;
+    }
+
+    .blocklet__description {
+      font-size: 14px;
+      color: #222222;
+      margin-bottom: 24px;
+    }
+
+    .blocklet__tag {
+      margin-right: 12px;
+      text-transform: capitalize;
+    }
+
+    &:hover {
+      .blocklet__image {
+        img {
+          width: 42px;
+          height: 42px;
+        }
+      }
+    }
+  }
+`;

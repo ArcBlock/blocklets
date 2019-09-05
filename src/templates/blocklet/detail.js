@@ -71,7 +71,7 @@ function BlockletDetail({ location, pageContext }) {
                   {provider}
                 </Tag>
                 <Tag className="tag" type="success">
-                  {version}
+                  v{version}
                 </Tag>
                 {Array.isArray(keywords) &&
                   keywords.length > 0 &&
