@@ -155,6 +155,7 @@ exports.createPages = async ({ actions, graphql }) => {
         'repository',
         'scripts',
         'logo',
+        'color',
         'group',
         'provider',
         'homepage',
@@ -184,6 +185,12 @@ exports.createPages = async ({ actions, graphql }) => {
 
       // TODO: detect duplicate blocklet names
       selectedAttrs.path = `/blocklet/${attrs.group}/${attrs.name}`;
+
+      // Assign a color
+      const colors = ['primary', 'secondary', 'error'];
+      if (!selectedAttrs.color || colors.includes(selectedAttrs.color)) {
+        [selectedAttrs.color] = colors;
+      }
 
       return selectedAttrs;
     })

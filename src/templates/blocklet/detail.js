@@ -34,13 +34,14 @@ function BlockletDetail({ location, pageContext }) {
     logoUrl,
     gitUrl,
     stats,
+    color = 'primary',
   } = pageContext.blocklet;
 
   console.log({ width, windowWidth });
 
   return (
     <Layout location={location} title={name}>
-      <Div>
+      <Div color={color}>
         <div className={`header header--${group}`}>
           <Container className="header__inner">
             <Link to="/blocklets">
@@ -122,9 +123,9 @@ export default withTheme(withI18n(translations)(BlockletDetail));
 const codeFont = 'source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace !important';
 const Div = styled.div`
   .header {
-    background-color: ${props => props.theme.palette.primary.light};
+    background-color: ${props => props.theme.palette[props.color].light};
     background-image: radial-gradient(
-      ${props => props.theme.palette.primary.main} 8%,
+      ${props => props.theme.palette[props.color].main} 8%,
       transparent 0
     );
     background-size: 20px 20px;
@@ -146,15 +147,15 @@ const Div = styled.div`
       font-size: 64px;
       font-weight: bold;
       text-transform: capitalize;
-      color: ${props => props.theme.palette.primary.dark};
+      color: ${props => props.theme.palette[props.color].dark};
     }
 
     .header__text__group {
       font-size: 50px;
       padding: 6px 12px;
       font-weight: bold;
-      background-color: ${props => props.theme.palette.primary.dark};
-      color: ${props => props.theme.palette.primary.light};
+      background-color: ${props => props.theme.palette[props.color].dark};
+      color: ${props => props.theme.palette[props.color].light};
       text-transform: capitalize;
     }
 
@@ -164,7 +165,7 @@ const Div = styled.div`
       height: 160px;
       border-radius: 120px 0 0 120px;
       padding-left: 50px;
-      background-color: ${props => props.theme.palette.primary.main};
+      background-color: ${props => props.theme.palette[props.color].main};
       display: flex;
       justify-content: flex-start;
       align-items: center;
