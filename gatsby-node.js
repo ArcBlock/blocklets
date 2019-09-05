@@ -3,6 +3,7 @@ const path = require('path');
 const axios = require('axios');
 const uniq = require('lodash/uniq');
 const pick = require('lodash/pick');
+const sortBy = require('lodash/sortBy');
 const github = require('octonode');
 const { languages } = require('@arcblock/www/libs/locale');
 const debug = require('debug')(require('./package.json').name);
@@ -210,6 +211,8 @@ exports.createPages = async ({ actions, graphql }) => {
       });
     })
   );
+
+  blocklets = sortBy(blocklets, x => x.stats.downloads).reverse();
 
   // 3. create blocklet list page
   actions.createPage({

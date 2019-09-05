@@ -17,8 +17,8 @@ import { translations } from '../../libs/constant';
 
 function BlockletList({ pageContext, location }) {
   const { blocklets } = pageContext;
+  // FIXME: update this link in production
   const docLink = 'https://arcblock-docs.netlify.com/en/docs/tutorials/writing-blocklets';
-  console.log(blocklets);
   return (
     <Layout location={location} title="Blocklets">
       <Div>
