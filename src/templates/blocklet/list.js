@@ -36,7 +36,7 @@ function BlockletList({ pageContext, location }) {
         <Container className="blocklets" maxWidth="lg">
           <Grid container spacing={4}>
             {blocklets.map(blocklet => (
-              <Grid item md={3} sm={6} xs={12} key={blocklet.bane}>
+              <Grid item lg={3} md={4} sm={6} xs={12} key={blocklet.bane}>
                 <Link to={blocklet.path} className="blocklet">
                   <div className="blocklet__header">
                     <div className="blocklet__image">
@@ -81,20 +81,23 @@ BlockletList.propTypes = {
 export default withTheme(withI18n(translations)(BlockletList));
 
 const Div = styled.div`
+  color: #404040;
+
   .hero {
     margin-top: 120px;
     text-align: center;
+    @media (max-width: ${props => props.theme.breakpoints.values.sm}px) {
+      margin-top: 60px;
+    }
 
     .hero__title {
       font-size: 32px;
       font-weight: bold;
-      color: #404040;
       margin-bottom: 24px;
     }
 
     .hero__description {
       font-size: 16px;
-      color: #404040;
       margin-bottom: 24px;
     }
 
@@ -106,6 +109,10 @@ const Div = styled.div`
 
   .blocklets {
     margin: 80px auto;
+    @media (max-width: ${props => props.theme.breakpoints.values.sm}px) {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
   }
 
   .blocklet {
@@ -145,13 +152,12 @@ const Div = styled.div`
     .blocklet__title {
       font-size: 18px;
       font-weight: bold;
-      color: #404040;
       margin-bottom: 15px;
     }
 
     .blocklet__description {
       font-size: 14px;
-      color: #222222;
+      color: ${props => props.theme.colors.primary};
       margin-bottom: 24px;
     }
 
