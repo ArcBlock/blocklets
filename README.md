@@ -1,73 +1,44 @@
-# WWW
+![Blocklets](https://www.arcblock.io/.netlify/functions/badge/?text=Blocklets)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2196fd90-5ea3-4452-b548-7234c4a379c7/deploy-status)](https://app.netlify.com/sites/www-arcblock-io/deploys)
 
-www.arcblock.io refined, designed can be found: https://app.zeplin.io/project/5c130f7114f82eaf4c8bde47
+## What are blocklets?
 
-## Contribute
+**Blocklets** are reusable building blocks to help developers and community users to build things on [ArcBlock](https://www.arcblock.io) platform. A blocklet serves one and only one purpose, reusability is the core design philosophy of blocklets.
 
-```bash
-git clone git@github.com:ArcBlock/www.git
-cd www
-```
+Blocklets comes in many forms, including but not limited to:
 
-Install it and run:
+- A starter template, from which a developer can bootstrap an dapp already connected to forge-powered blockchain within minutes
+- A full-featured dApp, with which a miner or community user can install and get it up and running quickly
+- A smart contract, which defines the on-chain pipeline of a business logic and can be deployed to forge-powered chains with one click
 
-```bash
-make init
-make run
-```
+## What is blocklet registry?
 
-## Built With
+To help developers to find usable blocklets more easily, all blocklets built by ArcBlock and community developers are listed on [blocklet.arcblock.io](https://blocklet.arcblock.io), which is a website built from [ArcBlock/blocklets](https://github.com/arcblock/blocklets), users can search and view listed blocklets and use the blocklet with just one command, this website is called the blocklet registry.
 
-- [Gatsby](https://github.com/gatsbyjs/gatsby) is a static site generator for React.
-- React
-- Material UI
-- Material UI Icons
-- Styled Components
-- React-Intl
-
-## Notes
-
-### `withRoot` usage
-
-We are using the `withRoot` higher-order component to accommodate Material-UI's styling solution with Gatsby.
-
-⚠️ You should only use a single `withRoot` for rendering one page.
-
-## Plugins
-
-- https://codebushi.com/gatsby-featured-images/
-
-## Links
-
-- [Crafting Complex Pages with Markdown](http://bootcamp.arcblock.io/bbl/bbl33-draft-pages-with-markdown.html)
-
-## Preview Markdown Pages
-
-Follow contribute section to setup www repo.
+## How do define a blocklet?
 
 ```shell
-git checkout master
-git pull
-
-make init
-make run
+❯ tree . -L 2
+.
+├── blocklet
+│   ├── README.md
+│   ├── blocklet.json
+│   └── logo.svg
 ```
 
-### How Page Links Are Generated
+## How to create a blocklet?
 
-```shell
-src/pages/Miner-test2
-├── images
-│   ├── console.png
-│   ├── pipeline.png
-│   └── platform.png
-└── index.md
-└── index.zh.md
-```
+Initialize a blocklet config with `forge blocklet:create`
 
-If we have `path` defined as `/learning/miner-test` in both `index.md` and `index.zh.md`, then we have 2 pages:
+- How to create a starter blocklet?
+- How to create a dapp blocklet?
+- How to create a contract blocklet?
 
-- http://localhost:8000/en/learning/miner-test
-- http://localhost:8000/zh/learning/miner-test
+## How to public a blocklet?
+
+1. Create your blocklet and make sure it's working
+2. Fork this repository
+3. Change `registry.yml` to include your repo
+4. Send a pull request to this repository
+5. Your blocklet is listed on official registry once your pull request is accepted and merged
