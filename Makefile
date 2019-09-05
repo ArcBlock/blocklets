@@ -51,7 +51,7 @@ travis-deploy:
 
 clean:
 	@echo "Cleaning the build..."
-	@rm -rf .cache public src/pages/generated
+	@rm -rf .cache public
 
 run:
 	@echo "Running the software..."

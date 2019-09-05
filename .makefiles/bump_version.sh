@@ -15,7 +15,6 @@ LATEST_HASH=`git log --pretty=format:'%h' -n 1`
 # NOTICE_FLAG="${CYAN}❯"
 
 VERSION=version
-VERSION_FOLDER=".versions"
 
 ADJUSTMENTS_MSG="${QUESTION_FLAG} ${CYAN}Now you can make adjustments to ${WHITE}CHANGELOG.md${CYAN}. Then press enter to continue."
 
@@ -37,7 +36,6 @@ if [ -f $VERSION ]; then
     fi
     echo -e "${NOTICE_FLAG} Will set new version to be ${WHITE}$INPUT_STRING"
     echo $INPUT_STRING > $VERSION
-    echo $INPUT_STRING > $VERSION_FOLDER/$VERSION
     echo "## $INPUT_STRING ($NOW)" > tmpfile
     git log --pretty=format:"  - %s" "v$BASE_STRING"...HEAD >> tmpfile
     echo "" >> tmpfile
@@ -46,5 +44,5 @@ if [ -f $VERSION ]; then
     mv tmpfile CHANGELOG.md
     echo -e "$ADJUSTMENTS_MSG"
     read
-    git add CHANGELOG.md $VERSION package.json $VERSION_FOLDER/$VERSION
+    git add CHANGELOG.md $VERSION package.json
 fi

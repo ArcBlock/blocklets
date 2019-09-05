@@ -1,6 +1,6 @@
 {
   "name": "@arcblock/blocklets",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "@arcblock/gatsby-theme-www": "^6.12.0",
