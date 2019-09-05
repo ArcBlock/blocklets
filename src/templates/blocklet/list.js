@@ -169,8 +169,8 @@ const Div = styled.div`
     &:hover {
       .blocklet__image {
         img {
-          width: 42px;
-          height: 42px;
+          width: 45px;
+          height: 45px;
         }
       }
     }
