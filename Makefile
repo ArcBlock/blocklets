@@ -23,7 +23,7 @@ dep:
 	@echo "Install npm dependencies required for this repo..."
 	@yarn
 
-pre-build: install dep clean prepare
+pre-build: install dep clean
 	@echo "Running scripts before the build..."
 
 post-build:
@@ -41,7 +41,7 @@ lint:
 doc:
 	@echo "Building the documenation..."
 
-precommit: dep lint doc build test
+precommit: lint doc build test
 
 travis: precommit
 
