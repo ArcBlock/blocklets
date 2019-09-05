@@ -1,6 +1,6 @@
 ---
-# - repo: https://github.com/ArcBlock/forge-dapp-starters
-- repo: /Users/wangshijun/Develop/arcblock/forge-dapp-starters
+- repo: https://github.com/ArcBlock/forge-dapp-starters
+# - repo: /Users/wangshijun/Develop/arcblock/forge-dapp-starters
   blocklets:
   - packages/forge-react-starter
   - packages/forge-next-starter
