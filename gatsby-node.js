@@ -138,43 +138,33 @@ exports.createPages = async ({ actions, graphql }) => {
         Object.assign(attrs, JSON.parse(fs.readFileSync(main.absolutePath).toString()));
       }
 
-      const selectedAttrs = pick(attrs, [
-        'dir',
-        'main',
-        'npm',
-        'gitUrl',
-        'repoName',
-        'logoUrl',
-        'htmlAst',
-        'npm',
-        'name',
-        'version',
-        'description',
-        'author',
-        'keywords',
-        'repository',
-        'scripts',
-        'logo',
-        'color',
-        'group',
-        'provider',
-        'homepage',
-        'licence',
-      ]);
-      const requiredAttrs = [
-        'name',
-        'gitUrl',
-        'repoName',
-        'logoUrl',
-        'htmlAst',
-        'version',
-        'description',
-        'author',
-        'provider',
-        'logo',
-        'group',
-        'repository',
-      ];
+      const attrs = {
+        author: true,
+        color: false,
+        description: true,
+        dir: false,
+        gitUrl: true,
+        group: true,
+        homepage: false,
+        htmlAst: false,
+        keywords: false,
+        licence: false,
+        logo: false,
+        logoUrl: true,
+        main: false,
+        name: true,
+        npm: false,
+        npm: false,
+        provider: true,
+        repoName: true,
+        repository: true,
+        scripts: false,
+        version: true,
+      };
+
+      const selectedAttrs = pick(attrs, Object.keys(attrs));
+      const requiredAttrs = Object.keys(attrs).filter(x => attrs[x]);
+
       // eslint-disable-next-line no-restricted-syntax
       for (const key of requiredAttrs) {
         if (!selectedAttrs[key]) {
@@ -188,7 +178,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
       // Assign a color
       const colors = ['primary', 'secondary', 'error'];
-      if (!selectedAttrs.color || colors.includes(selectedAttrs.color)) {
+      if (!selectedAttrs.color || !colors.includes(selectedAttrs.color)) {
         [selectedAttrs.color] = colors;
       }
 
