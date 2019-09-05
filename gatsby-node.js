@@ -121,7 +121,7 @@ exports.createPages = async ({ actions, graphql }) => {
         return null;
       }
 
-      const attrs = {
+      const allAttrs = {
         dir,
         main: main ? main.absolutePath : null,
         npm: npm ? npm.absolutePath : null,
@@ -132,10 +132,10 @@ exports.createPages = async ({ actions, graphql }) => {
       };
 
       if (npm && fs.existsSync(npm.absolutePath)) {
-        Object.assign(attrs, JSON.parse(fs.readFileSync(npm.absolutePath).toString()));
+        Object.assign(allAttrs, JSON.parse(fs.readFileSync(npm.absolutePath).toString()));
       }
       if (main && fs.existsSync(main.absolutePath)) {
-        Object.assign(attrs, JSON.parse(fs.readFileSync(main.absolutePath).toString()));
+        Object.assign(allAttrs, JSON.parse(fs.readFileSync(main.absolutePath).toString()));
       }
 
       const attrs = {
@@ -154,7 +154,6 @@ exports.createPages = async ({ actions, graphql }) => {
         main: false,
         name: true,
         npm: false,
-        npm: false,
         provider: true,
         repoName: true,
         repository: true,
@@ -162,8 +161,8 @@ exports.createPages = async ({ actions, graphql }) => {
         version: true,
       };
 
-      const selectedAttrs = pick(attrs, Object.keys(attrs));
-      const requiredAttrs = Object.keys(attrs).filter(x => attrs[x]);
+      const selectedAttrs = pick(allAttrs, Object.keys(attrs));
+      const requiredAttrs = Object.keys(attrs).filter(a => attrs[a]);
 
       // eslint-disable-next-line no-restricted-syntax
       for (const key of requiredAttrs) {
