@@ -10,6 +10,7 @@ import Layout from '@arcblock/www/components/layouts/default';
 import Container from '@arcblock/www/components/container';
 import Typography from '@material-ui/core/Typography';
 import Tag from '@arcblock/ux/lib/Tag';
+import Icon from '@arcblock/ux/lib/Icon';
 import CodeBlock from '@arcblock/ux/lib/CodeBlock';
 import Button from '@arcblock/ux/lib/Button';
 
@@ -31,6 +32,7 @@ function BlockletDetail({ location, pageContext }) {
     htmlAst,
     logoUrl,
     gitUrl,
+    stats,
   } = pageContext.blocklet;
 
   console.log({ width, windowWidth });
@@ -65,6 +67,16 @@ function BlockletDetail({ location, pageContext }) {
                   <GithubLogo style={{ marginRight: 5 }} />
                   View on Github
                 </Button>
+              </Typography>
+              <Typography component="p" className="blocklet__stats">
+                <span className="blocklet__stat">
+                  <Icon name="arrow-to-bottom" size={14} className="blocklet__stat__icon" />
+                  {stats.downloads}
+                </span>
+                <span className="blocklet__stat">
+                  <Icon name="heart" size={14} className="blocklet__stat__icon" />
+                  {stats.star}
+                </span>
               </Typography>
               <Typography component="p" className="tags">
                 <Tag className="tag" type="success">
@@ -175,6 +187,20 @@ const Div = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .blocklet__stats {
+      margin-bottom: 16px;
+    }
+
+    .blocklet__stat {
+      margin-right: 16px;
+      font-size: 14px;
+      font-weight: 500;
+
+      .blocklet__stat__icon {
+        margin-right: 4px;
+      }
     }
 
     .tags {

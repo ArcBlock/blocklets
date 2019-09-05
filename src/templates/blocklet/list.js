@@ -52,14 +52,14 @@ function BlockletList({ pageContext, location }) {
                     <Typography component="h2" className="blocklet__title">
                       {blocklet.name}
                     </Typography>
-                    <Typography component="h2" className="blocklet__stats">
-                      <span className="blocklet__stat">
-                        <Icon name="heart" size={14} className="blocklet__stat__icon" />
-                        {blocklet.stats.star}
-                      </span>
+                    <Typography component="p" className="blocklet__stats">
                       <span className="blocklet__stat">
                         <Icon name="arrow-to-bottom" size={14} className="blocklet__stat__icon" />
                         {blocklet.stats.downloads}
+                      </span>
+                      <span className="blocklet__stat">
+                        <Icon name="heart" size={14} className="blocklet__stat__icon" />
+                        {blocklet.stats.star}
                       </span>
                     </Typography>
                     <Typography component="p" className="blocklet__description">
@@ -167,11 +167,11 @@ const Div = styled.div`
     }
 
     .blocklet__stats {
-      margin-bottom: 15px;
+      margin-bottom: 16px;
     }
 
     .blocklet__stat {
-      margin-right: 15px;
+      margin-right: 16px;
       font-size: 14px;
       font-weight: 500;
 
