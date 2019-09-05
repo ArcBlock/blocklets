@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Tag from '@arcblock/ux/lib/Tag';
 import Button from '@arcblock/ux/lib/Button';
+import Icon from '@arcblock/ux/lib/Icon';
 import withTheme from '@arcblock/ux/lib/withTheme';
 import withI18n from '@arcblock/www/components/withI18n';
 import Layout from '@arcblock/www/components/layouts/default';
@@ -50,6 +51,16 @@ function BlockletList({ pageContext, location }) {
                   <div className="blocklet__info">
                     <Typography component="h2" className="blocklet__title">
                       {blocklet.name}
+                    </Typography>
+                    <Typography component="h2" className="blocklet__stats">
+                      <span className="blocklet__stat">
+                        <Icon name="heart" size={14} className="blocklet__stat__icon" />
+                        {blocklet.stats.star}
+                      </span>
+                      <span className="blocklet__stat">
+                        <Icon name="arrow-to-bottom" size={14} className="blocklet__stat__icon" />
+                        {blocklet.stats.downloads}
+                      </span>
                     </Typography>
                     <Typography component="p" className="blocklet__description">
                       {blocklet.description}
@@ -153,6 +164,20 @@ const Div = styled.div`
       font-size: 18px;
       font-weight: bold;
       margin-bottom: 15px;
+    }
+
+    .blocklet__stats {
+      margin-bottom: 15px;
+    }
+
+    .blocklet__stat {
+      margin-right: 15px;
+      font-size: 14px;
+      font-weight: 500;
+
+      .blocklet__stat__icon {
+        margin-right: 4px;
+      }
     }
 
     .blocklet__description {
