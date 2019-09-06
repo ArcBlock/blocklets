@@ -4,7 +4,7 @@
 
 ## What are blocklets?
 
-**Blocklets** are reusable building blocks to help developers and community users to build things on [ArcBlock](https://www.arcblock.io) platform. A blocklet serves one and only one purpose, reusability is the core design philosophy of blocklets.
+**Blocklets** are reusable building blocks to help developers and community users to build things on [ArcBlock](https://www.arcblock.io) platform. A blocklet serves one and only one purpose, reusability is the core design philosophy of blocklets. Reusability makes it easy to compose multiple blocklets to build a more complex application.
 
 Blocklets comes in many forms, including but not limited to:
 

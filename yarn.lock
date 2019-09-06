@@ -19,16 +19,16 @@
     remark-containers "^1.1.0"
     remark-generic-extensions "^1.4.0"
 
-"@arcblock/gatsby-theme-www@^6.12.0":
-  version "6.12.0"
-  resolved "https://registry.npmjs.org/@arcblock/gatsby-theme-www/-/gatsby-theme-www-6.12.0.tgz#3780b16cb23d485b8ee52093bd56a9901b0c3166"
-  integrity sha512-heuSMND+SjT487jBgsjHwrRqg0jCd2yDNgvLDTd6i5701OgwxrPf6W00liWa6AxkXZ6b+JW0yNUzVuJQpVvmbg==
+"@arcblock/gatsby-theme-www@^6.13.0":
+  version "6.13.0"
+  resolved "https://registry.npmjs.org/@arcblock/gatsby-theme-www/-/gatsby-theme-www-6.13.0.tgz#7470dff902fcb3dccae455e2f46ce63b42eb2c48"
+  integrity sha512-h5E3jb5/R9DZqHrpuO8GeGzYIiB2DXJgZIbI6sHwaT9L/6koQf6/y7uLsp0fllAA4eljwFXVmAfi0ghJ7hYMJg==
   dependencies:
     "@arcblock/gatsby-awesome-pagination" "^0.3.4"
     "@arcblock/gatsby-remark-extensions" "^6.0.0"
     "@arcblock/gatsby-transformer-remark" "^6.0.0"
     "@arcblock/remark-include" "^6.0.0"
-    "@arcblock/www" "^6.12.0"
+    "@arcblock/www" "^6.13.0"
     "@svgr/webpack" "^4.1.0"
     "@xmark/core" "^0.14.0"
     "@xmark/theme-section-template" "^0.14.0"
@@ -113,10 +113,10 @@
     topojson-client "^3.0.0"
     versor "^0.0.4"
 
-"@arcblock/www@^6.12.0":
-  version "6.12.0"
-  resolved "https://registry.npmjs.org/@arcblock/www/-/www-6.12.0.tgz#036fc2af50ba9c60a98a61e37f948d015ab1da52"
-  integrity sha512-NVYJ4oxJ7WaF+DR5QFTvsoc5xn1M2xBDoFhncADhSapMVNZ9mtFS//N8vvFw6sWhSYmYvkgPZVOaet0H9y4jjg==
+"@arcblock/www@^6.13.0":
+  version "6.13.0"
+  resolved "https://registry.npmjs.org/@arcblock/www/-/www-6.13.0.tgz#905a59ce0799c5d5ec157ca01328fc1856fe037c"
+  integrity sha512-Z2sShEVvhCNp/OD9ceshyzT9NnxZ/UvmX2vlHnmxmSCjmXceVx5mzjepRt8yVMpibq385a+Icx4BsEoE/cddzw==
   dependencies:
     "@arcblock/ux" "^0.21.0"
     "@material-ui/core" "4.1.1"

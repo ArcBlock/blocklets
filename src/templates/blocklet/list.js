@@ -163,7 +163,7 @@ const Blocklet = styled.div`
     img {
       width: 40px;
       height: 40px;
-      transition: all 200ms ease-in-out;
+      transition: all 800ms ease-in-out;
     }
   }
 
@@ -205,8 +205,7 @@ const Blocklet = styled.div`
   &:hover {
     .blocklet__image {
       img {
-        width: 45px;
-        height: 45px;
+        transform: rotate(360deg);
       }
     }
   }

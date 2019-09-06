@@ -10,10 +10,3 @@ export const translations = {
 };
 
 export const COOKIE_LANGUAGE = 'aba_lang';
-
-export const consoleURL = 'https://console.arcblock.io';
-export const loginURL = 'https://console.arcblock.io/auth/login';
-export const signupURL = 'https://console.arcblock.io/auth/signup';
-export const playgroundURL = 'https://ocap.arcblock.io';
-export const docsURL = 'http://ocap-docs.arcblock.io';
-export const supportURL = 'mailto:support@arcblock.io';

@@ -26,7 +26,6 @@ module.exports = {
     {
       resolve: require.resolve('@arcblock/gatsby-theme-www'),
       options: {
-        pagesPath: [path.resolve(__dirname, './src/pages')],
         excludeI18n: () => true,
         excludeMd: ({ fileAbsolutePath }) => fileAbsolutePath.endsWith('/blocklet/README.md'),
       },
