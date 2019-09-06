@@ -36,33 +36,30 @@ function BlockletList({ pageContext, location }) {
         </Container>
         <Container className="blocklets" maxWidth="lg">
           <Grid container spacing={4}>
-            {blocklets.map(blocklet => (
-              <Grid item lg={3} md={4} sm={6} xs={12} key={blocklet.bane}>
-                <Blocklet color={blocklet.color}>
-                  <Link to={blocklet.path}>
+            {blocklets.map(x => (
+              <Grid item lg={3} md={4} sm={6} xs={12} key={x.name}>
+                <Blocklet color={x.color}>
+                  <Link to={x.path}>
                     <div className="blocklet__header">
                       <div className="blocklet__image">
-                        <img
-                          src={blocklet.logoUrl}
-                          className="header__logo__image"
-                          alt={blocklet.name}
-                        />
+                        <img src={x.logoUrl} className="header__logo__image" alt={x.name} />
                       </div>
+                      <span className="blocklet__group">{x.group}</span>
                     </div>
                     <div className="blocklet__info">
                       <Typography component="h2" className="blocklet__title">
-                        {blocklet.name}
+                        {x.name}
                       </Typography>
-                      <Stats stats={blocklet.stats} className="blocklet__stats" />
+                      <Stats stats={x.stats} className="blocklet__stats" />
                       <Typography component="p" className="blocklet__description">
-                        {blocklet.description}
+                        {x.description}
                       </Typography>
                       <Typography component="div" className="blocklet__tags">
                         <Tag className="blocklet__tag" type="default">
-                          {blocklet.provider}
+                          {x.provider}
                         </Tag>
                         <Tag className="blocklet__tag" type="default">
-                          v{blocklet.version}
+                          v{x.version}
                         </Tag>
                       </Typography>
                     </div>
@@ -131,12 +128,15 @@ const Blocklet = styled.div`
       transparent 0
     );
     background-size: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .blocklet__image {
     width: 80px;
     height: 60px;
-    border-radius: 0 40px 40px 0;
+    border-radius: 0 60px 60px 0;
     padding-right: 10px;
     background-color: ${props => props.theme.palette[props.color].main};
     display: flex;
@@ -148,6 +148,14 @@ const Blocklet = styled.div`
       height: 40px;
       transition: all 800ms ease-in-out;
     }
+  }
+
+  .blocklet__group {
+    background-color: ${props => props.theme.palette[props.color].dark};
+    color: ${props => props.theme.palette[props.color].main};
+    font-size: 20px;
+    font-weight: 900;
+    padding: 3px 12px;
   }
 
   .blocklet__info {
