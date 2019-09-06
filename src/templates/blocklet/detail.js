@@ -212,6 +212,13 @@ const Div = styled.div`
 
     .github {
       padding: 0 8px;
+
+      svg {
+        circle,
+        g {
+          fill: #fff;
+        }
+      }
     }
   }
 
