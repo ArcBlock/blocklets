@@ -185,8 +185,6 @@ exports.createPages = async ({ actions, graphql }) => {
     })
     .filter(Boolean);
 
-  debug('blocklet.formatted', JSON.stringify(blocklets, true, 2));
-
   await Promise.all(
     blocklets.map(async blocklet => {
       const downloads = await getNpmDownloadCount(blocklet.name);
