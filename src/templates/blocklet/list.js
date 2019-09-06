@@ -7,13 +7,13 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Tag from '@arcblock/ux/lib/Tag';
 import Button from '@arcblock/ux/lib/Button';
-import Icon from '@arcblock/ux/lib/Icon';
 import withTheme from '@arcblock/ux/lib/withTheme';
 import withI18n from '@arcblock/www/components/withI18n';
 import Layout from '@arcblock/www/components/layouts/default';
 import Container from '@material-ui/core/Container';
 
 import { translations } from '../../libs/constant';
+import Stats from '../../components/stats';
 
 function BlockletList({ pageContext, location }) {
   const { blocklets } = pageContext;
@@ -53,24 +53,7 @@ function BlockletList({ pageContext, location }) {
                       <Typography component="h2" className="blocklet__title">
                         {blocklet.name}
                       </Typography>
-                      <Typography component="p" className="blocklet__stats">
-                        {blocklet.stats.downloads > 0 && (
-                          <span className="blocklet__stat">
-                            <Icon
-                              name="arrow-to-bottom"
-                              size={14}
-                              className="blocklet__stat__icon"
-                            />
-                            {blocklet.stats.downloads}
-                          </span>
-                        )}
-                        {blocklet.stats.star > 0 && (
-                          <span className="blocklet__stat">
-                            <Icon name="heart" size={14} className="blocklet__stat__icon" />
-                            {blocklet.stats.star}
-                          </span>
-                        )}
-                      </Typography>
+                      <Stats stats={blocklet.stats} className="blocklet__stats" />
                       <Typography component="p" className="blocklet__description">
                         {blocklet.description}
                       </Typography>
@@ -174,21 +157,11 @@ const Blocklet = styled.div`
   .blocklet__title {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
   }
 
   .blocklet__stats {
     margin-bottom: 16px;
-  }
-
-  .blocklet__stat {
-    margin-right: 16px;
-    font-size: 14px;
-    font-weight: 500;
-
-    .blocklet__stat__icon {
-      margin-right: 4px;
-    }
   }
 
   .blocklet__description {

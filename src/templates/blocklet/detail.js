@@ -11,7 +11,6 @@ import Layout from '@arcblock/www/components/layouts/default';
 import Container from '@arcblock/www/components/container';
 import Typography from '@material-ui/core/Typography';
 import Tag from '@arcblock/ux/lib/Tag';
-import Icon from '@arcblock/ux/lib/Icon';
 import CodeBlock from '@arcblock/ux/lib/CodeBlock';
 import Button from '@arcblock/ux/lib/Button';
 
@@ -20,6 +19,7 @@ import 'github-markdown-css/github-markdown.css';
 import { ReactComponent as GithubLogo } from './images/github.svg';
 import { translations } from '../../libs/constant';
 import renderAst from '../../components/renderAst';
+import Stats from '../../components/stats';
 
 function BlockletDetail({ location, pageContext }) {
   const { width: windowWidth } = useWindowSize();
@@ -36,8 +36,6 @@ function BlockletDetail({ location, pageContext }) {
     stats,
     color = 'primary',
   } = pageContext.blocklet;
-
-  console.log({ width, windowWidth });
 
   return (
     <Layout location={location} title={name}>
@@ -67,25 +65,18 @@ function BlockletDetail({ location, pageContext }) {
             <div className="meta">
               <Typography component="h2" variant="h2" className="title">
                 {name}
-                <Button href={gitUrl} target="_blank" className="github">
-                  <GithubLogo style={{ marginRight: 5 }} />
+                <Button
+                  href={gitUrl}
+                  target="_blank"
+                  color="default"
+                  size="small"
+                  variant="contained"
+                  className="github">
+                  <GithubLogo style={{ marginRight: 3, transform: 'scale(0.5)' }} />
                   View on Github
                 </Button>
               </Typography>
-              <Typography component="p" className="blocklet__stats">
-                {stats.downloads > 0 && (
-                  <span className="blocklet__stat">
-                    <Icon name="arrow-to-bottom" size={14} className="blocklet__stat__icon" />
-                    {stats.downloads}
-                  </span>
-                )}
-                {stats.star > 0 && (
-                  <span className="blocklet__stat">
-                    <Icon name="heart" size={14} className="blocklet__stat__icon" />
-                    {stats.star}
-                  </span>
-                )}
-              </Typography>
+              <Stats stats={stats} className="blocklet__stats" />
               <Typography component="p" className="tags">
                 <Tag className="tag" type="success">
                   {provider}
@@ -103,12 +94,11 @@ function BlockletDetail({ location, pageContext }) {
               </Typography>
             </div>
             <div className="markdown-body">
-              <Typography component="h2">Usage</Typography>
-              <CodeBlock>{`forge blocklet:use ${name}`}</CodeBlock>
-              <Typography component="h2">Documentation</Typography>
               <PostContent component="div" className="content-wrapper post-content">
                 {renderAst(htmlAst)}
               </PostContent>
+              <Typography component="h2">Usage</Typography>
+              <CodeBlock>{`forge blocklet:use ${name}`}</CodeBlock>
             </div>
           </Container>
         </div>
@@ -180,6 +170,13 @@ const Div = styled.div`
       img {
         width: 100px;
         height: 100px;
+        transition: all 800ms ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: rotate(360deg);
+        }
       }
     }
   }
@@ -201,16 +198,6 @@ const Div = styled.div`
       margin-bottom: 16px;
     }
 
-    .blocklet__stat {
-      margin-right: 16px;
-      font-size: 14px;
-      font-weight: 500;
-
-      .blocklet__stat__icon {
-        margin-right: 4px;
-      }
-    }
-
     .tags {
       margin: 16px 0 48px;
 
@@ -224,8 +211,7 @@ const Div = styled.div`
     }
 
     .github {
-      display: flex;
-      flex-direction: column;
+      padding: 0 8px;
     }
   }
 

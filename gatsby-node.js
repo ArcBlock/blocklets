@@ -184,18 +184,6 @@ exports.createPages = async ({ actions, graphql }) => {
     })
     .filter(Boolean);
 
-  debug(
-    'blocklets.raw',
-    JSON.stringify(
-      blocklets.map(x => {
-        delete x.htmlAst;
-        return x;
-      }),
-      true,
-      2
-    )
-  );
-
   await Promise.all(
     blocklets.map(async blocklet => {
       const downloads = await getNpmDownloadCount(blocklet.name);
