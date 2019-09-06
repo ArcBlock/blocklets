@@ -24,7 +24,7 @@ There are several key piece of information to make a blocklet:
 ❯ tree . -L 2
 .
 ├── blocklet
-│   ├── README.md
+│   ├── blocklet.md
 │   ├── blocklet.json
 │   └── logo.svg
 ```
@@ -35,14 +35,10 @@ This is the key file when defining a blocklet, may contain the following fields:
 
 ```javascript
 {
-  "name": "forge-react-starter",
-  "version": "0.37.0",
+  // Brief introduction to the blocklet
   "description": "A dApp starter that integrates forge-javascript-sdk and create-react-app",
 
-  // Refers to the documentation markdown file, the documentation is rendered using xmark
-  "documentation": "README.md",
   // Specify the logo file of the blocklet
-
   "logo": "logo.svg",
 
   // Can be starter|dapp|contract
@@ -54,6 +50,9 @@ This is the key file when defining a blocklet, may contain the following fields:
   // Either official or community
   "provider": "official",
 
+  // Following fields can be inherited from package.json
+  "name": "forge-react-starter",
+  "version": "0.37.0",
   "author": "wangshijun <shijun@arcblock.io> https://github.com/wangshijun",
   "keywords": ["arcblock", "forge", "starter", "react", "javascript"],
   "homepage": "https://github.com/ArcBlock/forge-dapp-starters/tree/master/packages/forge-react-starter",
@@ -62,7 +61,7 @@ This is the key file when defining a blocklet, may contain the following fields:
     "url": "https://github.com/ArcBlock/forge-dapp-starters/tree/master/packages/forge-react-starter"
   },
 
-  // Customize the install pipeline of the blocklet, TODO: more detail about this
+  // Customize the install pipeline of the blocklet
   "hooks": {
     "pre-copy": "",
     "post-copy": "",
@@ -72,7 +71,7 @@ This is the key file when defining a blocklet, may contain the following fields:
 }
 ```
 
-### KeyInfo: `README.md`
+### KeyInfo: `blocklet.md`
 
 A detailed introduction to the blocklet, should clearify the following questions for a potential user to the blocklet:
 

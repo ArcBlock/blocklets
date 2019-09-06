@@ -16,7 +16,7 @@ registry.forEach(({ repo }) => {
       remote: repo,
       // FIXME: we may specify a tag here
       branch: 'master',
-      patterns: ['**/blocklet/*.*', '**/package.json'],
+      patterns: ['**/blocklet/**', '**/package.json'],
     },
   });
 });
@@ -27,7 +27,7 @@ module.exports = {
       resolve: require.resolve('@arcblock/gatsby-theme-www'),
       options: {
         excludeI18n: () => true,
-        excludeMd: ({ fileAbsolutePath }) => fileAbsolutePath.endsWith('/blocklet/README.md'),
+        excludeMd: ({ fileAbsolutePath }) => fileAbsolutePath.endsWith('/blocklet.md'),
       },
     },
     {

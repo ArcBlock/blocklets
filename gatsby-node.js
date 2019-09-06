@@ -74,7 +74,6 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
   const { edges } = data.allFile;
-  debug('blocklet.raw', JSON.stringify(edges, true, 2));
 
   // 1. group package.json and blocklet.json
   let blocklets = {};
@@ -184,6 +183,18 @@ exports.createPages = async ({ actions, graphql }) => {
       return selectedAttrs;
     })
     .filter(Boolean);
+
+  debug(
+    'blocklets.raw',
+    JSON.stringify(
+      blocklets.map(x => {
+        delete x.htmlAst;
+        return x;
+      }),
+      true,
+      2
+    )
+  );
 
   await Promise.all(
     blocklets.map(async blocklet => {
