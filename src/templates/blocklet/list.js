@@ -166,6 +166,13 @@ const Blocklet = styled.div`
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 16px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1.5rem;
+    max-height: 3rem;
   }
 
   .blocklet__stats {
@@ -176,6 +183,13 @@ const Blocklet = styled.div`
     font-size: 14px;
     color: ${props => props.theme.colors.primary};
     margin-bottom: 24px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-height: 1.5rem;
+    max-height: 6rem;
   }
 
   .blocklet__tag {
