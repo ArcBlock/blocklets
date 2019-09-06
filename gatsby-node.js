@@ -156,7 +156,7 @@ exports.createPages = async ({ actions, graphql }) => {
         npm: false,
         provider: true,
         repoName: true,
-        repository: true,
+        repository: false,
         scripts: false,
         version: true,
       };
