@@ -19,16 +19,16 @@
     remark-containers "^1.1.0"
     remark-generic-extensions "^1.4.0"
 
-"@arcblock/gatsby-theme-www@^6.13.0":
-  version "6.13.0"
-  resolved "https://registry.npmjs.org/@arcblock/gatsby-theme-www/-/gatsby-theme-www-6.13.0.tgz#7470dff902fcb3dccae455e2f46ce63b42eb2c48"
-  integrity sha512-h5E3jb5/R9DZqHrpuO8GeGzYIiB2DXJgZIbI6sHwaT9L/6koQf6/y7uLsp0fllAA4eljwFXVmAfi0ghJ7hYMJg==
+"@arcblock/gatsby-theme-www@^6.14.0":
+  version "6.14.0"
+  resolved "https://registry.npmjs.org/@arcblock/gatsby-theme-www/-/gatsby-theme-www-6.14.0.tgz#0d3a646de73c285f6deef4b0f4598c6e6a9d5d00"
+  integrity sha512-nBRGot6ll6M981D42kdblnEUxe5ZDvgoSjNkIr2LeYtpsMSb7Wkg81xB5hPT8dFeIrZPfcbDqPhBGMNXgmZF8Q==
   dependencies:
     "@arcblock/gatsby-awesome-pagination" "^0.3.4"
     "@arcblock/gatsby-remark-extensions" "^6.0.0"
     "@arcblock/gatsby-transformer-remark" "^6.0.0"
     "@arcblock/remark-include" "^6.0.0"
-    "@arcblock/www" "^6.13.0"
+    "@arcblock/www" "^6.14.0"
     "@svgr/webpack" "^4.1.0"
     "@xmark/core" "^0.14.0"
     "@xmark/theme-section-template" "^0.14.0"
@@ -92,10 +92,10 @@
   dependencies:
     vfile "^2.0.0"
 
-"@arcblock/ux@^0.21.0":
-  version "0.21.0"
-  resolved "https://registry.npmjs.org/@arcblock/ux/-/ux-0.21.0.tgz#42dccbe6fcb341722956f786dcba69f63889b23e"
-  integrity sha512-Gxt+lFdHhQZsyWB13hjrB4hyPi6azkv46vKBxv5kuqkNUvgUzwDv3ZN5EN1IMBcBIHZpjnslXEUqHrj0sP2GoQ==
+"@arcblock/ux@^0.22.0":
+  version "0.22.0"
+  resolved "https://registry.npmjs.org/@arcblock/ux/-/ux-0.22.0.tgz#246a633d8f041e557b93ea7b00872f20a2d378d4"
+  integrity sha512-FyGNPQk90LcDWi6AQ1azZ/VQb7HcZ6UUpWUiOZ3Yym/ws0pvEJcAmRhpzq6eyxS/o1u5chiaQmtsO3Z1Dxnh7w==
   dependencies:
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
     copy-to-clipboard "^3.2.0"
@@ -113,13 +113,13 @@
     topojson-client "^3.0.0"
     versor "^0.0.4"
 
-"@arcblock/www@^6.13.0":
-  version "6.13.0"
-  resolved "https://registry.npmjs.org/@arcblock/www/-/www-6.13.0.tgz#905a59ce0799c5d5ec157ca01328fc1856fe037c"
-  integrity sha512-Z2sShEVvhCNp/OD9ceshyzT9NnxZ/UvmX2vlHnmxmSCjmXceVx5mzjepRt8yVMpibq385a+Icx4BsEoE/cddzw==
+"@arcblock/www@^6.14.0":
+  version "6.14.0"
+  resolved "https://registry.npmjs.org/@arcblock/www/-/www-6.14.0.tgz#e6399de72092d7fd7e45faf51750ecd301c00ba2"
+  integrity sha512-yUUmhfuGGYUnx6oFJySqwKqwkDkwjMxCPxMIfZQP8h1X0fUW4OUDHETTOWj9LiBc6Gp5L46w9EBQ0L3KVplnAQ==
   dependencies:
-    "@arcblock/ux" "^0.21.0"
-    "@material-ui/core" "4.1.1"
+    "@arcblock/ux" "^0.22.0"
+    "@material-ui/core" "^4.4.0"
     "@material-ui/icons" "^3.0.2"
     axios "^0.19.0"
     browser-lang "^0.0.1"
@@ -1263,30 +1263,6 @@
   dependencies:
     unist-util-visit "^1.3.0"
 
-"@material-ui/core@4.1.1":
-  version "4.1.1"
-  resolved "https://registry.npmjs.org/@material-ui/core/-/core-4.1.1.tgz#11e703f3d44d84750c9b829f13bb08ad8949e12a"
-  integrity sha512-dZVuVFqKnG3uf+s32U5wMTAXYBGBM6e2LF4fz4ud9woaYcthRiEFJTg2idt0j1jBMg99gqLuznR5+A9TCQbgxQ==
-  dependencies:
-    "@babel/runtime" "^7.2.0"
-    "@material-ui/styles" "^4.1.1"
-    "@material-ui/system" "^4.2.0"
-    "@material-ui/types" "^4.1.0"
-    "@material-ui/utils" "^4.1.0"
-    "@types/react-transition-group" "^2.0.16"
-    clsx "^1.0.2"
-    convert-css-length "^2.0.0"
-    debounce "^1.1.0"
-    deepmerge "^3.0.0"
-    hoist-non-react-statics "^3.2.1"
-    is-plain-object "^3.0.0"
-    normalize-scroll-left "^0.2.0"
-    popper.js "^1.14.1"
-    prop-types "^15.7.2"
-    react-event-listener "^0.6.6"
-    react-transition-group "^4.0.0"
-    warning "^4.0.1"
-
 "@material-ui/core@^4.4.0":
   version "4.4.0"
   resolved "https://registry.npmjs.org/@material-ui/core/-/core-4.4.0.tgz#820b6ee91da9eaf4018ff9e87e6ca04fc985e35a"
@@ -1324,7 +1300,7 @@
   dependencies:
     "@babel/runtime" "^7.2.0"
 
-"@material-ui/styles@^4.1.1", "@material-ui/styles@^4.3.3":
+"@material-ui/styles@^4.3.3":
   version "4.3.3"
   resolved "https://registry.npmjs.org/@material-ui/styles/-/styles-4.3.3.tgz#39867dd6f3779a8326075e097d72208d3c5b4977"
   integrity sha512-quupQ6RYXbtKBJxhLkF3RQx6LSfrfuh2lYpILvk7p9XNkfqOQq36fuNVgrJ/A+NNn03uqDFfQYIWh4CByKr4hA==
@@ -1348,7 +1324,7 @@
     prop-types "^15.7.2"
     warning "^4.0.1"
 
-"@material-ui/system@^4.2.0", "@material-ui/system@^4.3.3":
+"@material-ui/system@^4.3.3":
   version "4.3.3"
   resolved "https://registry.npmjs.org/@material-ui/system/-/system-4.3.3.tgz#8534fe76adbd3938a8dea833e69d84a7a143ecff"
   integrity sha512-j7JyvlhcTdc1wV6HzrDTU7XXlarxYXEUyzyHawOA0kCGmYVN2uFHENQRARLUdl+mEmuXO4TsAhNAiqiKakkFMg==
@@ -1358,7 +1334,7 @@
     prop-types "^15.7.2"
     warning "^4.0.1"
 
-"@material-ui/types@^4.1.0", "@material-ui/types@^4.1.1":
+"@material-ui/types@^4.1.1":
   version "4.1.1"
   resolved "https://registry.npmjs.org/@material-ui/types/-/types-4.1.1.tgz#b65e002d926089970a3271213a3ad7a21b17f02b"
   integrity sha512-AN+GZNXytX9yxGi0JOfxHrRTbhFybjUJ05rnsBVjcB+16e466Z0Xe5IxawuOayVZgTBNDxmPKo5j4V6OnMtaSQ==
@@ -1638,13 +1614,6 @@
   integrity sha512-a+MFhebeSGi0LwHZ0UhH/ke77rWtNQnt8YmaHnquSaY3HmyEi+BPQi3GhPcUPnC9X5BLw/qORw3BPxGb1mCtEw==
   dependencies:
     "@types/history" "*"
-    "@types/react" "*"
-
-"@types/react-transition-group@^2.0.16":
-  version "2.9.2"
-  resolved "https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-2.9.2.tgz#c48cf2a11977c8b4ff539a1c91d259eaa627028d"
-  integrity sha512-5Fv2DQNO+GpdPZcxp2x/OQG/H19A01WlmpjVD9cKvVFmoVLOZ9LvBgSWG6pSXIU4og5fgbvGPaCV5+VGkWAEHA==
-  dependencies:
     "@types/react" "*"
 
 "@types/react-transition-group@^4.2.0":
@@ -3926,7 +3895,7 @@ content-type@^1.0.4, content-type@~1.0.4:
   resolved "https://registry.npmjs.org/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
   integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
 
-convert-css-length@^2.0.0, convert-css-length@^2.0.1:
+convert-css-length@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/convert-css-length/-/convert-css-length-2.0.1.tgz#90a76bde5bfd24d72881a5b45d02249b2c1d257c"
   integrity sha512-iGpbcvhLPRKUbBc0Quxx7w/bV14AC3ItuBEGMahA5WTYqB8lq9jH0kTXFheCBASsYnqeMFZhiTruNxr1N59Axg==
@@ -4429,11 +4398,6 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.npmjs.org/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
   integrity sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
-
-debounce@^1.1.0:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/debounce/-/debounce-1.2.0.tgz#44a540abc0ea9943018dc0eaa95cce87f65cd131"
-  integrity sha512-mYtLl1xfZLi1m4RtQYlZgJUNQjl4ZxVnHzIR8nLLgi4q1YT8o/WM+MK/f8yfcc9s5Ir5zRaPZyZU6xs1Syoocg==
 
 debug@2, debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.3, debug@^2.6.6, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
@@ -11648,7 +11612,7 @@ prompts@^2.2.1:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -11937,15 +11901,6 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
   integrity sha512-XzgvowFrwDo6TWcpJ/WTiarb9UI6lhA4PMzS7n1joK3sHfBBBOQHUc0U4u57D6DWO9vHv6lVSWx2Q/Ymfyv4hw==
-
-react-event-listener@^0.6.6:
-  version "0.6.6"
-  resolved "https://registry.npmjs.org/react-event-listener/-/react-event-listener-0.6.6.tgz#758f7b991cad9086dd39fd29fad72127e1d8962a"
-  integrity sha512-+hCNqfy7o9wvO6UgjqFmBzARJS7qrNoda0VqzvOuioEpoEXKutiKuv92dSz6kP7rYLmyHPyYNLesi5t/aH1gfw==
-  dependencies:
-    "@babel/runtime" "^7.2.0"
-    prop-types "^15.6.0"
-    warning "^4.0.1"
 
 react-fast-compare@^2.0.2, react-fast-compare@^2.0.4:
   version "2.0.4"
