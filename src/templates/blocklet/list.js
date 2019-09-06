@@ -54,14 +54,22 @@ function BlockletList({ pageContext, location }) {
                         {blocklet.name}
                       </Typography>
                       <Typography component="p" className="blocklet__stats">
-                        <span className="blocklet__stat">
-                          <Icon name="arrow-to-bottom" size={14} className="blocklet__stat__icon" />
-                          {blocklet.stats.downloads}
-                        </span>
-                        <span className="blocklet__stat">
-                          <Icon name="heart" size={14} className="blocklet__stat__icon" />
-                          {blocklet.stats.star}
-                        </span>
+                        {blocklet.stats.downloads > 0 && (
+                          <span className="blocklet__stat">
+                            <Icon
+                              name="arrow-to-bottom"
+                              size={14}
+                              className="blocklet__stat__icon"
+                            />
+                            {blocklet.stats.downloads}
+                          </span>
+                        )}
+                        {blocklet.stats.star > 0 && (
+                          <span className="blocklet__stat">
+                            <Icon name="heart" size={14} className="blocklet__stat__icon" />
+                            {blocklet.stats.star}
+                          </span>
+                        )}
                       </Typography>
                       <Typography component="p" className="blocklet__description">
                         {blocklet.description}

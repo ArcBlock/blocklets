@@ -47,7 +47,7 @@ function BlockletDetail({ location, pageContext }) {
             <Link to="/blocklets">
               <Typography component="span" className="header__text" ref={ref}>
                 <Typography component="span" variant="h2" className="header__text__title">
-                Blocklet.
+                  Blocklet.
                 </Typography>
                 <Typography component="span" variant="h2" className="header__text__group">
                   {group}
@@ -73,14 +73,18 @@ function BlockletDetail({ location, pageContext }) {
                 </Button>
               </Typography>
               <Typography component="p" className="blocklet__stats">
-                <span className="blocklet__stat">
-                  <Icon name="arrow-to-bottom" size={14} className="blocklet__stat__icon" />
-                  {stats.downloads}
-                </span>
-                <span className="blocklet__stat">
-                  <Icon name="heart" size={14} className="blocklet__stat__icon" />
-                  {stats.star}
-                </span>
+                {stats.downloads > 0 && (
+                  <span className="blocklet__stat">
+                    <Icon name="arrow-to-bottom" size={14} className="blocklet__stat__icon" />
+                    {stats.downloads}
+                  </span>
+                )}
+                {stats.star > 0 && (
+                  <span className="blocklet__stat">
+                    <Icon name="heart" size={14} className="blocklet__stat__icon" />
+                    {stats.star}
+                  </span>
+                )}
               </Typography>
               <Typography component="p" className="tags">
                 <Tag className="tag" type="success">
