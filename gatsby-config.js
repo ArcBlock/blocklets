@@ -7,7 +7,7 @@ const filePath = path.resolve(__dirname, 'registry.yml');
 const registry = yaml.safeLoad(fs.readFileSync(filePath));
 
 const gitSources = [];
-registry.forEach(({ repo, blocklets = [] }) => {
+registry.forEach(({ repo }) => {
   const info = GitUrlParse(repo);
   gitSources.push({
     resolve: 'gatsby-source-git',
@@ -28,6 +28,7 @@ module.exports = {
       options: {
         pagesPath: [path.resolve(__dirname, './src/pages')],
         excludeI18n: () => true,
+        excludeMd: ({ fileAbsolutePath }) => fileAbsolutePath.endsWith('/blocklet/README.md'),
       },
     },
     {
