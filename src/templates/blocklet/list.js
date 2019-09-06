@@ -119,6 +119,9 @@ const Div = styled.div`
 
 const Blocklet = styled.div`
   margin-bottom: 40px;
+  @media (max-width: ${props => props.theme.breakpoints.values.sm}px) {
+    margin-bottom: 0;
+  }
 
   .blocklet__header {
     height: 60px;
@@ -156,6 +159,7 @@ const Blocklet = styled.div`
     font-size: 20px;
     font-weight: 900;
     padding: 3px 12px;
+    text-transform: capitalize;
   }
 
   .blocklet__info {
