@@ -46,6 +46,7 @@
   },
   "scripts": {
     "lint": "eslint src",
+    "test": "exit 0",
     "clean": "rm -rf public",
     "build:gatsby": "GATSBY_APP_DOMAIN=blocklet.arcblock.io gatsby build",
     "build": "npm run clean && npm-run-all build:*",
