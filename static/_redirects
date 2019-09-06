@@ -1,13 +1,3 @@
 # https://www.netlify.com/docs/redirects/
 
-/  /zh/   302  Country=cn,hk,tw
-/  /zh/   302  Language=zh
-/  /en/   302
-
-/api/badge /.netlify/functions/badge 200
-
-/en/forge-framework /en/forge-sdk 200
-/zh/forge-framework /zh/forge-sdk 200
-/file/whitepaper/WhitePaperEnV2_en-US.pdf /files/whitepaper/en_v2.pdf 200
-/ch/* /zh/:splat 200
-/icons8/* https://img.icons8.com/:splat 200
+/ /blocklets 200
