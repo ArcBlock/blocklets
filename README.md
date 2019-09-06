@@ -1,6 +1,6 @@
 ![Blocklets](https://www.arcblock.io/.netlify/functions/badge/?text=Blocklets)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2196fd90-5ea3-4452-b548-7234c4a379c7/deploy-status)](https://app.netlify.com/sites/www-arcblock-io/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e5a09e68-ebdb-4115-aa55-1d9b05e2f150/deploy-status)](https://app.netlify.com/sites/blocklets/deploys)
 
 ## What are blocklets?
 
