@@ -64,8 +64,6 @@ This is the key file when defining a blocklet, may contain the following fields:
 
   // Customize the install pipeline of the blocklet, TODO: more detail about this
   "hooks": {
-    "pre-download": "",
-    "post-download": "",
     "pre-copy": "",
     "post-copy": "",
     "configure": "",
