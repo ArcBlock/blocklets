@@ -100,12 +100,7 @@ exports.createPages = async ({ actions, graphql }) => {
     }
 
     // Append readme
-    if (
-      node.base.endsWith('.md') &&
-      node.internal.mediaType === 'text/markdown' &&
-      node.childMarkdownRemark &&
-      node.childMarkdownRemark.htmlAst
-    ) {
+    if (node.base.endsWith('.md') && node.internal.mediaType === 'text/markdown' && node.childMarkdownRemark && node.childMarkdownRemark.htmlAst) {
       const dir = path.dirname(path.dirname(node.absolutePath));
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].htmlAst = node.childMarkdownRemark.htmlAst;
@@ -205,6 +200,22 @@ exports.createPages = async ({ actions, graphql }) => {
   );
 
   blocklets = sortBy(blocklets, x => x.stats.downloads).reverse();
+
+  // Write blocklet list to json file
+  if (process.env.NODE_ENV === 'production') {
+    fs.writeFileSync(
+      path.join(__dirname, './static/blocklets.json'),
+      JSON.stringify(
+        blocklets.map(x => {
+          const tmp = Object.assign({}, x);
+          delete tmp.htmlAst;
+          return tmp;
+        }),
+        true,
+        2
+      )
+    );
+  }
 
   // 3. create blocklet list page
   actions.createPage({

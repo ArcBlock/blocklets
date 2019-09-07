@@ -20,3 +20,4 @@ yarn-error.log*
 generated
 node_modules
 api/dist
+static/blocklets.json
