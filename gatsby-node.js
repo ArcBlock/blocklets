@@ -37,6 +37,8 @@ const getGithubStats = repo => {
           start: body.stargazers_count,
           watch: body.watchers_count,
           fork: body.forks_count,
+          created_at: body.created_at,
+          updated_at: body.updated_at,
         });
       }
     });
@@ -138,25 +140,29 @@ exports.createPages = async ({ actions, graphql }) => {
       }
 
       const attrs = {
-        author: true,
-        color: false,
-        description: true,
-        dir: false,
-        gitUrl: true,
-        group: true,
-        homepage: false,
-        htmlAst: true,
-        keywords: false,
-        licence: false,
-        logoUrl: false,
-        main: false,
         name: true,
-        npm: false,
+        description: true,
+        group: true,
+        gitUrl: true,
         provider: true,
         repoName: true,
-        repository: false,
-        scripts: false,
         version: true,
+        htmlAst: true,
+        logoUrl: false,
+
+        author: false,
+        charging: false,
+        color: false,
+        community: false,
+        dir: false,
+        documentation: false,
+        homepage: false,
+        keywords: false,
+        licence: false,
+        npm: false,
+        repository: false,
+        support: false,
+        tags: false,
       };
 
       const selectedAttrs = pick(rawAttrs, Object.keys(attrs));
@@ -177,6 +183,11 @@ exports.createPages = async ({ actions, graphql }) => {
       const colors = ['primary', 'secondary', 'error'];
       if (!selectedAttrs.color || !colors.includes(selectedAttrs.color)) {
         [selectedAttrs.color] = colors;
+      }
+
+      // Set charging to free if not specified
+      if (!selectedAttrs.charging) {
+        selectedAttrs.charging = { price: 0 };
       }
 
       return selectedAttrs;
