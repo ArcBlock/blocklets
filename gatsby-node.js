@@ -25,8 +25,9 @@ const getNpmDownloadCount = async name => {
 const getGithubStats = repo => {
   const client = github.client();
   return new Promise(resolve => {
-    client.get(`/repos/${repo}`, (err, status, body) => {
+    client.get(`/repos/${repo}`, (err, _, body) => {
       if (err) {
+        console.error('getGithubStats.error', err);
         resolve({
           star: 1,
           watch: 1,
@@ -80,7 +81,6 @@ exports.createPages = async ({ actions, graphql }) => {
   // 1. group package.json and blocklet.json
   let blocklets = {};
   edges.forEach(({ node }) => {
-    console.log(node);
     if (node.base === 'blocklet.json') {
       const dir = path.dirname(node.absolutePath);
       blocklets[dir] = blocklets[dir] || {};
