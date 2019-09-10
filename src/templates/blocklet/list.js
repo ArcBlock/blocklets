@@ -149,7 +149,6 @@ const Blocklet = styled.div`
     img {
       width: 40px;
       height: 40px;
-      transition: all 800ms ease-in-out;
     }
   }
 
@@ -199,13 +198,5 @@ const Blocklet = styled.div`
   .blocklet__tag {
     margin-right: 12px;
     text-transform: capitalize;
-  }
-
-  &:hover {
-    .blocklet__image {
-      img {
-        transform: rotate(360deg);
-      }
-    }
   }
 `;

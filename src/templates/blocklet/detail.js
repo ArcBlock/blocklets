@@ -170,13 +170,6 @@ const Div = styled.div`
       img {
         width: 100px;
         height: 100px;
-        transition: all 800ms ease-in-out;
-      }
-
-      &:hover {
-        img {
-          transform: rotate(360deg);
-        }
       }
     }
   }
