@@ -78,10 +78,10 @@ function BlockletDetail({ location, pageContext }) {
               </Typography>
               <Stats stats={stats} className="blocklet__stats" />
               <Typography component="p" className="tags">
-                <Tag className="tag" type="success">
+                <Tag className="tag" type="reverse">
                   {provider}
                 </Tag>
-                <Tag className="tag" type="success">
+                <Tag className="tag" type="reverse">
                   v{version}
                 </Tag>
                 {Array.isArray(keywords) &&
