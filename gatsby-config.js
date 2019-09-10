@@ -16,7 +16,13 @@ registry.forEach(({ repo }) => {
       remote: repo,
       // FIXME: we may specify a tag here
       branch: 'master',
-      patterns: ['**/blocklet/**', '**/package.json'],
+      patterns: [
+        '**/blocklet.json',
+        '**/blocklet.md',
+        '**/logo.{jpeg,jpg,png,gif,svg}',
+        '**/screenshots/*.{jpeg,jpg,png,gif,svg}',
+        '**/package.json',
+      ],
     },
   });
 });

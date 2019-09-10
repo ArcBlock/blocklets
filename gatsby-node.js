@@ -80,8 +80,9 @@ exports.createPages = async ({ actions, graphql }) => {
   // 1. group package.json and blocklet.json
   let blocklets = {};
   edges.forEach(({ node }) => {
+    console.log(node);
     if (node.base === 'blocklet.json') {
-      const dir = path.dirname(path.dirname(node.absolutePath));
+      const dir = path.dirname(node.absolutePath);
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].dir = dir;
       blocklets[dir].main = node;
@@ -96,7 +97,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
     // Append logo url
     if (node.base.startsWith('logo.') && node.internal.mediaType.startsWith('image/')) {
-      const dir = path.dirname(path.dirname(node.absolutePath));
+      const dir = path.dirname(node.absolutePath);
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].logoUrl = node.publicURL;
     }
@@ -106,7 +107,7 @@ exports.createPages = async ({ actions, graphql }) => {
       node.absolutePath.includes('/screenshots/') &&
       node.internal.mediaType.startsWith('image/')
     ) {
-      const dir = path.dirname(path.dirname(path.dirname(node.absolutePath)));
+      const dir = path.dirname(path.dirname(node.absolutePath));
       blocklets[dir] = blocklets[dir] || {};
       if (!Array.isArray(blocklets[dir].screenshots)) {
         blocklets[dir].screenshots = [];
@@ -121,7 +122,7 @@ exports.createPages = async ({ actions, graphql }) => {
       node.childMarkdownRemark &&
       node.childMarkdownRemark.htmlAst
     ) {
-      const dir = path.dirname(path.dirname(node.absolutePath));
+      const dir = path.dirname(node.absolutePath);
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].htmlAst = node.childMarkdownRemark.htmlAst;
     }
