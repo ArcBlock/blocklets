@@ -39,6 +39,10 @@ function BlockletDetail({ location, pageContext }) {
     stats,
     screenshots,
     charging,
+    author,
+    documentation,
+    community,
+    support,
     color = 'primary',
   } = pageContext.blocklet;
   console.log('blocklet.detail', pageContext.blocklet);
@@ -100,8 +104,8 @@ function BlockletDetail({ location, pageContext }) {
               </Typography>
             </div>
             <div className="markdown-body">
-              <Grid container spacing={5}>
-                <Grid item xs={12} md={9}>
+              <Grid container spacing={4}>
+                <Grid item xs={12} md={8}>
                   <ImageGallery
                     lazyLoad={true}
                     showNav={false}
@@ -112,7 +116,7 @@ function BlockletDetail({ location, pageContext }) {
                     items={screenshots.map(x => ({ original: x, thumbnail: x }))}
                   />
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} md={4}>
                   <Button
                     href={gitUrl}
                     target="_blank"
@@ -123,6 +127,42 @@ function BlockletDetail({ location, pageContext }) {
                     <GithubLogo style={{ marginRight: 3, transform: 'scale(0.5)' }} />
                     View on Github
                   </Button>
+                  <ul className="meta-info">
+                    {!!author && (
+                      <li className="meta-info__row">
+                        <span className="info-row__key">Author</span>
+                        <span className="info-row__value">{author}</span>
+                      </li>
+                    )}
+                    {!!community && (
+                      <li className="meta-info__row">
+                        <span className="info-row__key">Community</span>
+                        <a href={community} target="_blank" className="info-row__value">
+                          {community}
+                        </a>
+                      </li>
+                    )}
+                    {!!documentation && (
+                      <li className="meta-info__row">
+                        <span className="info-row__key">Documentation</span>
+                        <a href={documentation} target="_blank" className="info-row__value">
+                          {documentation}
+                        </a>
+                      </li>
+                    )}
+                    {!!support && (
+                      <li className="meta-info__row">
+                        <span className="info-row__key">Support</span>
+                        <a href={`mailto:${support}`} target="_blank" className="info-row__value">
+                          {support}
+                        </a>
+                      </li>
+                    )}
+                    <li className="meta-info__row">
+                      <span className="info-row__key">Last Update</span>
+                      <span className="info-row__value">{stats.updated_at}</span>
+                    </li>
+                  </ul>
                 </Grid>
               </Grid>
               <PostContent component="div" className="content-wrapper post-content">
@@ -247,6 +287,23 @@ const Div = styled.div`
         &:last-of-type {
           margin-right: 0;
         }
+      }
+    }
+
+    .meta-info {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+
+      .meta-info__row {
+        display: flex;
+        line-height: 2;
+      }
+
+      .info-row__key {
+        width: 130px;
+        flex-shrink: 0;
+        font-weight: 500;
       }
     }
 
