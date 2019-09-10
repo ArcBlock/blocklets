@@ -151,7 +151,9 @@ function BlockletDetail({ location, pageContext }) {
                     {!!provider && (
                       <li className="meta-info__row">
                         <span className="info-row__key">Provider</span>
-                        <span className="info-row__value">{provider}</span>
+                        <span className="info-row__value">
+                          {provider.toLowerCase() === 'official' ? 'ArcBlock Inc.' : provider}
+                        </span>
                       </li>
                     )}
                     {!!author && (
