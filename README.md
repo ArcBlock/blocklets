@@ -23,10 +23,13 @@ There are several key piece of information to make a blocklet:
 ```shell
 ❯ tree . -L 2
 .
-├── blocklet
-│   ├── blocklet.md
-│   ├── blocklet.json
-│   └── logo.svg
+├── screenshots
+│   ├── image1.png
+│   ├── image2.jpg
+│   └── image3.png
+├── blocklet.md
+├── blocklet.json
+└── logo.svg
 ```
 
 ### KeyInfo: `blocklet.json`
@@ -47,8 +50,17 @@ This is the key file when defining a blocklet, may contain the following fields:
   // Can be primary|secondary|error
   "color": "primary",
 
-  // Either official or community
-  "provider": "official",
+  // provider information
+  "provider": "ArcBlock",
+  "documentation": "https://docs.arcblock.io",
+  "support": "support@arcblock.io",
+  "community": "https://gitter.im/arcblock/cummonity",
+
+  // Charge settings
+  "charging": {
+    "price": 10,
+    "receiver": "z1en6dudVmqsP1P2ZG1R8DdBZoYPnzw46T1",
+  },
 
   // Following fields can be inherited from package.json
   "name": "forge-react-starter",
@@ -67,6 +79,9 @@ This is the key file when defining a blocklet, may contain the following fields:
     "post-copy": "",
     "configure": "",
     "complete": ""
+  },
+  "install-scripts": {
+    "dependency": ""
   }
 }
 ```
@@ -81,7 +96,11 @@ A detailed introduction to the blocklet, should clearify the following questions
 
 ### KeyInfo: `logo.png`
 
-The logo of the blocklet, can be any valid image, png recommended, will be displayed on blocklet detail page, should be a 200\*200 transparent image.
+The logo of the blocklet, can be any valid image, png recommended, will be displayed on blocklet detail page, should be a **200px x 200px** transparent image.
+
+### KeyInfo: `screenshots`
+
+The screenshots folder should contain several images of what's the output of the blocklet so that users can easily grasp the idea behind the blocklet.
 
 ### Other Info
 

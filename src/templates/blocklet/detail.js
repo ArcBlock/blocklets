@@ -10,11 +10,15 @@ import withI18n from '@arcblock/www/components/withI18n';
 import Layout from '@arcblock/www/components/layouts/default';
 import Container from '@arcblock/www/components/container';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Popover from '@material-ui/core/Popover';
 import Tag from '@arcblock/ux/lib/Tag';
 import CodeBlock from '@arcblock/ux/lib/CodeBlock';
 import Button from '@arcblock/ux/lib/Button';
+import ImageGallery from 'react-image-gallery';
 
 import 'github-markdown-css/github-markdown.css';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 import { ReactComponent as GithubLogo } from './images/github.svg';
 import { translations } from '../../libs/constant';
@@ -24,6 +28,14 @@ import Stats from '../../components/stats';
 function BlockletDetail({ location, pageContext }) {
   const { width: windowWidth } = useWindowSize();
   const [ref, { width }] = useMeasure();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const onOpen = e => setAnchorEl(e.currentTarget);
+  const onClose = () => setAnchorEl(null);
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'use-popover' : undefined;
+
   const {
     name,
     version,
@@ -34,8 +46,15 @@ function BlockletDetail({ location, pageContext }) {
     logoUrl,
     gitUrl,
     stats,
+    screenshots,
+    charging,
+    author,
+    documentation,
+    community,
+    support,
     color = 'primary',
   } = pageContext.blocklet;
+  console.log('blocklet.detail', pageContext.blocklet);
 
   return (
     <Layout location={location} title={name}>
@@ -65,23 +84,23 @@ function BlockletDetail({ location, pageContext }) {
             <div className="meta">
               <Typography component="h2" variant="h2" className="title">
                 {name}
-                <Button
-                  href={gitUrl}
-                  target="_blank"
-                  color="default"
-                  size="small"
-                  variant="contained"
-                  className="github">
-                  <GithubLogo style={{ marginRight: 3, transform: 'scale(0.5)' }} />
-                  View on Github
-                </Button>
+                <span className="charging">
+                  <span className="charging__price">
+                    {charging.price ? `${charging.price} ABT` : 'FREE'}
+                  </span>
+                  <span className="charging__tip">
+                    {charging.price
+                      ? 'You need to pay to use this blocklet'
+                      : 'This blocklet is free to use'}
+                  </span>
+                </span>
               </Typography>
               <Stats stats={stats} className="blocklet__stats" />
               <Typography component="p" className="tags">
-                <Tag className="tag" type="success">
+                <Tag className="tag" type="reverse">
                   {provider}
                 </Tag>
-                <Tag className="tag" type="success">
+                <Tag className="tag" type="reverse">
                   v{version}
                 </Tag>
                 {Array.isArray(keywords) &&
@@ -94,12 +113,114 @@ function BlockletDetail({ location, pageContext }) {
               </Typography>
             </div>
             <div className="markdown-body">
+              <Grid container spacing={4}>
+                <Grid item xs={12} md={8}>
+                  <ImageGallery
+                    lazyLoad={true}
+                    showNav={false}
+                    showThumbnails={true}
+                    showPlayButton={false}
+                    showFullscreenButton={false}
+                    showBullets={true}
+                    items={screenshots.map(x => ({ original: x, thumbnail: x }))}
+                  />
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <div className="sidebar-buttons">
+                    <Button
+                      aria-describedby={id}
+                      color="primary"
+                      variant="contained"
+                      size="large"
+                      className="use-button"
+                      onClick={onOpen}>
+                      Use Blocklet
+                    </Button>
+                    <Button
+                      href={gitUrl}
+                      target="_blank"
+                      color="default"
+                      size="small"
+                      variant="contained"
+                      className="git-button">
+                      <GithubLogo style={{ marginRight: 3, transform: 'scale(0.5)' }} />
+                      View on Github
+                    </Button>
+                  </div>
+                  <ul className="meta-info">
+                    {!!provider && (
+                      <li className="meta-info__row">
+                        <span className="info-row__key">Provider</span>
+                        <span className="info-row__value">
+                          {provider.toLowerCase() === 'official' ? 'ArcBlock Inc.' : provider}
+                        </span>
+                      </li>
+                    )}
+                    {!!author && (
+                      <li className="meta-info__row">
+                        <span className="info-row__key">Author</span>
+                        <span className="info-row__value">{author}</span>
+                      </li>
+                    )}
+                    {!!community && (
+                      <li className="meta-info__row">
+                        <span className="info-row__key">Community</span>
+                        <a href={community} target="_blank" className="info-row__value">
+                          {community}
+                        </a>
+                      </li>
+                    )}
+                    {!!documentation && (
+                      <li className="meta-info__row">
+                        <span className="info-row__key">Documentation</span>
+                        <a href={documentation} target="_blank" className="info-row__value">
+                          {documentation}
+                        </a>
+                      </li>
+                    )}
+                    {!!support && (
+                      <li className="meta-info__row">
+                        <span className="info-row__key">Support</span>
+                        <a href={`mailto:${support}`} target="_blank" className="info-row__value">
+                          {support}
+                        </a>
+                      </li>
+                    )}
+                    <li className="meta-info__row">
+                      <span className="info-row__key">Last Update</span>
+                      <span className="info-row__value">{stats.updated_at}</span>
+                    </li>
+                  </ul>
+                </Grid>
+              </Grid>
               <PostContent component="div" className="content-wrapper post-content">
                 {renderAst(htmlAst)}
               </PostContent>
-              <Typography component="h2">Usage</Typography>
-              <CodeBlock>{`forge blocklet:use ${name}`}</CodeBlock>
             </div>
+            <Popover
+              id={id}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={onClose}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+              }}>
+              <CodeBlock
+                style={{
+                  marginBottom: 0,
+                  width: 400,
+                }}>
+                {`npm install -g @arcblock/forge-cli
+forge install latest
+forge start
+forge blocklet:use ${name}`}
+              </CodeBlock>
+            </Popover>
           </Container>
         </div>
       </Div>
@@ -170,13 +291,6 @@ const Div = styled.div`
       img {
         width: 100px;
         height: 100px;
-        transition: all 800ms ease-in-out;
-      }
-
-      &:hover {
-        img {
-          transform: rotate(360deg);
-        }
       }
     }
   }
@@ -192,6 +306,22 @@ const Div = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .charging {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      .charging__price {
+        margin-bottom: 8px;
+        color: ${props => props.theme.colors.blue};
+      }
+
+      .charging__tip {
+        font-size: 14px;
+        color: ${props => props.theme.colors.primary};
+      }
     }
 
     .blocklet__stats {
@@ -210,13 +340,63 @@ const Div = styled.div`
       }
     }
 
-    .github {
+    .meta-info {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+
+      .meta-info__row {
+        display: flex;
+        line-height: 2;
+      }
+
+      .info-row__key {
+        width: 130px;
+        flex-shrink: 0;
+        font-weight: 500;
+      }
+    }
+
+    .sidebar-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .use-button {
+      width: 48%;
+    }
+
+    .git-button {
       padding: 0 8px;
+      width: 48%;
+
+      &:hover {
+        text-decoration: none;
+      }
 
       svg {
         circle,
         g {
           fill: #fff;
+        }
+      }
+    }
+
+    .image-gallery {
+      padding: 16px;
+      border: 1px solid ${props => props.theme.colors.lightGrey};
+      border-radius: 3px;
+    }
+
+    .image-gallery-slide {
+      .image-gallery-image {
+        display: flex;
+        justify-content: center;
+        img {
+          max-height: 600px !important;
+          width: auto;
+          margin: 0 auto;
         }
       }
     }

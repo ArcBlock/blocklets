@@ -25,8 +25,9 @@ const getNpmDownloadCount = async name => {
 const getGithubStats = repo => {
   const client = github.client();
   return new Promise(resolve => {
-    client.get(`/repos/${repo}`, (err, status, body) => {
+    client.get(`/repos/${repo}`, (err, _, body) => {
       if (err) {
+        console.error('getGithubStats.error', err);
         resolve({
           star: 1,
           watch: 1,
@@ -37,6 +38,8 @@ const getGithubStats = repo => {
           start: body.stargazers_count,
           watch: body.watchers_count,
           fork: body.forks_count,
+          created_at: body.created_at,
+          updated_at: body.updated_at,
         });
       }
     });
@@ -79,7 +82,7 @@ exports.createPages = async ({ actions, graphql }) => {
   let blocklets = {};
   edges.forEach(({ node }) => {
     if (node.base === 'blocklet.json') {
-      const dir = path.dirname(path.dirname(node.absolutePath));
+      const dir = path.dirname(node.absolutePath);
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].dir = dir;
       blocklets[dir].main = node;
@@ -94,14 +97,32 @@ exports.createPages = async ({ actions, graphql }) => {
 
     // Append logo url
     if (node.base.startsWith('logo.') && node.internal.mediaType.startsWith('image/')) {
-      const dir = path.dirname(path.dirname(node.absolutePath));
+      const dir = path.dirname(node.absolutePath);
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].logoUrl = node.publicURL;
     }
 
-    // Append readme
-    if (node.base.endsWith('.md') && node.internal.mediaType === 'text/markdown' && node.childMarkdownRemark && node.childMarkdownRemark.htmlAst) {
+    // Aggregate screenshots
+    if (
+      node.absolutePath.includes('/screenshots/') &&
+      node.internal.mediaType.startsWith('image/')
+    ) {
       const dir = path.dirname(path.dirname(node.absolutePath));
+      blocklets[dir] = blocklets[dir] || {};
+      if (!Array.isArray(blocklets[dir].screenshots)) {
+        blocklets[dir].screenshots = [];
+      }
+      blocklets[dir].screenshots.push(node.publicURL);
+    }
+
+    // Append readme
+    if (
+      node.base.endsWith('.md') &&
+      node.internal.mediaType === 'text/markdown' &&
+      node.childMarkdownRemark &&
+      node.childMarkdownRemark.htmlAst
+    ) {
+      const dir = path.dirname(node.absolutePath);
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].htmlAst = node.childMarkdownRemark.htmlAst;
     }
@@ -110,20 +131,14 @@ exports.createPages = async ({ actions, graphql }) => {
   // 2. merge blocklet config
   blocklets = Object.keys(blocklets)
     .map(x => {
-      const { dir, main, npm, logoUrl, repoName, gitUrl, htmlAst } = blocklets[x];
+      const { main, npm } = blocklets[x];
       if (!main) {
         return null;
       }
 
-      const rawAttrs = {
-        dir,
-        main: main ? main.absolutePath : null,
-        npm: npm ? npm.absolutePath : null,
-        gitUrl,
-        repoName,
-        logoUrl,
-        htmlAst,
-      };
+      const rawAttrs = blocklets[x];
+      rawAttrs.main = main ? main.absolutePath : null;
+      rawAttrs.npm = npm ? npm.absolutePath : null;
 
       if (npm && fs.existsSync(npm.absolutePath)) {
         Object.assign(rawAttrs, JSON.parse(fs.readFileSync(npm.absolutePath).toString()));
@@ -133,25 +148,30 @@ exports.createPages = async ({ actions, graphql }) => {
       }
 
       const attrs = {
-        author: true,
-        color: false,
-        description: true,
-        dir: false,
-        gitUrl: true,
-        group: true,
-        homepage: false,
-        htmlAst: true,
-        keywords: false,
-        licence: false,
-        logoUrl: false,
-        main: false,
         name: true,
-        npm: false,
+        description: true,
+        group: true,
+        gitUrl: true,
         provider: true,
         repoName: true,
-        repository: false,
-        scripts: false,
         version: true,
+        htmlAst: true,
+        logoUrl: false,
+
+        author: false,
+        charging: false,
+        color: false,
+        community: false,
+        dir: false,
+        documentation: false,
+        homepage: false,
+        keywords: false,
+        licence: false,
+        npm: false,
+        repository: false,
+        support: false,
+        screenshots: false,
+        tags: false,
       };
 
       const selectedAttrs = pick(rawAttrs, Object.keys(attrs));
@@ -160,7 +180,9 @@ exports.createPages = async ({ actions, graphql }) => {
       // eslint-disable-next-line no-restricted-syntax
       for (const key of requiredAttrs) {
         if (!selectedAttrs[key]) {
-          console.warn(`Blocklet ${dir} not properly configured: missing required field ${key}`);
+          console.warn(
+            `Blocklet ${rawAttrs.dir} not properly configured: missing required field ${key}`
+          );
           return null;
         }
       }
@@ -172,6 +194,11 @@ exports.createPages = async ({ actions, graphql }) => {
       const colors = ['primary', 'secondary', 'error'];
       if (!selectedAttrs.color || !colors.includes(selectedAttrs.color)) {
         [selectedAttrs.color] = colors;
+      }
+
+      // Set charging to free if not specified
+      if (!selectedAttrs.charging) {
+        selectedAttrs.charging = { price: 0 };
       }
 
       return selectedAttrs;

@@ -19,25 +19,25 @@
     remark-containers "^1.1.0"
     remark-generic-extensions "^1.4.0"
 
-"@arcblock/gatsby-theme-www@^6.14.0":
-  version "6.14.0"
-  resolved "https://registry.npmjs.org/@arcblock/gatsby-theme-www/-/gatsby-theme-www-6.14.0.tgz#0d3a646de73c285f6deef4b0f4598c6e6a9d5d00"
-  integrity sha512-nBRGot6ll6M981D42kdblnEUxe5ZDvgoSjNkIr2LeYtpsMSb7Wkg81xB5hPT8dFeIrZPfcbDqPhBGMNXgmZF8Q==
+"@arcblock/gatsby-theme-www@^6.16.0":
+  version "6.16.0"
+  resolved "https://registry.npmjs.org/@arcblock/gatsby-theme-www/-/gatsby-theme-www-6.16.0.tgz#bb907339fe16b61c9194adec81281ca253c3bda7"
+  integrity sha512-DYQWxPreI346g5fVkgSotdMazMYbfgU0P7S4ttTws5BmKUh+eAwSpJ8N0XtEAJeCz8jynpc/62Z/hK1Gi7xvNQ==
   dependencies:
     "@arcblock/gatsby-awesome-pagination" "^0.3.4"
     "@arcblock/gatsby-remark-extensions" "^6.0.0"
     "@arcblock/gatsby-transformer-remark" "^6.0.0"
     "@arcblock/remark-include" "^6.0.0"
-    "@arcblock/www" "^6.14.0"
+    "@arcblock/www" "^6.15.0"
     "@svgr/webpack" "^4.1.0"
-    "@xmark/core" "^0.14.0"
-    "@xmark/theme-section-template" "^0.14.0"
-    "@xmark/theme-shower-ribbon" "^0.14.2"
-    "@xmark/transform-class-extension" "^0.14.0"
-    "@xmark/transform-gatsby-remark" "^0.14.0"
-    "@xmark/transform-section-template" "^0.14.0"
-    "@xmark/transform-shower" "^0.14.0"
-    "@xmark/transform-wrap-headings" "^0.14.0"
+    "@xmark/core" "^0.15.0"
+    "@xmark/theme-section-template" "^0.15.0"
+    "@xmark/theme-shower-ribbon" "^0.15.0"
+    "@xmark/transform-class-extension" "^0.15.0"
+    "@xmark/transform-gatsby-remark" "^0.15.0"
+    "@xmark/transform-section-template" "^0.15.0"
+    "@xmark/transform-shower" "^0.15.0"
+    "@xmark/transform-wrap-headings" "^0.15.0"
     debug "^4.1.0"
     gatsby "2.13.39"
     gatsby-image "^2.2.6"
@@ -92,10 +92,10 @@
   dependencies:
     vfile "^2.0.0"
 
-"@arcblock/ux@^0.22.0":
-  version "0.22.0"
-  resolved "https://registry.npmjs.org/@arcblock/ux/-/ux-0.22.0.tgz#246a633d8f041e557b93ea7b00872f20a2d378d4"
-  integrity sha512-FyGNPQk90LcDWi6AQ1azZ/VQb7HcZ6UUpWUiOZ3Yym/ws0pvEJcAmRhpzq6eyxS/o1u5chiaQmtsO3Z1Dxnh7w==
+"@arcblock/ux@^0.24.0":
+  version "0.24.0"
+  resolved "https://registry.npmjs.org/@arcblock/ux/-/ux-0.24.0.tgz#10409e017646ee13e2ec80a6c4acf45ef9205164"
+  integrity sha512-L0KyO+oQDpbysb+5ieMNqVnBRZwChiTDxrie5fqIupOSNwJ0o4dHj55oB/nBKFtOm25VY/7ZPyq5O+BwUCeOVA==
   dependencies:
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
     copy-to-clipboard "^3.2.0"
@@ -113,12 +113,12 @@
     topojson-client "^3.0.0"
     versor "^0.0.4"
 
-"@arcblock/www@^6.14.0":
-  version "6.14.0"
-  resolved "https://registry.npmjs.org/@arcblock/www/-/www-6.14.0.tgz#e6399de72092d7fd7e45faf51750ecd301c00ba2"
-  integrity sha512-yUUmhfuGGYUnx6oFJySqwKqwkDkwjMxCPxMIfZQP8h1X0fUW4OUDHETTOWj9LiBc6Gp5L46w9EBQ0L3KVplnAQ==
+"@arcblock/www@^6.15.0":
+  version "6.15.0"
+  resolved "https://registry.npmjs.org/@arcblock/www/-/www-6.15.0.tgz#9efa254861cacef0cd9947570ca8c10c2fb6037e"
+  integrity sha512-kL3iOlc94c0ISEfjtHdgXrz26UOnExeUgPQaJF9gF2F3FFdhxla0jwET50RdfcsjTOn5VSKRc7jHEo9GSqjvlA==
   dependencies:
-    "@arcblock/ux" "^0.22.0"
+    "@arcblock/ux" "^0.24.0"
     "@material-ui/core" "^4.4.0"
     "@material-ui/icons" "^3.0.2"
     axios "^0.19.0"
@@ -133,8 +133,10 @@
     react-helmet "^5.2.0"
     react-intl "^2.7.2"
     react-scrollspy "^3.3.5"
+    react-slick "^0.25.2"
     react-sticky "^6.0.3"
     rehype-react "^3.1.0"
+    slick-carousel "^1.8.1"
     styled-components "^4.3.2"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.5.5":
@@ -1992,12 +1994,12 @@
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
 
-"@xmark/core@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.npmjs.org/@xmark/core/-/core-0.14.0.tgz#f483aab9756d2351191c12751acff10317a4b79b"
-  integrity sha512-pSaQ6mTUp0NRF8B4duvtNhFk6SxB+A/YzqVukL+mBuC150wa7ibhIyhp/5umLOIQk19epfZGIRfy+a45I9Cj9g==
+"@xmark/core@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.npmjs.org/@xmark/core/-/core-0.15.0.tgz#30699f3bb84fd98e29adfacd91a118312e2e4218"
+  integrity sha512-i8BhLqUQ3EsLoEJmd7ppbZ4+JCgIOIxgq2+f9wYvhXWZ1wo/ejbYkT9CeDYw5YiA+4PoYl7/qkffjUEq2z73cQ==
   dependencies:
-    "@xmark/util" "^0.14.0"
+    "@xmark/util" "^0.15.0"
     debug "^4.1.1"
     gray-matter "^4.0.2"
     hast-util-to-html "^5.0.0"
@@ -2008,59 +2010,59 @@
     remark-attr "^0.8.3"
     remark-generic-extensions "^1.4.0"
 
-"@xmark/theme-section-template@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.npmjs.org/@xmark/theme-section-template/-/theme-section-template-0.14.0.tgz#b338ff11513e00f0fa5c7ebcecab33042feb1da2"
-  integrity sha512-O1KW+rMYHy7HNG/3+HyjAk8lmrwzvnzB+u/BgcQbk89T1uK9OlQn4iasPvzSI0q+eskJ0tKO4/jYonLPAmYQDA==
+"@xmark/theme-section-template@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.npmjs.org/@xmark/theme-section-template/-/theme-section-template-0.15.0.tgz#efd7dae08351e9d3030bb37737c10dc895adbaf3"
+  integrity sha512-Mgii9ropL2Va7SRItN0gf1KJ3yfXbvo2VzgaGRtVAimXjKurfAFf3SjqrTYaKynPXJxWutaoNDxA5vSnV9dscw==
 
-"@xmark/theme-shower-ribbon@^0.14.2":
-  version "0.14.2"
-  resolved "https://registry.npmjs.org/@xmark/theme-shower-ribbon/-/theme-shower-ribbon-0.14.2.tgz#5ba62825de854fd8e3673e78581a473290e59b3a"
-  integrity sha512-vwho94J8c7m9NKXUkdJZnvSZKTF3sOrV/QkydEeEYeZQeWoY+oZECGzbLkXlA8djwrfFf/6W8E4cXBvpOh7M9A==
+"@xmark/theme-shower-ribbon@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.npmjs.org/@xmark/theme-shower-ribbon/-/theme-shower-ribbon-0.15.0.tgz#b84eceb95b5fc276b6213756b35e25fb942b0842"
+  integrity sha512-1jqH+cZm5S8Y+aLqRfeKbfk+KBRC3dNwyBmcsLLziuBRSUZoHml6RmALglq54vqv3K9hQXhUDUZhYLAEjiTM1g==
 
-"@xmark/transform-class-extension@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.npmjs.org/@xmark/transform-class-extension/-/transform-class-extension-0.14.0.tgz#345d148066e318adce0b181c53546b9f5cb4098d"
-  integrity sha512-4GDmoJscEI/c120tJNsQzzelZJnsCNLQqJSRD0/zTRCkATASEfm2ixiNvjNMrPc5BdvXICryJRZ4CWrlnoTXHA==
+"@xmark/transform-class-extension@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.npmjs.org/@xmark/transform-class-extension/-/transform-class-extension-0.15.0.tgz#a2f53d3ff21d156c3f11712dc03369074986b550"
+  integrity sha512-2vk0x1eKukcMhLz6ijOqt3YgRraef2tpTq5YwjRGBJKNOB5i1gFYWSJp57V5/eZ2EB7Btm81oqtehj1BWLWgAA==
   dependencies:
-    "@xmark/util" "^0.14.0"
+    "@xmark/util" "^0.15.0"
     debug "^4.1.1"
     hast-util-select "^3.0.0"
     lodash.set "^4.3.2"
 
-"@xmark/transform-gatsby-remark@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.npmjs.org/@xmark/transform-gatsby-remark/-/transform-gatsby-remark-0.14.0.tgz#2c3f742b9dd6b523ce03e3574c532717ea82e65f"
-  integrity sha512-os8pWjKfMzfVP99Pk7x7dlzEaAZZSxGHoSrGonDXckkQ/84ZXKx+vBv9MjjnW8OcN0/I1o7Twz4ly0HI+q1sVQ==
+"@xmark/transform-gatsby-remark@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.npmjs.org/@xmark/transform-gatsby-remark/-/transform-gatsby-remark-0.15.0.tgz#8d4565d729db9f3a2120fb1ed74da1efec30804d"
+  integrity sha512-uGUTfUOzftmnaEiXJl7Y1i1Nl2UucohNOU2Y2IjOszj6L8enesCKd9wlbSxZdM/W5pT5jxOwwwiw4gJHR5vB8w==
   dependencies:
-    "@xmark/util" "^0.14.0"
+    "@xmark/util" "^0.15.0"
     debug "^4.1.1"
     hast-util-select "^3.0.0"
 
-"@xmark/transform-section-template@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.npmjs.org/@xmark/transform-section-template/-/transform-section-template-0.14.0.tgz#63c5f89dc74cbc6686c08df939782d2a3b34335e"
-  integrity sha512-LR2+DZofGg//GoBEKIQAHKF9pBfueBJedDYVFooD+B0l+c/T9IkdmEP7wA+aybhKmjg0pL5kWnk2LQLw93F9sA==
+"@xmark/transform-section-template@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.npmjs.org/@xmark/transform-section-template/-/transform-section-template-0.15.0.tgz#392fb2ce6c32229b41b279ce61e52bf05a488baf"
+  integrity sha512-OxvEp42u7Kxz2aFGFhOdWrY24JeTqWvisBEMPGocrE+SCR6eRv6me+KZjjowk0i4AYX2s1q0WrmA7Ns5koVHiQ==
   dependencies:
-    "@xmark/transform-gatsby-remark" "^0.14.0"
-    "@xmark/util" "^0.14.0"
-    debug "^4.1.1"
-    hast-util-select "^3.0.0"
-    hastscript "^5.0.0"
-
-"@xmark/transform-shower@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.npmjs.org/@xmark/transform-shower/-/transform-shower-0.14.0.tgz#d25136f3af4f0945b1e57418b8b68da7be8cc9ab"
-  integrity sha512-0TrWe0T5oTRkdm+lc1IXPTUDug/GFxm2uB+D6EbUYkOrx1Db9EJc7xP21oTJjUmGMHG6g4/yHWiHAzruG3nS8g==
-  dependencies:
+    "@xmark/transform-gatsby-remark" "^0.15.0"
+    "@xmark/util" "^0.15.0"
     debug "^4.1.1"
     hast-util-select "^3.0.0"
     hastscript "^5.0.0"
 
-"@xmark/transform-wrap-headings@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.npmjs.org/@xmark/transform-wrap-headings/-/transform-wrap-headings-0.14.0.tgz#9349468e2c2589e906713ca00c8025b4be4693cb"
-  integrity sha512-ii1nLlAQeg0VwF041zXIhtUTo/1Y9tKtTosrP6r6MPGJsGyzVg3PdKh8JH5UeivszGY/SU29HtlqlV7CNaCwLA==
+"@xmark/transform-shower@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.npmjs.org/@xmark/transform-shower/-/transform-shower-0.15.0.tgz#decceb25d5faeec25601c88ca588edaf626b7b22"
+  integrity sha512-6E81V2xGhH2XgBIDq5c1qpRUd/zeFYA9Nx78t/NnPsBdplsQDYpkG6cdJph3bjP4o1gjbHsr5834efUquokXgg==
+  dependencies:
+    debug "^4.1.1"
+    hast-util-select "^3.0.0"
+    hastscript "^5.0.0"
+
+"@xmark/transform-wrap-headings@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.npmjs.org/@xmark/transform-wrap-headings/-/transform-wrap-headings-0.15.0.tgz#4086e8e14e13a654aee2324141432d21f223dfee"
+  integrity sha512-gLO3gPqb3T5ckMSiWcSGfJvIt3lwkb8EHTG8nNC92Pacp+YryiKsRk6MU7a/xaHp6gC6vzFgz0wdNahxfczZPA==
   dependencies:
     debug "^4.1.1"
     hyphenate-style-name "^1.0.3"
@@ -2068,10 +2070,10 @@
     lodash.last "^3.0.0"
     md-attr-parser "^1.2.1"
 
-"@xmark/util@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.npmjs.org/@xmark/util/-/util-0.14.0.tgz#d59a5290dcabe3f7377b5dcaf440263a8258f390"
-  integrity sha512-bHXqzyBlGAXMvUFdkD81Hdl8XKR3+4KcUDmLHFwob9/mhPRN3uOo47ZqS8kRyFWN8aNaYm88IwoMUgkHMC+vtA==
+"@xmark/util@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.npmjs.org/@xmark/util/-/util-0.15.0.tgz#649e8131d1d2128b9f91c4cbc7a2d18c500b8eb9"
+  integrity sha512-8nbOhLH9qSUzi2F6hWSlrFG18meRIenUyikeEcbSB6WOhJDX7T1l4HUbHc4oe11OLuum5t7D3wwOYEbGoomr6w==
   dependencies:
     hast-util-from-parse5 "^5.0.0"
     hast-util-select "^3.0.0"
@@ -5039,6 +5041,11 @@ enhanced-resolve@^4.1.0:
     graceful-fs "^4.1.2"
     memory-fs "^0.4.0"
     tapable "^1.0.0"
+
+enquire.js@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.npmjs.org/enquire.js/-/enquire.js-2.1.6.tgz#3e8780c9b8b835084c3f60e166dbc3c2a3c89814"
+  integrity sha1-PoeAybi4NQhMP2DhZtvDwqPImBQ=
 
 entities@^1.1.1, entities@~1.1.1:
   version "1.1.2"
@@ -8781,6 +8788,13 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   resolved "https://registry.npmjs.org/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
+json2mq@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npmjs.org/json2mq/-/json2mq-0.2.0.tgz#b637bd3ba9eabe122c83e9720483aeb10d2c904a"
+  integrity sha1-tje9O6nqvhIsg+lyBIOusQ0skEo=
+  dependencies:
+    string-convert "^0.2.0"
+
 json3@^3.3.2:
   version "3.3.3"
   resolved "https://registry.npmjs.org/json3/-/json3-3.3.3.tgz#7fc10e375fc5ae42c4705a5cc0aa6f62be305b81"
@@ -9198,6 +9212,11 @@ lodash.clonedeep@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
+
+lodash.debounce@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
+  integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
 lodash.escaperegexp@^4.1.2:
   version "4.1.2"
@@ -11931,6 +11950,17 @@ react-hot-loader@^4.12.12, react-hot-loader@^4.12.5:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
+react-image-gallery@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.npmjs.org/react-image-gallery/-/react-image-gallery-0.9.1.tgz#3ac75af700ce671d82aae1e2ad8226c0e1379ad1"
+  integrity sha512-J0ZDp12QwcHxK/De//Cx0lXvkPk2bL2voNm6xmZItCZ5TWTKJyNAa9U/iOtfi/RKJEpSLsTb2kP/4Lr5wgkJZA==
+  dependencies:
+    lodash.debounce "^4.0.8"
+    lodash.throttle "^4.1.1"
+    prop-types "^15.5.8"
+    react-swipeable "^5.2.0"
+    resize-observer-polyfill "^1.5.0"
+
 react-intl@^2.7.2:
   version "2.9.0"
   resolved "https://registry.npmjs.org/react-intl/-/react-intl-2.9.0.tgz#c97c5d17d4718f1575fdbd5a769f96018a3b1843"
@@ -11992,6 +12022,17 @@ react-side-effect@^1.1.0:
   dependencies:
     shallowequal "^1.0.1"
 
+react-slick@^0.25.2:
+  version "0.25.2"
+  resolved "https://registry.npmjs.org/react-slick/-/react-slick-0.25.2.tgz#56331b67d47d8bcfe2dceb6acab1c8fd5bd1f6bc"
+  integrity sha512-8MNH/NFX/R7zF6W/w+FS5VXNyDusF+XDW1OU0SzODEU7wqYB+ZTGAiNJ++zVNAVqCAHdyCybScaUB+FCZOmBBw==
+  dependencies:
+    classnames "^2.2.5"
+    enquire.js "^2.1.6"
+    json2mq "^0.2.0"
+    lodash.debounce "^4.0.8"
+    resize-observer-polyfill "^1.5.0"
+
 react-sticky@^6.0.3:
   version "6.0.3"
   resolved "https://registry.npmjs.org/react-sticky/-/react-sticky-6.0.3.tgz#7a18b643e1863da113d7f7036118d2a75d9ecde4"
@@ -11999,6 +12040,13 @@ react-sticky@^6.0.3:
   dependencies:
     prop-types "^15.5.8"
     raf "^3.3.0"
+
+react-swipeable@^5.2.0:
+  version "5.4.0"
+  resolved "https://registry.npmjs.org/react-swipeable/-/react-swipeable-5.4.0.tgz#3c2421296a993b8fc6cb05051b9bf025cb6af9e4"
+  integrity sha512-TUbldupF3cxMF+pBWfz24TlQa23K4CecqQ8EA+onxEiAg+UEPSJ5IousOjMm0IVBYz62KX1klHL8p7SGSR3CiQ==
+  dependencies:
+    prop-types "^15.6.2"
 
 react-transition-group@^4.0.0:
   version "4.2.2"
@@ -12518,7 +12566,7 @@ requires-port@^1.0.0:
   resolved "https://registry.npmjs.org/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
-resize-observer-polyfill@^1.5.1:
+resize-observer-polyfill@^1.5.0, resize-observer-polyfill@^1.5.1:
   version "1.5.1"
   resolved "https://registry.npmjs.org/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
   integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
@@ -13100,6 +13148,11 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
+slick-carousel@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.npmjs.org/slick-carousel/-/slick-carousel-1.8.1.tgz#a4bfb29014887bb66ce528b90bd0cda262cc8f8d"
+  integrity sha512-XB9Ftrf2EEKfzoQXt3Nitrt/IPbT+f1fgqBdoxO3W/+JYvtEOW6EgxnWfr9GH6nmULv7Y2tPmEX3koxThVmebA==
+
 slug@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/slug/-/slug-1.1.0.tgz#73eef5710416f515077bdf70c683bde4915913c9"
@@ -13525,6 +13578,11 @@ string-argv@^0.0.2:
   version "0.0.2"
   resolved "https://registry.npmjs.org/string-argv/-/string-argv-0.0.2.tgz#dac30408690c21f3c3630a3ff3a05877bdcbd736"
   integrity sha1-2sMECGkMIfPDYwo/86BYd73L1zY=
+
+string-convert@^0.2.0:
+  version "0.2.1"
+  resolved "https://registry.npmjs.org/string-convert/-/string-convert-0.2.1.tgz#6982cc3049fbb4cd85f8b24568b9d9bf39eeff97"
+  integrity sha1-aYLMMEn7tM2F+LJFaLnZvznu/5c=
 
 string-length@^2.0.0:
   version "2.0.0"

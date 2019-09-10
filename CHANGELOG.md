@@ -1,3 +1,8 @@
+## 0.5.0 (September 10, 2019)
+
+- refine blocklet detail page
+
+
 ## 0.4.0 (September 06, 2019)
 
 - fix netlify and travis deploy
