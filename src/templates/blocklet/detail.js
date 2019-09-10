@@ -10,11 +10,14 @@ import withI18n from '@arcblock/www/components/withI18n';
 import Layout from '@arcblock/www/components/layouts/default';
 import Container from '@arcblock/www/components/container';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import Tag from '@arcblock/ux/lib/Tag';
 import CodeBlock from '@arcblock/ux/lib/CodeBlock';
 import Button from '@arcblock/ux/lib/Button';
+import ImageGallery from 'react-image-gallery';
 
 import 'github-markdown-css/github-markdown.css';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 import { ReactComponent as GithubLogo } from './images/github.svg';
 import { translations } from '../../libs/constant';
@@ -34,8 +37,10 @@ function BlockletDetail({ location, pageContext }) {
     logoUrl,
     gitUrl,
     stats,
+    screenshots,
     color = 'primary',
   } = pageContext.blocklet;
+  console.log('blocklet.detail', pageContext.blocklet);
 
   return (
     <Layout location={location} title={name}>
@@ -94,6 +99,22 @@ function BlockletDetail({ location, pageContext }) {
               </Typography>
             </div>
             <div className="markdown-body">
+              <Grid container spacing={5}>
+                <Grid item xs={12} md={9}>
+                  <ImageGallery
+                    lazyLoad={true}
+                    showNav={false}
+                    showThumbnails={true}
+                    showPlayButton={false}
+                    showFullscreenButton={false}
+                    showBullets={true}
+                    items={screenshots.map(x => ({ original: x, thumbnail: x }))}
+                  />
+                </Grid>
+                <Grid item xs={12} md={3}>
+                  Sidebar
+                </Grid>
+              </Grid>
               <PostContent component="div" className="content-wrapper post-content">
                 {renderAst(htmlAst)}
               </PostContent>
@@ -210,6 +231,24 @@ const Div = styled.div`
         circle,
         g {
           fill: #fff;
+        }
+      }
+    }
+
+    .image-gallery {
+      padding: 16px;
+      border: 1px solid ${props => props.theme.colors.lightGrey};
+      border-radius: 3px;
+    }
+
+    .image-gallery-slide {
+      .image-gallery-image {
+        display: flex;
+        justify-content: center;
+        img {
+          max-height: 600px !important;
+          width: auto;
+          margin: 0 auto;
         }
       }
     }

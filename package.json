@@ -25,6 +25,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.0",
+    "react-image-gallery": "^0.9.1",
     "react-intl": "^2.7.2",
     "react-use": "^12.2.0",
     "rehype-react": "^3.1.0",

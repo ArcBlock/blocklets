@@ -11950,6 +11950,17 @@ react-hot-loader@^4.12.12, react-hot-loader@^4.12.5:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
+react-image-gallery@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.npmjs.org/react-image-gallery/-/react-image-gallery-0.9.1.tgz#3ac75af700ce671d82aae1e2ad8226c0e1379ad1"
+  integrity sha512-J0ZDp12QwcHxK/De//Cx0lXvkPk2bL2voNm6xmZItCZ5TWTKJyNAa9U/iOtfi/RKJEpSLsTb2kP/4Lr5wgkJZA==
+  dependencies:
+    lodash.debounce "^4.0.8"
+    lodash.throttle "^4.1.1"
+    prop-types "^15.5.8"
+    react-swipeable "^5.2.0"
+    resize-observer-polyfill "^1.5.0"
+
 react-intl@^2.7.2:
   version "2.9.0"
   resolved "https://registry.npmjs.org/react-intl/-/react-intl-2.9.0.tgz#c97c5d17d4718f1575fdbd5a769f96018a3b1843"
@@ -12029,6 +12040,13 @@ react-sticky@^6.0.3:
   dependencies:
     prop-types "^15.5.8"
     raf "^3.3.0"
+
+react-swipeable@^5.2.0:
+  version "5.4.0"
+  resolved "https://registry.npmjs.org/react-swipeable/-/react-swipeable-5.4.0.tgz#3c2421296a993b8fc6cb05051b9bf025cb6af9e4"
+  integrity sha512-TUbldupF3cxMF+pBWfz24TlQa23K4CecqQ8EA+onxEiAg+UEPSJ5IousOjMm0IVBYz62KX1klHL8p7SGSR3CiQ==
+  dependencies:
+    prop-types "^15.6.2"
 
 react-transition-group@^4.0.0:
   version "4.2.2"
