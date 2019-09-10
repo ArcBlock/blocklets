@@ -11,6 +11,7 @@ import Layout from '@arcblock/www/components/layouts/default';
 import Container from '@arcblock/www/components/container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Popover from '@material-ui/core/Popover';
 import Tag from '@arcblock/ux/lib/Tag';
 import CodeBlock from '@arcblock/ux/lib/CodeBlock';
 import Button from '@arcblock/ux/lib/Button';
@@ -27,6 +28,14 @@ import Stats from '../../components/stats';
 function BlockletDetail({ location, pageContext }) {
   const { width: windowWidth } = useWindowSize();
   const [ref, { width }] = useMeasure();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const onOpen = e => setAnchorEl(e.currentTarget);
+  const onClose = () => setAnchorEl(null);
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'use-popover' : undefined;
+
   const {
     name,
     version,
@@ -117,16 +126,27 @@ function BlockletDetail({ location, pageContext }) {
                   />
                 </Grid>
                 <Grid item xs={12} md={4}>
-                  <Button
-                    href={gitUrl}
-                    target="_blank"
-                    color="default"
-                    size="small"
-                    variant="contained"
-                    className="github">
-                    <GithubLogo style={{ marginRight: 3, transform: 'scale(0.5)' }} />
-                    View on Github
-                  </Button>
+                  <div className="sidebar-buttons">
+                    <Button
+                      aria-describedby={id}
+                      color="primary"
+                      variant="contained"
+                      size="large"
+                      className="use-button"
+                      onClick={onOpen}>
+                      Use Blocklet
+                    </Button>
+                    <Button
+                      href={gitUrl}
+                      target="_blank"
+                      color="default"
+                      size="small"
+                      variant="contained"
+                      className="git-button">
+                      <GithubLogo style={{ marginRight: 3, transform: 'scale(0.5)' }} />
+                      View on Github
+                    </Button>
+                  </div>
                   <ul className="meta-info">
                     {!!provider && (
                       <li className="meta-info__row">
@@ -174,9 +194,31 @@ function BlockletDetail({ location, pageContext }) {
               <PostContent component="div" className="content-wrapper post-content">
                 {renderAst(htmlAst)}
               </PostContent>
-              <Typography component="h2">Usage</Typography>
-              <CodeBlock>{`forge blocklet:use ${name}`}</CodeBlock>
             </div>
+            <Popover
+              id={id}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={onClose}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+              }}>
+              <CodeBlock
+                style={{
+                  marginBottom: 0,
+                  width: 400,
+                }}>
+                {`npm install -g @arcblock/forge-cli
+forge install latest
+forge start
+forge blocklet:use ${name}`}
+              </CodeBlock>
+            </Popover>
           </Container>
         </div>
       </Div>
@@ -313,8 +355,23 @@ const Div = styled.div`
       }
     }
 
-    .github {
+    .sidebar-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .use-button {
+      width: 48%;
+    }
+
+    .git-button {
       padding: 0 8px;
+      width: 48%;
+
+      &:hover {
+        text-decoration: none;
+      }
 
       svg {
         circle,
