@@ -23,10 +23,13 @@ There are several key piece of information to make a blocklet:
 ```shell
 ❯ tree . -L 2
 .
-├── blocklet
-│   ├── blocklet.md
-│   ├── blocklet.json
-│   └── logo.svg
+├── screenshots
+│   ├── image1.png
+│   ├── image2.jpg
+│   └── image3.png
+├── blocklet.md
+├── blocklet.json
+└── logo.svg
 ```
 
 ### KeyInfo: `blocklet.json`
