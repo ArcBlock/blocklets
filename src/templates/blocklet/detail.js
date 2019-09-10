@@ -128,6 +128,12 @@ function BlockletDetail({ location, pageContext }) {
                     View on Github
                   </Button>
                   <ul className="meta-info">
+                    {!!provider && (
+                      <li className="meta-info__row">
+                        <span className="info-row__key">Provider</span>
+                        <span className="info-row__value">{provider}</span>
+                      </li>
+                    )}
                     {!!author && (
                       <li className="meta-info__row">
                         <span className="info-row__key">Author</span>
