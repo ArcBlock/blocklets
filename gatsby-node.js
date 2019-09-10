@@ -101,6 +101,19 @@ exports.createPages = async ({ actions, graphql }) => {
       blocklets[dir].logoUrl = node.publicURL;
     }
 
+    // Aggregate screenshots
+    if (
+      node.absolutePath.includes('/screenshots/') &&
+      node.internal.mediaType.startsWith('image/')
+    ) {
+      const dir = path.dirname(path.dirname(path.dirname(node.absolutePath)));
+      blocklets[dir] = blocklets[dir] || {};
+      if (!Array.isArray(blocklets[dir].screenshots)) {
+        blocklets[dir].screenshots = [];
+      }
+      blocklets[dir].screenshots.push(node.publicURL);
+    }
+
     // Append readme
     if (
       node.base.endsWith('.md') &&
@@ -117,20 +130,14 @@ exports.createPages = async ({ actions, graphql }) => {
   // 2. merge blocklet config
   blocklets = Object.keys(blocklets)
     .map(x => {
-      const { dir, main, npm, logoUrl, repoName, gitUrl, htmlAst } = blocklets[x];
+      const { main, npm } = blocklets[x];
       if (!main) {
         return null;
       }
 
-      const rawAttrs = {
-        dir,
-        main: main ? main.absolutePath : null,
-        npm: npm ? npm.absolutePath : null,
-        gitUrl,
-        repoName,
-        logoUrl,
-        htmlAst,
-      };
+      const rawAttrs = blocklets[x];
+      rawAttrs.main = main ? main.absolutePath : null;
+      rawAttrs.npm = npm ? npm.absolutePath : null;
 
       if (npm && fs.existsSync(npm.absolutePath)) {
         Object.assign(rawAttrs, JSON.parse(fs.readFileSync(npm.absolutePath).toString()));
@@ -162,6 +169,7 @@ exports.createPages = async ({ actions, graphql }) => {
         npm: false,
         repository: false,
         support: false,
+        screenshots: false,
         tags: false,
       };
 
@@ -171,7 +179,9 @@ exports.createPages = async ({ actions, graphql }) => {
       // eslint-disable-next-line no-restricted-syntax
       for (const key of requiredAttrs) {
         if (!selectedAttrs[key]) {
-          console.warn(`Blocklet ${dir} not properly configured: missing required field ${key}`);
+          console.warn(
+            `Blocklet ${rawAttrs.dir} not properly configured: missing required field ${key}`
+          );
           return null;
         }
       }
