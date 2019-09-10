@@ -38,6 +38,7 @@ function BlockletDetail({ location, pageContext }) {
     gitUrl,
     stats,
     screenshots,
+    charging,
     color = 'primary',
   } = pageContext.blocklet;
   console.log('blocklet.detail', pageContext.blocklet);
@@ -70,16 +71,16 @@ function BlockletDetail({ location, pageContext }) {
             <div className="meta">
               <Typography component="h2" variant="h2" className="title">
                 {name}
-                <Button
-                  href={gitUrl}
-                  target="_blank"
-                  color="default"
-                  size="small"
-                  variant="contained"
-                  className="github">
-                  <GithubLogo style={{ marginRight: 3, transform: 'scale(0.5)' }} />
-                  View on Github
-                </Button>
+                <span className="charging">
+                  <span className="charging__price">
+                    {charging.price ? `${charging.price} ABT` : 'FREE'}
+                  </span>
+                  <span className="charging__tip">
+                    {charging.price
+                      ? 'You need to pay to use this blocklet'
+                      : 'This blocklet is free to use'}
+                  </span>
+                </span>
               </Typography>
               <Stats stats={stats} className="blocklet__stats" />
               <Typography component="p" className="tags">
@@ -112,7 +113,16 @@ function BlockletDetail({ location, pageContext }) {
                   />
                 </Grid>
                 <Grid item xs={12} md={3}>
-                  Sidebar
+                  <Button
+                    href={gitUrl}
+                    target="_blank"
+                    color="default"
+                    size="small"
+                    variant="contained"
+                    className="github">
+                    <GithubLogo style={{ marginRight: 3, transform: 'scale(0.5)' }} />
+                    View on Github
+                  </Button>
                 </Grid>
               </Grid>
               <PostContent component="div" className="content-wrapper post-content">
@@ -206,6 +216,22 @@ const Div = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .charging {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      .charging__price {
+        margin-bottom: 8px;
+        color: ${props => props.theme.colors.blue};
+      }
+
+      .charging__tip {
+        font-size: 14px;
+        color: ${props => props.theme.colors.primary};
+      }
     }
 
     .blocklet__stats {
