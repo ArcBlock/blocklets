@@ -259,7 +259,7 @@ const Div = styled.div`
 
     .header__text__title {
       font-size: 64px;
-      font-weight: bold;
+      font-weight: 900;
       text-transform: capitalize;
       color: ${props => props.theme.palette[props.color].dark};
     }
@@ -267,7 +267,7 @@ const Div = styled.div`
     .header__text__group {
       font-size: 50px;
       padding: 6px 12px;
-      font-weight: bold;
+      font-weight: 900;
       background-color: ${props => props.theme.palette[props.color].dark};
       color: ${props => props.theme.palette[props.color].light};
       text-transform: capitalize;
