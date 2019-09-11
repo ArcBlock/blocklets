@@ -1,7 +1,10 @@
+## 0.6.0 (September 11, 2019)
+
+- refine blocklet detail/list page
+
 ## 0.5.0 (September 10, 2019)
 
 - refine blocklet detail page
-
 
 ## 0.4.0 (September 06, 2019)
 
