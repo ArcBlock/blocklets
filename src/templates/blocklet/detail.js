@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import useWindowSize from 'react-use/lib/useWindowSize';
-import useMeasure from 'react-use/lib/useMeasure';
 import { Link } from 'gatsby';
 
 import withTheme from '@arcblock/ux/lib/withTheme';
@@ -20,14 +18,11 @@ import ImageGallery from 'react-image-gallery';
 import 'github-markdown-css/github-markdown.css';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
-import { ReactComponent as GithubLogo } from './images/github.svg';
 import { translations } from '../../libs/constant';
 import renderAst from '../../components/renderAst';
 import Stats from '../../components/stats';
 
 function BlockletDetail({ location, pageContext }) {
-  const { width: windowWidth } = useWindowSize();
-  const [ref, { width }] = useMeasure();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const onOpen = e => setAnchorEl(e.currentTarget);
@@ -62,7 +57,7 @@ function BlockletDetail({ location, pageContext }) {
         <div className={`header header--${group}`}>
           <Container className="header__inner">
             <Link to="/blocklets">
-              <Typography component="span" className="header__text" ref={ref}>
+              <Typography component="span" className="header__text">
                 <Typography component="span" variant="h2" className="header__text__title">
                   Blocklet.
                 </Typography>
@@ -71,10 +66,7 @@ function BlockletDetail({ location, pageContext }) {
                 </Typography>
               </Typography>
             </Link>
-            <div
-              component="span"
-              className="header__logo"
-              style={{ width: (windowWidth - width) / 2 + 170, right: -(windowWidth - width) / 2 }}>
+            <div component="span" className="header__logo">
               <img src={logoUrl} className="header__logo__image" alt={name} />
             </div>
           </Container>
@@ -136,18 +128,8 @@ function BlockletDetail({ location, pageContext }) {
                       onClick={onOpen}>
                       Use Blocklet
                     </Button>
-                    <Button
-                      href={gitUrl}
-                      target="_blank"
-                      color="default"
-                      size="small"
-                      variant="contained"
-                      className="git-button">
-                      <GithubLogo style={{ marginRight: 3, transform: 'scale(0.5)' }} />
-                      View on Github
-                    </Button>
                   </div>
-                  <ul className="meta-info">
+                  <Typography component="ul" className="meta-info">
                     {!!provider && (
                       <li className="meta-info__row">
                         <span className="info-row__key">Provider</span>
@@ -190,7 +172,7 @@ function BlockletDetail({ location, pageContext }) {
                       <span className="info-row__key">Last Update</span>
                       <span className="info-row__value">{stats.updated_at}</span>
                     </li>
-                  </ul>
+                  </Typography>
                 </Grid>
               </Grid>
               <PostContent component="div" className="content-wrapper post-content">
@@ -204,22 +186,36 @@ function BlockletDetail({ location, pageContext }) {
               onClose={onClose}
               anchorOrigin={{
                 vertical: 'bottom',
-                horizontal: 'right',
+                horizontal: 'center',
               }}
               transformOrigin={{
                 vertical: 'top',
                 horizontal: 'center',
               }}>
-              <CodeBlock
-                style={{
-                  marginBottom: 0,
-                  width: 400,
-                }}>
-                {`npm install -g @arcblock/forge-cli
-forge install latest
-forge start
-forge blocklet:use ${name}`}
-              </CodeBlock>
+              <Popup>
+                <Typography className="code-step" component="p" gutterBottom>
+                  Step 1: Install forge-cli
+                </Typography>
+                <CodeBlock className="code-block">npm install -g @arcblock/forge-cli</CodeBlock>
+                <Typography className="code-step" component="p" gutterBottom>
+                  Step 2: Install forge-release
+                </Typography>
+                <CodeBlock className="code-block">forge install latest</CodeBlock>
+                <Typography className="code-step" component="p" gutterBottom>
+                  Step 3: Start local chain
+                </Typography>
+                <CodeBlock className="code-block">forge start</CodeBlock>
+                <Typography className="code-step" component="p" gutterBottom>
+                  Step 4: Use blocklet
+                </Typography>
+                <CodeBlock className="code-block">{`forge blocklet:use ${name}`}</CodeBlock>
+                <Typography className="code-github">
+                  Checkout source code:
+                  <Button href={gitUrl} target="_blank" color="default" size="small">
+                    on Github
+                  </Button>
+                </Typography>
+              </Popup>
             </Popover>
           </Container>
         </div>
@@ -247,7 +243,10 @@ const Div = styled.div`
     height: 160px;
 
     .header__inner {
-      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .header__text {
@@ -276,11 +275,9 @@ const Div = styled.div`
 
     .header__logo {
       box-sizing: border-box;
-      position: absolute;
       height: 160px;
       border-radius: 120px 0 0 120px;
       padding-left: 50px;
-      background-color: ${props => props.theme.palette[props.color].main};
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -321,6 +318,7 @@ const Div = styled.div`
       .charging__tip {
         font-size: 14px;
         color: ${props => props.theme.colors.primary};
+        font-weight: normal;
       }
     }
 
@@ -364,39 +362,29 @@ const Div = styled.div`
     }
 
     .use-button {
-      width: 48%;
-    }
-
-    .git-button {
-      padding: 0 8px;
-      width: 48%;
-
-      &:hover {
-        text-decoration: none;
-      }
-
-      svg {
-        circle,
-        g {
-          fill: #fff;
-        }
-      }
+      width: 100%;
     }
 
     .image-gallery {
-      padding: 16px;
-      border: 1px solid ${props => props.theme.colors.lightGrey};
-      border-radius: 3px;
-    }
-
-    .image-gallery-slide {
-      .image-gallery-image {
-        display: flex;
-        justify-content: center;
-        img {
-          max-height: 600px !important;
-          width: auto;
-          margin: 0 auto;
+      .image-gallery-thumbnail.active {
+        border-color: ${props => props.theme.palette.primary.main};
+      }
+      .image-gallery-bullets .image-gallery-bullet {
+        border-color: ${props => props.theme.palette.primary.main};
+        box-shadow: none;
+      }
+      .image-gallery-bullets .image-gallery-bullet.active {
+        background-color: ${props => props.theme.palette.primary.main};
+      }
+      .image-gallery-slide {
+        .image-gallery-image {
+          display: flex;
+          justify-content: center;
+          img {
+            max-height: 600px !important;
+            width: auto;
+            margin: 0 auto;
+          }
         }
       }
     }
@@ -426,6 +414,7 @@ const Div = styled.div`
     line-height: 1.25;
     margin-bottom: 20px;
     margin-top: 40px;
+    border-bottom: none;
   }
 
   .markdown-body .CodeMirror pre {
@@ -452,5 +441,18 @@ const PostContent = styled(Typography)`
 
   a {
     color: ${props => props.theme.colors.blue};
+  }
+`;
+
+const Popup = styled.div`
+  padding: 16px;
+
+  .code-block {
+    width: 372px;
+    margin-bottom: 12px;
+  }
+
+  .code-github {
+    margin-top: 16px;
   }
 `;

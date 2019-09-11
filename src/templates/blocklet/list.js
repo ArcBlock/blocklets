@@ -47,11 +47,14 @@ function BlockletList({ pageContext, location }) {
                       <span className="blocklet__group">{x.group}</span>
                     </div>
                     <div className="blocklet__info">
-                      <Typography component="h2" className="blocklet__title">
+                      <Typography component="h2" className="blocklet__title" title={x.name}>
                         {x.name}
                       </Typography>
                       <Stats stats={x.stats} className="blocklet__stats" />
-                      <Typography component="p" className="blocklet__description">
+                      <Typography
+                        component="p"
+                        className="blocklet__description"
+                        title={x.description}>
                         {x.description}
                       </Typography>
                       <Typography component="div" className="blocklet__tags">
@@ -119,6 +122,7 @@ const Div = styled.div`
 
 const Blocklet = styled.div`
   margin-bottom: 40px;
+  border: 1px solid ${props => props.theme.palette[props.color].main};
   @media (max-width: ${props => props.theme.breakpoints.values.sm}px) {
     margin-bottom: 0;
   }
@@ -139,7 +143,7 @@ const Blocklet = styled.div`
   .blocklet__image {
     width: 80px;
     height: 60px;
-    border-radius: 0 60px 60px 0;
+    border-radius: 0 30px 30px 0;
     padding-right: 10px;
     background-color: ${props => props.theme.palette[props.color].main};
     display: flex;
@@ -173,9 +177,10 @@ const Blocklet = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     line-height: 1.5rem;
-    max-height: 3rem;
+    max-height: 1.5rem;
+    width: 100%;
   }
 
   .blocklet__stats {
@@ -192,7 +197,8 @@ const Blocklet = styled.div`
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
     line-height: 1.5rem;
-    max-height: 6rem;
+    max-height: 4.5rem;
+    height: 4.5rem;
   }
 
   .blocklet__tag {
