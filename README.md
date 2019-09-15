@@ -61,7 +61,7 @@ This is the key file when defining a blocklet, may contain the following fields:
     "price": 10,
     "receiver": "z1en6dudVmqsP1P2ZG1R8DdBZoYPnzw46T1",
   },
-  
+
   // Can the blocklet be used with another blocklet?
   "composable": false,
 
@@ -115,7 +115,7 @@ To avoid duplicate fields defined in `package.json`, some fields can be omitted 
 
 ## How to create a blocklet?
 
-Initialize a blocklet config with `forge blocklet:create`
+Initialize a blocklet config with `forge blocklet:create`, will be supported soon in `forge-cli`.
 
 - How to create a starter blocklet?
 - How to create a dapp blocklet?

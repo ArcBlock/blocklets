@@ -19,6 +19,7 @@ import 'github-markdown-css/github-markdown.css';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
 import { translations } from '../../libs/constant';
+import { getBlockletLogo } from '../../libs/util';
 import renderAst from '../../components/renderAst';
 import Stats from '../../components/stats';
 
@@ -38,7 +39,6 @@ function BlockletDetail({ location, pageContext }) {
     keywords,
     group,
     htmlAst,
-    logoUrl,
     gitUrl,
     stats,
     screenshots,
@@ -49,7 +49,6 @@ function BlockletDetail({ location, pageContext }) {
     support,
     color = 'primary',
   } = pageContext.blocklet;
-  console.log('blocklet.detail', pageContext.blocklet);
 
   return (
     <Layout location={location} title={name}>
@@ -67,7 +66,11 @@ function BlockletDetail({ location, pageContext }) {
               </Typography>
             </Link>
             <div component="span" className="header__logo">
-              <img src={logoUrl} className="header__logo__image" alt={name} />
+              <img
+                src={getBlockletLogo(pageContext.blocklet)}
+                className="header__logo__image"
+                alt={name}
+              />
             </div>
           </Container>
         </div>

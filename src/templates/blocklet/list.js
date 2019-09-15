@@ -13,6 +13,7 @@ import Layout from '@arcblock/www/components/layouts/default';
 import Container from '@material-ui/core/Container';
 
 import { translations } from '../../libs/constant';
+import { getBlockletLogo } from '../../libs/util';
 import Stats from '../../components/stats';
 
 function BlockletList({ pageContext, location }) {
@@ -41,7 +42,11 @@ function BlockletList({ pageContext, location }) {
                   <Link to={x.path}>
                     <div className="blocklet__header">
                       <div className="blocklet__image">
-                        <img src={x.logoUrl} className="header__logo__image" alt={x.name} />
+                        <img
+                          src={getBlockletLogo(x)}
+                          className="header__logo__image"
+                          alt={x.name}
+                        />
                       </div>
                       <span className="blocklet__group">{x.group}</span>
                     </div>
