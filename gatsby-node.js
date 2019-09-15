@@ -188,7 +188,7 @@ exports.createPages = async ({ actions, graphql }) => {
       }
 
       // TODO: detect duplicate blocklet names
-      selectedAttrs.path = `/blocklet/${selectedAttrs.group}/${selectedAttrs.name}`;
+      selectedAttrs.path = `/blocklets/${selectedAttrs.group}/${selectedAttrs.name}`;
 
       // Assign a color
       const colors = ['primary', 'secondary', 'error'];
