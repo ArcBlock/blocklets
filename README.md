@@ -61,6 +61,9 @@ This is the key file when defining a blocklet, may contain the following fields:
     "price": 10,
     "receiver": "z1en6dudVmqsP1P2ZG1R8DdBZoYPnzw46T1",
   },
+  
+  // Can the blocklet be used with another blocklet?
+  "composable": false,
 
   // Following fields can be inherited from package.json
   "name": "forge-react-starter",
