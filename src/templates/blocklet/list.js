@@ -17,18 +17,17 @@ import Stats from '../../components/stats';
 
 function BlockletList({ pageContext, location }) {
   const { blocklets } = pageContext;
-  // FIXME: update this link in production
-  const docLink = 'https://arcblock-docs.netlify.com/en/docs/tutorials/writing-blocklets';
+  const docLink = 'https://github.com/ArcBlock/blocklets';
   return (
     <Layout location={location} title="Blocklets">
       <Div>
         <Container className="hero" maxWidth="lg">
           <Typography className="hero__title" component="h2">
-            Powerful Blocklets.
+            ArcBlock Blocklets.
           </Typography>
           <Typography className="hero__description" component="p">
-            ArcBlock is dedicated to continuously deliver innovation, tools and features to help you
-            accelerate your blockchain projects.
+            Blockets help you start with ready-made components and modules, libraries, view and
+            more; helping you build a complete dApp.
           </Typography>
           <Button variant="outlined" size="large" className="hero__button" href={docLink}>
             Create New Blocklet
