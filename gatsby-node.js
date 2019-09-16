@@ -18,7 +18,7 @@ const getNpmDownloadCount = async name => {
     const res = await axios.get(`https://api.npmjs.org/downloads/point/last-year/${name}`);
     return res.data.downloads;
   } catch (err) {
-    return 0;
+    return 1;
   }
 };
 
@@ -35,7 +35,7 @@ const getGithubStats = repo => {
         });
       } else {
         resolve({
-          start: body.stargazers_count,
+          star: body.stargazers_count,
           watch: body.watchers_count,
           fork: body.forks_count,
           created_at: body.created_at,
