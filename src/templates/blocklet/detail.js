@@ -265,6 +265,9 @@ const Div = styled.div`
       font-weight: 900;
       text-transform: capitalize;
       color: ${props => props.theme.palette[props.color].dark};
+      @media (max-width: ${props => props.theme.breakpoints.values.sm}px) {
+        font-size: 48px;
+      }
     }
 
     .header__text__group {
@@ -274,6 +277,9 @@ const Div = styled.div`
       background-color: ${props => props.theme.palette[props.color].dark};
       color: ${props => props.theme.palette[props.color].light};
       text-transform: capitalize;
+      @media (max-width: ${props => props.theme.breakpoints.values.sm}px) {
+        font-size: 36px;
+      }
     }
 
     .header__logo {
@@ -297,6 +303,9 @@ const Div = styled.div`
 
   .main {
     margin: 100px 0;
+    @media (max-width: ${props => props.theme.breakpoints.values.sm}px) {
+      margin: 32px 0;
+    }
 
     .title {
       font-size: 40px;
@@ -306,12 +315,21 @@ const Div = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @media (max-width: ${props => props.theme.breakpoints.values.sm}px) {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
     }
 
     .charging {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      @media (max-width: ${props => props.theme.breakpoints.values.sm}px) {
+        margin-top: 16px;
+        align-items: flex-start;
+      }
 
       .charging__price {
         margin-bottom: 8px;
@@ -331,6 +349,9 @@ const Div = styled.div`
 
     .tags {
       margin: 16px 0 48px;
+      @media (max-width: ${props => props.theme.breakpoints.values.sm}px) {
+        margin-bottom: 32px;
+      }
 
       .tag {
         margin-right: 8px;
@@ -387,6 +408,10 @@ const Div = styled.div`
             max-height: 600px !important;
             width: auto;
             margin: 0 auto;
+            @media (max-width: ${props => props.theme.breakpoints.values.sm}px) {
+              height: auto;
+              max-height: auto;
+            }
           }
         }
       }
