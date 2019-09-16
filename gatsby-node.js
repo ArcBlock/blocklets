@@ -141,10 +141,18 @@ exports.createPages = async ({ actions, graphql }) => {
       rawAttrs.npm = npm ? npm.absolutePath : null;
 
       if (npm && fs.existsSync(npm.absolutePath)) {
-        Object.assign(rawAttrs, JSON.parse(fs.readFileSync(npm.absolutePath).toString()));
+        try {
+          Object.assign(rawAttrs, JSON.parse(fs.readFileSync(npm.absolutePath).toString()));
+        } catch (err) {
+          console.error('Error parsing package.json', npm.absolutePath);
+        }
       }
       if (main && fs.existsSync(main.absolutePath)) {
-        Object.assign(rawAttrs, JSON.parse(fs.readFileSync(main.absolutePath).toString()));
+        try {
+          Object.assign(rawAttrs, JSON.parse(fs.readFileSync(main.absolutePath).toString()));
+        } catch (err) {
+          console.error('Error parsing blocklet.json', main.absolutePath);
+        }
       }
 
       const attrs = {
