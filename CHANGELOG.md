@@ -1,3 +1,7 @@
+## 0.6.1 (November 29, 2019)
+
+- [new blocklet] forge-java-starter
+
 ## 0.6.0 (September 11, 2019)
 
 - refine blocklet detail/list page
