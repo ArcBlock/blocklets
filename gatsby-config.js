@@ -30,6 +30,9 @@ registry.forEach(({ repo }) => {
 module.exports = {
   plugins: gitSources.concat([
     {
+      resolve: require.resolve('@arcblock/www'),
+    },
+    {
       resolve: require.resolve('@arcblock/gatsby-theme-www'),
       options: {
         excludeI18n: () => true,
