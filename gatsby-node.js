@@ -8,6 +8,8 @@ const github = require('octonode');
 const { languages } = require('@arcblock/www/libs/locale');
 const debug = require('debug')(require('./package.json').name);
 
+const { blocked } = require('./config');
+
 const templates = {
   list: require.resolve('./src/templates/blocklet/list.js'),
   detail: require.resolve('./src/templates/blocklet/detail.js'),
@@ -103,10 +105,7 @@ exports.createPages = async ({ actions, graphql }) => {
     }
 
     // Aggregate screenshots
-    if (
-      node.absolutePath.includes('/screenshots/') &&
-      node.internal.mediaType.startsWith('image/')
-    ) {
+    if (node.absolutePath.includes('/screenshots/') && node.internal.mediaType.startsWith('image/')) {
       const dir = path.dirname(path.dirname(node.absolutePath));
       blocklets[dir] = blocklets[dir] || {};
       if (!Array.isArray(blocklets[dir].screenshots)) {
@@ -188,9 +187,7 @@ exports.createPages = async ({ actions, graphql }) => {
       // eslint-disable-next-line no-restricted-syntax
       for (const key of requiredAttrs) {
         if (!selectedAttrs[key]) {
-          console.warn(
-            `Blocklet ${rawAttrs.dir} not properly configured: missing required field ${key}`
-          );
+          console.warn(`Blocklet ${rawAttrs.dir} not properly configured: missing required field ${key}`);
           return null;
         }
       }
@@ -234,7 +231,9 @@ exports.createPages = async ({ actions, graphql }) => {
     })
   );
 
-  blocklets = sortBy(blocklets, x => x.stats.downloads).reverse();
+  blocklets = sortBy(blocklets, x => x.stats.downloads)
+    .reverse()
+    .filter(x => blocked.includes(x.name) === false);
 
   // Write blocklet list to json file
   if (process.env.NODE_ENV === 'production') {
