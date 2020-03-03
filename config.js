@@ -1,3 +1,3 @@
 module.exports = {
-  blocked: ['xmark-starter'],
+  blocked: ['xmark-starter', 'xmark-currency-starter'],
 };
