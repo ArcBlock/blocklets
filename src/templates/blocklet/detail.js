@@ -6,6 +6,7 @@ import { Link } from 'gatsby';
 import withTheme from '@arcblock/ux/lib/withTheme';
 import withI18n from '@arcblock/www/components/withI18n';
 import Layout from '@arcblock/www/components/layouts/default';
+import withRoot from '@arcblock/www/components/withRoot';
 import Container from '@arcblock/www/components/container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -232,7 +233,7 @@ BlockletDetail.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-export default withTheme(withI18n(translations)(BlockletDetail));
+export default withRoot()(withTheme(withI18n(translations)(BlockletDetail)));
 
 const codeFont = 'source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace !important';
 const Div = styled.div`
