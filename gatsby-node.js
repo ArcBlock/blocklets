@@ -1,3 +1,4 @@
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
@@ -193,7 +194,7 @@ exports.createPages = async ({ actions, graphql }) => {
       }
 
       // TODO: detect duplicate blocklet names
-      selectedAttrs.path = `/blocklets/${selectedAttrs.group}/${selectedAttrs.name}`;
+      selectedAttrs.path = `/${selectedAttrs.group}/${selectedAttrs.name}`;
 
       // Assign a color
       const colors = ['primary', 'secondary', 'error'];
@@ -253,11 +254,11 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // 3. create blocklet list page
   actions.createPage({
-    path: '/blocklets',
+    path: '/',
     component: templates.list,
     context: {
       language: 'en',
-      originalPath: '/blocklets',
+      originalPath: '/',
       locale: 'en',
       languages,
       blocklets,

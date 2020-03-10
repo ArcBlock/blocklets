@@ -55,7 +55,7 @@ function BlockletDetail({ location, pageContext }) {
       <Div color={color}>
         <div className={`header header--${group}`}>
           <Container className="header__inner">
-            <Link to="/blocklets">
+            <Link to="/">
               <Typography component="span" className="header__text">
                 <Typography component="span" variant="h2" className="header__text__title">
                   Blocklet.
