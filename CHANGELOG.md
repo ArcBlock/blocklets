@@ -1,3 +1,7 @@
+## 0.10.2 (March 10, 2020)
+
+- modify blocklets path
+
 ## 0.10.1 (March 03, 2020)
 
 
