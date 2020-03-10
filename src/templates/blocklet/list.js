@@ -10,6 +10,7 @@ import Button from '@arcblock/ux/lib/Button';
 import withTheme from '@arcblock/ux/lib/withTheme';
 import withI18n from '@arcblock/www/components/withI18n';
 import Layout from '@arcblock/www/components/layouts/default';
+import withRoot from '@arcblock/www/components/withRoot';
 import Container from '@material-ui/core/Container';
 
 import { translations } from '../../libs/constant';
@@ -86,7 +87,7 @@ BlockletList.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-export default withTheme(withI18n(translations)(BlockletList));
+export default withRoot()(withTheme(withI18n(translations)(BlockletList)));
 
 const Div = styled.div`
   color: #404040;
