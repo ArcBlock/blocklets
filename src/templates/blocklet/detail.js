@@ -67,11 +67,7 @@ function BlockletDetail({ location, pageContext }) {
               </Typography>
             </Link>
             <div component="span" className="header__logo">
-              <img
-                src={getBlockletLogo(pageContext.blocklet)}
-                className="header__logo__image"
-                alt={name}
-              />
+              <img src={getBlockletLogo(pageContext.blocklet)} className="header__logo__image" alt={name} />
             </div>
           </Container>
         </div>
@@ -81,13 +77,9 @@ function BlockletDetail({ location, pageContext }) {
               <Typography component="h2" variant="h2" className="title">
                 {name}
                 <span className="charging">
-                  <span className="charging__price">
-                    {charging.price ? `${charging.price} ABT` : 'FREE'}
-                  </span>
+                  <span className="charging__price">{charging.price ? `${charging.price} ABT` : 'FREE'}</span>
                   <span className="charging__tip">
-                    {charging.price
-                      ? 'You need to pay to use this blocklet'
-                      : 'This blocklet is free to use'}
+                    {charging.price ? 'You need to pay to use this blocklet' : 'This blocklet is free to use'}
                   </span>
                 </span>
               </Typography>
@@ -213,12 +205,14 @@ function BlockletDetail({ location, pageContext }) {
                   Step 4: Use blocklet
                 </Typography>
                 <CodeBlock className="code-block">{`forge blocklet:use ${name}`}</CodeBlock>
-                <Typography className="code-github">
-                  Checkout source code:
-                  <Button href={gitUrl} target="_blank" color="default" size="small">
-                    on Github
-                  </Button>
-                </Typography>
+                {gitUrl && (
+                  <Typography className="code-github">
+                    Checkout source code:
+                    <Button href={gitUrl} target="_blank" color="default" size="small">
+                      on Github
+                    </Button>
+                  </Typography>
+                )}
               </Popup>
             </Popover>
           </Container>
@@ -239,10 +233,7 @@ const codeFont = 'source-code-pro, Menlo, Monaco, Consolas, Courier New, monospa
 const Div = styled.div`
   .header {
     background-color: ${props => props.theme.palette[props.color].light};
-    background-image: radial-gradient(
-      ${props => props.theme.palette[props.color].main} 8%,
-      transparent 0
-    );
+    background-image: radial-gradient(${props => props.theme.palette[props.color].main} 8%, transparent 0);
     background-size: 20px 20px;
     height: 160px;
 

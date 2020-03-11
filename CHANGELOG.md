@@ -1,3 +1,7 @@
+## 0.10.3 (March 11, 2020)
+
+- use npm as data source
+
 ## 0.10.2 (March 10, 2020)
 
 - 删除 /blocklets 根路由前缀

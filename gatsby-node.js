@@ -2,11 +2,10 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
-const uniq = require('lodash/uniq');
 const pick = require('lodash/pick');
 const sortBy = require('lodash/sortBy');
-const github = require('octonode');
 const { languages } = require('@arcblock/www/libs/locale');
+const childProcess = require('child_process');
 const debug = require('debug')(require('./package.json').name);
 
 const { blocked } = require('./config');
@@ -25,28 +24,13 @@ const getNpmDownloadCount = async name => {
   }
 };
 
-const getGithubStats = repo => {
-  const client = github.client();
-  return new Promise(resolve => {
-    client.get(`/repos/${repo}`, (err, _, body) => {
-      if (err) {
-        console.error('getGithubStats.error', err);
-        resolve({
-          star: 1,
-          watch: 1,
-          fork: 0,
-        });
-      } else {
-        resolve({
-          star: body.stargazers_count,
-          watch: body.watchers_count,
-          fork: body.forks_count,
-          created_at: body.created_at,
-          updated_at: body.updated_at,
-        });
-      }
-    });
-  });
+const getNpmStats = async name => {
+  try {
+    const updatedAt = childProcess.execSync(`npm view ${name} time.modified`, { encoding: 'utf8' }) || '';
+    return { updated_at: updatedAt.trim() };
+  } catch (error) {
+    return {};
+  }
 };
 
 // Generate markdown pages
@@ -63,14 +47,12 @@ exports.createPages = async ({ actions, graphql }) => {
               type
               mediaType
             }
-            gitRemote {
-              id
-              name
-              full_name
-              href
-            }
             base
             publicURL
+            npmMeta {
+              repoName
+              repoHref
+            }
             childMarkdownRemark {
               htmlAst
             }
@@ -89,11 +71,13 @@ exports.createPages = async ({ actions, graphql }) => {
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].dir = dir;
       blocklets[dir].main = node;
-      blocklets[dir].gitUrl = node.gitRemote.href;
-      blocklets[dir].repoName = node.gitRemote.full_name;
+      blocklets[dir].repoName = node.npmMeta.repoName;
+      blocklets[dir].gitUrl = node.npmMeta.repoHref;
     }
+
     if (node.base === 'package.json') {
       const dir = path.dirname(node.absolutePath);
+
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].npm = node;
     }
@@ -159,9 +143,9 @@ exports.createPages = async ({ actions, graphql }) => {
         name: true,
         description: true,
         group: true,
-        gitUrl: true,
+        gitUrl: false,
         provider: true,
-        repoName: true,
+        repoName: false,
         version: true,
         htmlAst: true,
         logoUrl: false,
@@ -214,21 +198,9 @@ exports.createPages = async ({ actions, graphql }) => {
   await Promise.all(
     blocklets.map(async blocklet => {
       const downloads = await getNpmDownloadCount(blocklet.name);
+      const stats = await getNpmStats(blocklet.name);
       debug('downloadCount.done', { name: blocklet.name, downloads });
-      blocklet.stats = { downloads };
-    })
-  );
-
-  const repoNames = uniq(blocklets.map(x => x.repoName));
-  await Promise.all(
-    repoNames.map(async repoName => {
-      const stats = await getGithubStats(repoName);
-      debug('githubStats.done', { name: repoName, stats });
-      blocklets.forEach(x => {
-        if (x.repoName === repoName) {
-          x.stats = Object.assign(x.stats || {}, stats);
-        }
-      });
+      blocklet.stats = { downloads, updated_at: stats.updated_at };
     })
   );
 
