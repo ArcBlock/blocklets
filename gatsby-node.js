@@ -68,9 +68,12 @@ exports.createPages = async ({ actions, graphql }) => {
   edges.forEach(({ node }) => {
     if (node.base === 'blocklet.json') {
       const dir = path.dirname(node.absolutePath);
+      const config = require(node.absolutePath); // eslint-disable-line
+
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].dir = dir;
       blocklets[dir].main = node;
+      blocklets[dir].usages = config.usages || [];
       blocklets[dir].repoName = node.npmMeta.repoName;
       blocklets[dir].gitUrl = node.npmMeta.repoHref;
     }
@@ -161,6 +164,7 @@ exports.createPages = async ({ actions, graphql }) => {
         licence: false,
         npm: false,
         repository: false,
+        requirements: false,
         support: false,
         screenshots: false,
         tags: false,

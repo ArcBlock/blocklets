@@ -24,6 +24,40 @@ import { getBlockletLogo } from '../../libs/util';
 import renderAst from '../../components/renderAst';
 import Stats from '../../components/stats';
 
+const STEPS = [
+  { title: 'Install forge-cli', type: 'basic', value: 'npm install -g @arcblock/forge-cli' },
+  { title: 'Install forge-release', type: 'local_chain', value: 'forge install latest' },
+  { title: 'Start local chain', type: 'local_chain', value: 'forge start' },
+  { title: 'Use blocklet', type: 'basic', value: ({ name } = {}) => `forge blocklet:use ${name}` },
+];
+
+function Steps({ usages, ...props }) {
+  return STEPS.filter(step => {
+    if (usages.length === 0) {
+      // 为了兼容
+      return true;
+    }
+
+    return step.type === 'basic' || usages.includes(step.type);
+  }).map((step, index) => (
+    <React.Fragment>
+      <Typography className="code-step" component="p" gutterBottom>
+        Step {index + 1}: {step.title}
+      </Typography>
+      <CodeBlock className="code-block">{typeof step.value === 'function' ? step.value(props) : step.value}</CodeBlock>
+    </React.Fragment>
+  ));
+}
+
+Steps.propTypes = {
+  name: PropTypes.string.isRequired,
+  usages: PropTypes.array,
+};
+
+Steps.defaultProps = {
+  usages: [],
+};
+
 function BlockletDetail({ location, pageContext }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -49,6 +83,7 @@ function BlockletDetail({ location, pageContext }) {
     community,
     support,
     color = 'primary',
+    usages = [],
   } = pageContext.blocklet;
 
   return (
@@ -189,22 +224,7 @@ function BlockletDetail({ location, pageContext }) {
                 horizontal: 'center',
               }}>
               <Popup>
-                <Typography className="code-step" component="p" gutterBottom>
-                  Step 1: Install forge-cli
-                </Typography>
-                <CodeBlock className="code-block">npm install -g @arcblock/forge-cli</CodeBlock>
-                <Typography className="code-step" component="p" gutterBottom>
-                  Step 2: Install forge-release
-                </Typography>
-                <CodeBlock className="code-block">forge install latest</CodeBlock>
-                <Typography className="code-step" component="p" gutterBottom>
-                  Step 3: Start local chain
-                </Typography>
-                <CodeBlock className="code-block">forge start</CodeBlock>
-                <Typography className="code-step" component="p" gutterBottom>
-                  Step 4: Use blocklet
-                </Typography>
-                <CodeBlock className="code-block">{`forge blocklet:use ${name}`}</CodeBlock>
+                <Steps name={name} usages={usages} />
                 {gitUrl && (
                   <Typography className="code-github">
                     Checkout source code:
