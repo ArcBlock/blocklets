@@ -164,7 +164,7 @@ exports.createPages = async ({ actions, graphql }) => {
         licence: false,
         npm: false,
         repository: false,
-        requirements: false,
+        usages: false,
         support: false,
         screenshots: false,
         tags: false,

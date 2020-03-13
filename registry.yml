@@ -10,3 +10,5 @@
 - name: xmark-currency-starter
 - name: xmark-starter
 - name: xmark-swap-starter
+- name: xmark-docsite-starter
+- name: xmark-website-starter

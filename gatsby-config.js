@@ -22,19 +22,6 @@ const gitSources = registry.map(({ name }) => ({
 module.exports = {
   plugins: gitSources.concat([
     {
-      resolve: require.resolve('gatsby-source-npmjs'),
-      options: {
-        name: 'forge-java-starter',
-        patterns: [
-          '**/blocklet.json',
-          '**/blocklet.md',
-          '**/logo.{jpeg,jpg,png,gif,svg}',
-          '**/screenshots/*.{jpeg,jpg,png,gif,svg}',
-          '**/package.json',
-        ],
-      },
-    },
-    {
       resolve: require.resolve('@arcblock/www'),
     },
     {
