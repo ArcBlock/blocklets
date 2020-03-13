@@ -85,7 +85,8 @@ This is the key file when defining a blocklet, may contain the following fields:
   },
   "install-scripts": {
     "dependency": ""
-  }
+  },
+  "usages": ['basic', 'local_chain']
 }
 ```
 
@@ -104,6 +105,13 @@ The logo of the blocklet, can be any valid image, png recommended, will be displ
 ### KeyInfo: `screenshots`
 
 The screenshots folder should contain several images of what's the output of the blocklet so that users can easily grasp the idea behind the blocklet.
+
+### KeyInfo: `usages`
+
+`usages` delcares the steps required to use the blocklet, `basic` is default to all blocklets, currently:
+
+- basic: the basic steps required by all blocklets
+- local_chain: include the steps starting a local chain by forge
 
 ### Other Info
 

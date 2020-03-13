@@ -24,6 +24,40 @@ import { getBlockletLogo } from '../../libs/util';
 import renderAst from '../../components/renderAst';
 import Stats from '../../components/stats';
 
+const STEPS = [
+  { title: 'Install forge-cli', type: 'basic', value: 'npm install -g @arcblock/forge-cli' },
+  { title: 'Install forge-release', type: 'local_chain', value: 'forge install latest' },
+  { title: 'Start local chain', type: 'local_chain', value: 'forge start' },
+  { title: 'Use blocklet', type: 'basic', value: ({ name } = {}) => `forge blocklet:use ${name}` },
+];
+
+function Steps({ usages, ...props }) {
+  return STEPS.filter(step => {
+    if (usages.length === 0) {
+      // 为了兼容
+      return true;
+    }
+
+    return step.type === 'basic' || usages.includes(step.type);
+  }).map((step, index) => (
+    <React.Fragment>
+      <Typography className="code-step" component="p" gutterBottom>
+        Step {index + 1}: {step.title}
+      </Typography>
+      <CodeBlock className="code-block">{typeof step.value === 'function' ? step.value(props) : step.value}</CodeBlock>
+    </React.Fragment>
+  ));
+}
+
+Steps.propTypes = {
+  name: PropTypes.string.isRequired,
+  usages: PropTypes.array,
+};
+
+Steps.defaultProps = {
+  usages: [],
+};
+
 function BlockletDetail({ location, pageContext }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -49,6 +83,7 @@ function BlockletDetail({ location, pageContext }) {
     community,
     support,
     color = 'primary',
+    usages = [],
   } = pageContext.blocklet;
 
   return (
@@ -67,11 +102,7 @@ function BlockletDetail({ location, pageContext }) {
               </Typography>
             </Link>
             <div component="span" className="header__logo">
-              <img
-                src={getBlockletLogo(pageContext.blocklet)}
-                className="header__logo__image"
-                alt={name}
-              />
+              <img src={getBlockletLogo(pageContext.blocklet)} className="header__logo__image" alt={name} />
             </div>
           </Container>
         </div>
@@ -81,13 +112,9 @@ function BlockletDetail({ location, pageContext }) {
               <Typography component="h2" variant="h2" className="title">
                 {name}
                 <span className="charging">
-                  <span className="charging__price">
-                    {charging.price ? `${charging.price} ABT` : 'FREE'}
-                  </span>
+                  <span className="charging__price">{charging.price ? `${charging.price} ABT` : 'FREE'}</span>
                   <span className="charging__tip">
-                    {charging.price
-                      ? 'You need to pay to use this blocklet'
-                      : 'This blocklet is free to use'}
+                    {charging.price ? 'You need to pay to use this blocklet' : 'This blocklet is free to use'}
                   </span>
                 </span>
               </Typography>
@@ -197,28 +224,15 @@ function BlockletDetail({ location, pageContext }) {
                 horizontal: 'center',
               }}>
               <Popup>
-                <Typography className="code-step" component="p" gutterBottom>
-                  Step 1: Install forge-cli
-                </Typography>
-                <CodeBlock className="code-block">npm install -g @arcblock/forge-cli</CodeBlock>
-                <Typography className="code-step" component="p" gutterBottom>
-                  Step 2: Install forge-release
-                </Typography>
-                <CodeBlock className="code-block">forge install latest</CodeBlock>
-                <Typography className="code-step" component="p" gutterBottom>
-                  Step 3: Start local chain
-                </Typography>
-                <CodeBlock className="code-block">forge start</CodeBlock>
-                <Typography className="code-step" component="p" gutterBottom>
-                  Step 4: Use blocklet
-                </Typography>
-                <CodeBlock className="code-block">{`forge blocklet:use ${name}`}</CodeBlock>
-                <Typography className="code-github">
-                  Checkout source code:
-                  <Button href={gitUrl} target="_blank" color="default" size="small">
-                    on Github
-                  </Button>
-                </Typography>
+                <Steps name={name} usages={usages} />
+                {gitUrl && (
+                  <Typography className="code-github">
+                    Checkout source code:
+                    <Button href={gitUrl} target="_blank" color="default" size="small">
+                      on Github
+                    </Button>
+                  </Typography>
+                )}
               </Popup>
             </Popover>
           </Container>
@@ -239,10 +253,7 @@ const codeFont = 'source-code-pro, Menlo, Monaco, Consolas, Courier New, monospa
 const Div = styled.div`
   .header {
     background-color: ${props => props.theme.palette[props.color].light};
-    background-image: radial-gradient(
-      ${props => props.theme.palette[props.color].main} 8%,
-      transparent 0
-    );
+    background-image: radial-gradient(${props => props.theme.palette[props.color].main} 8%, transparent 0);
     background-size: 20px 20px;
     height: 160px;
 
