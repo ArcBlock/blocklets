@@ -1,3 +1,7 @@
+## 0.10.4 (March 20, 2020)
+
+- update arcblock dependencies
+
 ## 0.10.3 (March 11, 2020)
 
 - use npm as data source
