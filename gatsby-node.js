@@ -4,7 +4,7 @@ const path = require('path');
 const axios = require('axios');
 const pick = require('lodash/pick');
 const sortBy = require('lodash/sortBy');
-const { languages } = require('@arcblock/www/libs/locale');
+const { languages } = require('@arcblock/www/src/libs/locale');
 const childProcess = require('child_process');
 const debug = require('debug')(require('./package.json').name);
 

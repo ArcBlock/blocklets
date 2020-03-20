@@ -1,6 +1,6 @@
 // @link https://coolors.co/ef476f-ffd166-06d6a0-118ab2-073b4c
-import zhTheme from '@arcblock/www/locales/zh';
-import enTheme from '@arcblock/www/locales/en';
+import zhTheme from '@arcblock/www/src/locales/zh';
+import enTheme from '@arcblock/www/src/locales/en';
 import zhApp from '../locales/zh';
 import enApp from '../locales/en';
 

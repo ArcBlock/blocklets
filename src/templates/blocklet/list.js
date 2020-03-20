@@ -8,9 +8,9 @@ import Grid from '@material-ui/core/Grid';
 import Tag from '@arcblock/ux/lib/Tag';
 import Button from '@arcblock/ux/lib/Button';
 import withTheme from '@arcblock/ux/lib/withTheme';
-import withI18n from '@arcblock/www/components/withI18n';
-import Layout from '@arcblock/www/components/layouts/default';
-import withRoot from '@arcblock/www/components/withRoot';
+import withI18n from '@arcblock/www/src/components/withI18n';
+import Layout from '@arcblock/www/src/components/layouts/default';
+import withRoot from '@arcblock/www/src/components/withRoot';
 import Container from '@material-ui/core/Container';
 
 import { translations } from '../../libs/constant';

@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 import withTheme from '@arcblock/ux/lib/withTheme';
-import withI18n from '@arcblock/www/components/withI18n';
-import Layout from '@arcblock/www/components/layouts/default';
-import withRoot from '@arcblock/www/components/withRoot';
-import Container from '@arcblock/www/components/container';
+import withI18n from '@arcblock/www/src/components/withI18n';
+import Layout from '@arcblock/www/src/components/layouts/default';
+import withRoot from '@arcblock/www/src/components/withRoot';
+import Container from '@arcblock/www/src/components/container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Popover from '@material-ui/core/Popover';
