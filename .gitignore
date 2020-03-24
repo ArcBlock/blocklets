@@ -16,6 +16,7 @@ yarn-error.log*
 
 # Gatsby.js
 /public
+/www
 /.cache
 generated
 node_modules

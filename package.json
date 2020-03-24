@@ -47,7 +47,7 @@
     "lint": "eslint src",
     "test": "exit 0",
     "clean": "rm -rf public",
-    "build:gatsby": "gatsby build",
+    "build:gatsby": "gatsby build && rm -rf www && mv public www",
     "build": "npm run clean && npm-run-all build:*",
     "start:gatsby": "gatsby develop --host 0.0.0.0",
     "start": "npm-run-all --parallel start:*"
