@@ -77,10 +77,10 @@
     remark-containers "^1.1.0"
     remark-generic-extensions "^1.4.0"
 
-"@arcblock/gatsby-theme-www@^7.16.0":
-  version "7.16.0"
-  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-theme-www/-/gatsby-theme-www-7.16.0.tgz#55cda5f31b6d777513a86bde60d2c1cc5f6ef0d4"
-  integrity sha512-8suNJARvTtY03XERPg0KyLmceKMfDbYSZy+qQ2iKDraabGyOJuMfwY6f2aL5hxxt6wQXddEuOV9EuwBWGz4kgA==
+"@arcblock/gatsby-theme-www@^7.16.1":
+  version "7.16.1"
+  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-theme-www/-/gatsby-theme-www-7.16.1.tgz#2b871e0b55e8f693e428e03d1bbe869abebd1850"
+  integrity sha512-RKyegwldNPtN4cE9N2ycbUbj4KAxkHvOK5v7iDs1ZAuQpXws2BREU3WS3Srw4s4mXuTT45yZozFi7/th2trzDQ==
   dependencies:
     "@arcblock/gatsby-awesome-pagination" "^0.3.4"
     "@arcblock/gatsby-remark-extensions" "^7.5.1"
@@ -88,7 +88,7 @@
     "@arcblock/gatsby-transformer-slide-track" "^7.11.0"
     "@arcblock/gatsby-transformer-terminal-recording" "^7.11.0"
     "@arcblock/remark-include" "^7.5.1"
-    "@arcblock/www" "^7.16.0"
+    "@arcblock/www" "^7.16.1"
     "@svgr/webpack" "^4.1.0"
     "@xmark/core" "^0.23.1"
     "@xmark/theme-section-template" "^0.23.5"
@@ -216,10 +216,10 @@
     xterm-addon-fit "^0.2.1"
     xterm-addon-web-links "^0.2.1"
 
-"@arcblock/www@^7.16.0":
-  version "7.16.0"
-  resolved "https://registry.yarnpkg.com/@arcblock/www/-/www-7.16.0.tgz#5082c8b32b09db9cb7955dc781c8f6a022fd3244"
-  integrity sha512-dwiKdxKOAi2t4IL2yiqL2BpCHHO4/A02Md+LDbXWcCdzGsejGSaGUJ7UNnPuAXN+d2pyAgVhFbr4RFv6BLXolA==
+"@arcblock/www@^7.16.1":
+  version "7.16.1"
+  resolved "https://registry.yarnpkg.com/@arcblock/www/-/www-7.16.1.tgz#111a219107d87d472333adad7fe9679a739d288f"
+  integrity sha512-uAY8p/snmzLCEUAIRRTwUeF7hP6xLqW+3IZHCHEjSNtWlyc0L9nGPgm1NQGHWtmQgP4+4fWOvtUCUrvK/PuahA==
   dependencies:
     "@arcblock/did-connect" "^0.73.3"
     "@arcblock/did-playground" "^0.87.4"
