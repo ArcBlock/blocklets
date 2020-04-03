@@ -151,6 +151,7 @@ exports.createPages = async ({ actions, graphql }) => {
         repoName: false,
         version: true,
         htmlAst: true,
+        main: false,
         logoUrl: false,
 
         author: false,
@@ -213,20 +214,18 @@ exports.createPages = async ({ actions, graphql }) => {
     .filter(x => blocked.includes(x.name) === false);
 
   // Write blocklet list to json file
-  if (process.env.NODE_ENV === 'production') {
-    fs.writeFileSync(
-      path.join(__dirname, './static/blocklets.json'),
-      JSON.stringify(
-        blocklets.map(x => {
-          const tmp = Object.assign({}, x);
-          delete tmp.htmlAst;
-          return tmp;
-        }),
-        true,
-        2
-      )
-    );
-  }
+  fs.writeFileSync(
+    path.join(__dirname, './static/blocklets.json'),
+    JSON.stringify(
+      blocklets.map(x => {
+        const tmp = Object.assign({}, x);
+        delete tmp.htmlAst;
+        return tmp;
+      }),
+      true,
+      2
+    )
+  );
 
   // 3. create blocklet list page
   actions.createPage({

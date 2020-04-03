@@ -11,3 +11,5 @@
 - name: xmark-swap-starter
 - name: xmark-docsite-starter
 - name: xmark-website-starter
+- name: "@arcblock/block-explorer"
+- name: "@arcblock/graphql-playground"

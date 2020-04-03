@@ -9,6 +9,7 @@ const gitSources = registry.map(({ name }) => ({
   resolve: require.resolve('gatsby-source-npmjs'),
   options: {
     name,
+    cache: true,
     patterns: [
       '**/blocklet.json',
       '**/blocklet.md',
