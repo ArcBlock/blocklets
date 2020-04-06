@@ -1,6 +1,6 @@
 {
   "name": "@arcblock/blocklets",
-  "version": "0.14.1",
+  "version": "0.15.0",
   "private": true,
   "dependencies": {
     "@arcblock/did": "^1.0.39",
