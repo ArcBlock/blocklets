@@ -1,5 +1,5 @@
 ---
-- name: forge-product-factory-contract
+# - name: forge-product-factory-contract
 - name: forge-python-starter
 - name: forge-java-starter
 - name: forge-currency-starter
