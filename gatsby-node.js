@@ -4,11 +4,19 @@ const path = require('path');
 const axios = require('axios');
 const pick = require('lodash/pick');
 const sortBy = require('lodash/sortBy');
+const { types } = require('@arcblock/mcrypto');
+const { toHex } = require('@arcblock/forge-util');
+const { fromPublicKey } = require('@arcblock/did');
 const { languages } = require('@arcblock/www/src/libs/locale');
 const childProcess = require('child_process');
 const debug = require('debug')(require('./package.json').name);
 
 const { blocked } = require('./config');
+
+const toBlockletDid = name => {
+  const pk = toHex(name);
+  return fromPublicKey(pk, { role: types.RoleType.ROLE_ANY });
+};
 
 const templates = {
   list: require.resolve('./src/templates/blocklet/list.js'),
@@ -195,6 +203,9 @@ exports.createPages = async ({ actions, graphql }) => {
       if (!selectedAttrs.charging) {
         selectedAttrs.charging = { price: 0 };
       }
+
+      // Derive did from name
+      selectedAttrs.did = toBlockletDid(selectedAttrs.name);
 
       return selectedAttrs;
     })
