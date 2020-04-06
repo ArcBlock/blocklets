@@ -6,7 +6,7 @@ VERSION=$(strip $(shell cat version))
 build: pre-build
 	@echo "Building the software..."
 	@DEBUG=@arcblock/* yarn build
-	@rm public/*.js.map
+	@rm public/*.js.map || true
 
 init: install dep
 	@echo "Initializing the repo..."

@@ -1,5 +1,5 @@
 ---
-- name: forge-product-factory-contract
+# - name: forge-product-factory-contract
 - name: forge-python-starter
 - name: forge-java-starter
 - name: forge-currency-starter
@@ -11,3 +11,5 @@
 - name: xmark-swap-starter
 - name: xmark-docsite-starter
 - name: xmark-website-starter
+- name: "@arcblock/block-explorer"
+- name: "@arcblock/graphql-playground"

@@ -4,11 +4,19 @@ const path = require('path');
 const axios = require('axios');
 const pick = require('lodash/pick');
 const sortBy = require('lodash/sortBy');
+const { types } = require('@arcblock/mcrypto');
+const { toHex } = require('@arcblock/forge-util');
+const { fromPublicKey } = require('@arcblock/did');
 const { languages } = require('@arcblock/www/src/libs/locale');
 const childProcess = require('child_process');
 const debug = require('debug')(require('./package.json').name);
 
 const { blocked } = require('./config');
+
+const toBlockletDid = name => {
+  const pk = toHex(name);
+  return fromPublicKey(pk, { role: types.RoleType.ROLE_ANY });
+};
 
 const templates = {
   list: require.resolve('./src/templates/blocklet/list.js'),
@@ -151,6 +159,7 @@ exports.createPages = async ({ actions, graphql }) => {
         repoName: false,
         version: true,
         htmlAst: true,
+        main: false,
         logoUrl: false,
 
         author: false,
@@ -195,6 +204,9 @@ exports.createPages = async ({ actions, graphql }) => {
         selectedAttrs.charging = { price: 0 };
       }
 
+      // Derive did from name
+      selectedAttrs.did = toBlockletDid(selectedAttrs.name);
+
       return selectedAttrs;
     })
     .filter(Boolean);
@@ -213,20 +225,18 @@ exports.createPages = async ({ actions, graphql }) => {
     .filter(x => blocked.includes(x.name) === false);
 
   // Write blocklet list to json file
-  if (process.env.NODE_ENV === 'production') {
-    fs.writeFileSync(
-      path.join(__dirname, './static/blocklets.json'),
-      JSON.stringify(
-        blocklets.map(x => {
-          const tmp = Object.assign({}, x);
-          delete tmp.htmlAst;
-          return tmp;
-        }),
-        true,
-        2
-      )
-    );
-  }
+  fs.writeFileSync(
+    path.join(__dirname, './static/blocklets.json'),
+    JSON.stringify(
+      blocklets.map(x => {
+        const tmp = Object.assign({}, x);
+        delete tmp.htmlAst;
+        return tmp;
+      }),
+      true,
+      2
+    )
+  );
 
   // 3. create blocklet list page
   actions.createPage({
