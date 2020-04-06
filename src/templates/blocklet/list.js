@@ -20,12 +20,17 @@ function BlockletList({ pageContext, location }) {
     <Layout location={location} title="Blocklets">
       <Div>
         <Container className="hero" maxWidth="lg">
-          <Typography className="hero__title" component="h2">
-            ArcBlock Blocklets.
+          <Typography className="hero__title" component="h2" variant="h4">
+            Blocklets.
+          </Typography>
+          <Typography className="hero__subtitle" component="h3" variant="h5">
+            The easy to start building dApps!
           </Typography>
           <Typography className="hero__description" component="p">
-            Blocklets help you start with ready-made components and modules, libraries, view and more; helping you build
-            a complete dApp.
+            Blocklets are easy to use packages that allow you to quickly build a dApp by giving you instant access to
+            helpful modules, smart contracts, libraries, front-end views and more. Use one blocklet or combine them to
+            build a complete dApp. Blocklets help you start with ready-made components and modules, libraries, view and
+            more; helping you build a complete dApp.
           </Typography>
         </Container>
         <Blocklets blocklets={blocklets} className="blocklets" />
@@ -52,14 +57,19 @@ const Div = styled.div`
     }
 
     .hero__title {
-      font-size: 32px;
       font-weight: bold;
-      margin-bottom: 24px;
+      margin-bottom: 8px;
+    }
+
+    .hero__subtitle {
+      font-weight: bold;
+      margin-bottom: 16px;
     }
 
     .hero__description {
-      font-size: 16px;
+      margin: 0 auto;
       margin-bottom: 24px;
+      text-align: center;
     }
 
     .hero__button {
