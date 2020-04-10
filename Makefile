@@ -8,6 +8,11 @@ build: pre-build
 	@DEBUG=@arcblock/* yarn build
 	@rm public/*.js.map || true
 
+deploy-aliyun:
+	@echo "Deploying the software..."
+	@git pull origin master
+	@make build
+
 init: install dep
 	@echo "Initializing the repo..."
 
