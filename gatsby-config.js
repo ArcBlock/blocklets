@@ -5,7 +5,7 @@ const yaml = require('js-yaml');
 const filePath = path.resolve(__dirname, 'registry.yml');
 const registry = yaml.safeLoad(fs.readFileSync(filePath));
 
-const gitSources = registry.map(({ name }) => ({
+const npmSources = registry.map(({ name }) => ({
   resolve: require.resolve('gatsby-source-npmjs'),
   options: {
     name,
@@ -21,7 +21,7 @@ const gitSources = registry.map(({ name }) => ({
 }));
 
 module.exports = {
-  plugins: gitSources.concat([
+  plugins: npmSources.concat([
     {
       resolve: require.resolve('@arcblock/www'),
     },

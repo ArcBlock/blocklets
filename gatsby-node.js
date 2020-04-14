@@ -238,6 +238,17 @@ exports.createPages = async ({ actions, graphql }) => {
     )
   );
 
+  // Write blocklet detail to json file
+  const dataDir = path.join(__dirname, './static/blocklet');
+  if (fs.existsSync(dataDir) === false) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+  blocklets.forEach(x => {
+    const jsonPath = path.join(dataDir, `${x.did}.json`);
+    console.log('Write detail data to disk', jsonPath);
+    fs.writeFileSync(jsonPath, JSON.stringify(x));
+  });
+
   // 3. create blocklet list page
   actions.createPage({
     path: '/',
