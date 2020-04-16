@@ -4,6 +4,7 @@ const path = require('path');
 const axios = require('axios');
 const pick = require('lodash/pick');
 const sortBy = require('lodash/sortBy');
+const camelCase = require('lodash/camelCase');
 const { types } = require('@arcblock/mcrypto');
 const { toHex } = require('@arcblock/forge-util');
 const { fromPublicKey } = require('@arcblock/did');
@@ -138,6 +139,9 @@ exports.createPages = async ({ actions, graphql }) => {
       if (npm && fs.existsSync(npm.absolutePath)) {
         try {
           Object.assign(rawAttrs, JSON.parse(fs.readFileSync(npm.absolutePath).toString()));
+          if (rawAttrs.blocklet) {
+            Object.assign(rawAttrs, rawAttrs.blocklet);
+          }
         } catch (err) {
           console.error('Error parsing package.json', npm.absolutePath);
         }
@@ -161,6 +165,9 @@ exports.createPages = async ({ actions, graphql }) => {
         htmlAst: true,
         main: false,
         logoUrl: false,
+        public_url: false,
+        admin_url: false,
+        config_url: false,
 
         author: false,
         charging: false,
@@ -207,7 +214,10 @@ exports.createPages = async ({ actions, graphql }) => {
       // Derive did from name
       selectedAttrs.did = toBlockletDid(selectedAttrs.name);
 
-      return selectedAttrs;
+      return Object.keys(selectedAttrs).reduce((acc, k) => {
+        acc[camelCase(k)] = selectedAttrs[k];
+        return acc;
+      }, {});
     })
     .filter(Boolean);
 
@@ -220,6 +230,7 @@ exports.createPages = async ({ actions, graphql }) => {
     })
   );
 
+  // Exclude blocklet that's blocked by config
   blocklets = sortBy(blocklets, x => x.stats.downloads)
     .reverse()
     .filter(x => blocked.includes(x.name) === false);
