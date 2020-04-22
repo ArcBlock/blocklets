@@ -13,3 +13,4 @@
 - name: xmark-website-starter
 - name: "@arcblock/block-explorer"
 - name: "@arcblock/graphql-playground"
+- name: "forge-release-manager"
