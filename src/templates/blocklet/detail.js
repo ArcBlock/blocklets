@@ -224,7 +224,8 @@ function BlockletDetail({ location, pageContext }) {
                 horizontal: 'center',
               }}>
               <Popup>
-                <Steps name={name} usages={usages} />
+                {group === 'starter' && <Steps name={name} usages={usages} />}
+                {group === 'dapp' && <Typography gutterBottom>This blocklet should be used in ABT Node</Typography>}
                 {gitUrl && (
                   <Typography className="code-github">
                     Checkout source code:
