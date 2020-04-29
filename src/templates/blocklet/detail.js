@@ -76,7 +76,7 @@ function BlockletDetail({ location, pageContext }) {
     htmlAst,
     gitUrl,
     stats,
-    screenshots,
+    screenshots = [],
     charging,
     author,
     documentation,
@@ -225,7 +225,9 @@ function BlockletDetail({ location, pageContext }) {
               }}>
               <Popup>
                 {group === 'starter' && <Steps name={name} usages={usages} />}
-                {group === 'dapp' && <Typography gutterBottom>This blocklet should be used in ABT Node</Typography>}
+                {['dapp', 'static'].includes(group) && (
+                  <Typography gutterBottom>This blocklet should be used in ABT Node</Typography>
+                )}
                 {gitUrl && (
                   <Typography className="code-github">
                     Checkout source code:

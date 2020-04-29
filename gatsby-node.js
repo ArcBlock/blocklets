@@ -128,7 +128,7 @@ exports.createPages = async ({ actions, graphql }) => {
   blocklets = Object.keys(blocklets)
     .map(x => {
       const { main, npm } = blocklets[x];
-      if (!main) {
+      if (!main && !npm) {
         return null;
       }
 
@@ -192,7 +192,7 @@ exports.createPages = async ({ actions, graphql }) => {
       // eslint-disable-next-line no-restricted-syntax
       for (const key of requiredAttrs) {
         if (!selectedAttrs[key]) {
-          console.warn(`Blocklet ${rawAttrs.dir} not properly configured: missing required field ${key}`);
+          console.warn(`Blocklet ${rawAttrs.name} not properly configured: missing required field ${key}`);
           return null;
         }
       }
