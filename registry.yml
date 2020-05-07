@@ -17,3 +17,4 @@
 - name: "static-demo-blocklet"
 - name: "dapp-demo-blocklet"
 - name: "blockchain-manager"
+- name: "did-connect"
