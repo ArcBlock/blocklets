@@ -82,9 +82,11 @@ exports.createPages = async ({ actions, graphql }) => {
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].dir = dir;
       blocklets[dir].main = node;
-      blocklets[dir].usages = config.usages || [];
       blocklets[dir].repoName = node.npmMeta.repoName;
       blocklets[dir].gitUrl = node.npmMeta.repoHref;
+      blocklets[dir].usages = config.usages || [];
+      blocklets[dir].hooks = config.hooks;
+      blocklets[dir].requiredEnvironments = config.requiredEnvironments;
     }
 
     if (node.base === 'package.json') {
@@ -184,6 +186,8 @@ exports.createPages = async ({ actions, graphql }) => {
         support: false,
         screenshots: false,
         tags: false,
+        hooks: false,
+        requiredEnvironments: false,
       };
 
       const selectedAttrs = pick(rawAttrs, Object.keys(attrs));
@@ -254,6 +258,7 @@ exports.createPages = async ({ actions, graphql }) => {
   if (fs.existsSync(dataDir) === false) {
     fs.mkdirSync(dataDir, { recursive: true });
   }
+
   blocklets.forEach(x => {
     const jsonPath = path.join(dataDir, `${x.did}.json`);
     console.log('Write detail data to disk', jsonPath);

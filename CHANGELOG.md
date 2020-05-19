@@ -1,3 +1,7 @@
+## 0.20.1 (May 19, 2020)
+
+- merge blocket.hooks and blocklet.requiredEnvironments
+
 ## 0.20.0 (April 23, 2020)
 
 
