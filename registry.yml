@@ -18,4 +18,4 @@
 - name: "dapp-demo-blocklet"
 - name: "blockchain-manager"
 - name: "did-connect"
-- name: "blocklet-hooks-demo"
+- name: "kitchen-sink-blocklet"
