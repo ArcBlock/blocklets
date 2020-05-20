@@ -1,3 +1,7 @@
+## 0.20.2 (May 20, 2020)
+
+- replace blocklet-hooks-demo with kitchen-sink-blocklet
+
 ## 0.20.1 (May 19, 2020)
 
 - merge blocket.hooks and blocklet.requiredEnvironments
