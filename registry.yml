@@ -17,5 +17,6 @@
 - name: "static-demo-blocklet"
 - name: "dapp-demo-blocklet"
 - name: "blockchain-manager"
+- name: "wallet-playground"
 - name: "did-connect"
 - name: "kitchen-sink-blocklet"
