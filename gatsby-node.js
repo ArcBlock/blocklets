@@ -170,6 +170,7 @@ exports.createPages = async ({ actions, graphql }) => {
         public_url: false,
         admin_url: false,
         config_url: false,
+        doc_url: false,
 
         author: false,
         charging: false,
