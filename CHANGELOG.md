@@ -1,3 +1,7 @@
+## 0.20.3 (May 27, 2020)
+
+chore: refact read blocklet config function
+
 ## 0.20.2 (May 20, 2020)
 
 - replace blocklet-hooks-demo with kitchen-sink-blocklet
