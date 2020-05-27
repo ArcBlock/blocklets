@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@abtnode/util@^0.6.4":
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/@abtnode/util/-/util-0.6.4.tgz#4501b3ef1429e84f7216c0fd4e906e6eced88951"
+  integrity sha512-vRCQOmtIcjKV9MgaX9l8nO3n+uDcfW0vTiiQDDn1o2uA5mRLF31cq2XSGNE6CNuliK+U5PIIqXgHYbbnULXCXg==
+  dependencies:
+    debug "^4.1.1"
+    lodash "^4.17.15"
+
 "@arcblock/did-connect@^0.75.3":
   version "0.75.3"
   resolved "https://registry.npm.taobao.org/@arcblock/did-connect/download/@arcblock/did-connect-0.75.3.tgz#1605da38994d298b7de3f05b3b1b2624819d0473"

@@ -1,4 +1,5 @@
 require('dotenv').config();
+const childProcess = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
@@ -9,7 +10,7 @@ const { types } = require('@arcblock/mcrypto');
 const { toHex } = require('@arcblock/forge-util');
 const { fromPublicKey } = require('@arcblock/did');
 const { languages } = require('@arcblock/www/src/libs/locale');
-const childProcess = require('child_process');
+const { readBlockletConfig } = require('@abtnode/util');
 const debug = require('debug')(require('./package.json').name);
 
 const { blocked } = require('./config');
@@ -138,91 +139,19 @@ exports.createPages = async ({ actions, graphql }) => {
       rawAttrs.main = main ? main.absolutePath : null;
       rawAttrs.npm = npm ? npm.absolutePath : null;
 
-      if (npm && fs.existsSync(npm.absolutePath)) {
-        try {
-          Object.assign(rawAttrs, JSON.parse(fs.readFileSync(npm.absolutePath).toString()));
-          if (rawAttrs.blocklet) {
-            Object.assign(rawAttrs, rawAttrs.blocklet);
-          }
-        } catch (err) {
-          console.error('Error parsing package.json', npm.absolutePath);
-        }
+      try {
+        const selectedAttrs = readBlockletConfig(path.dirname(rawAttrs.main || rawAttrs.npm), {
+          forceRequireAttribute: false,
+          attributes: { htmlAst: true, main: false },
+          extraRawAttrs: rawAttrs,
+        });
+        // Derive did from name
+        selectedAttrs.did = toBlockletDid(selectedAttrs.name);
+        return selectedAttrs;
+      } catch (error) {
+        console.warn('Read blocklet config failed.', error.message);
+        return null;
       }
-      if (main && fs.existsSync(main.absolutePath)) {
-        try {
-          Object.assign(rawAttrs, JSON.parse(fs.readFileSync(main.absolutePath).toString()));
-        } catch (err) {
-          console.error('Error parsing blocklet.json', main.absolutePath);
-        }
-      }
-
-      const attrs = {
-        name: true,
-        description: true,
-        group: true,
-        gitUrl: false,
-        provider: true,
-        repoName: false,
-        version: true,
-        htmlAst: true,
-        main: false,
-        logoUrl: false,
-        public_url: false,
-        admin_url: false,
-        config_url: false,
-        doc_url: false,
-
-        author: false,
-        charging: false,
-        color: false,
-        community: false,
-        dir: false,
-        documentation: false,
-        homepage: false,
-        keywords: false,
-        licence: false,
-        npm: false,
-        repository: false,
-        usages: false,
-        support: false,
-        screenshots: false,
-        tags: false,
-        hooks: false,
-        requiredEnvironments: false,
-      };
-
-      const selectedAttrs = pick(rawAttrs, Object.keys(attrs));
-      const requiredAttrs = Object.keys(attrs).filter(a => attrs[a]);
-
-      // eslint-disable-next-line no-restricted-syntax
-      for (const key of requiredAttrs) {
-        if (!selectedAttrs[key]) {
-          console.warn(`Blocklet ${rawAttrs.name} not properly configured: missing required field ${key}`);
-          return null;
-        }
-      }
-
-      // TODO: detect duplicate blocklet names
-      selectedAttrs.path = `/${selectedAttrs.group}/${selectedAttrs.name}`;
-
-      // Assign a color
-      const colors = ['primary', 'secondary', 'error'];
-      if (!selectedAttrs.color || !colors.includes(selectedAttrs.color)) {
-        [selectedAttrs.color] = colors;
-      }
-
-      // Set charging to free if not specified
-      if (!selectedAttrs.charging) {
-        selectedAttrs.charging = { price: 0 };
-      }
-
-      // Derive did from name
-      selectedAttrs.did = toBlockletDid(selectedAttrs.name);
-
-      return Object.keys(selectedAttrs).reduce((acc, k) => {
-        acc[camelCase(k)] = selectedAttrs[k];
-        return acc;
-      }, {});
     })
     .filter(Boolean);
 
