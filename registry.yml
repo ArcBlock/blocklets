@@ -19,3 +19,4 @@
 - name: "did-connect"
 - name: "kitchen-sink-blocklet"
 - name: "blockchain-boarding-gate"
+- name: "aws-node-launcher"
