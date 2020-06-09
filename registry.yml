@@ -19,4 +19,4 @@
 - name: "kitchen-sink-blocklet"
 - name: "blockchain-boarding-gate"
 - name: "abt-node-launcher"
-- name: "ocap-qldb-demo"
+- name: "ocap-qldb-adapter"
