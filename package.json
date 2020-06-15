@@ -3,7 +3,7 @@
   "version": "0.20.3",
   "private": true,
   "dependencies": {
-    "@abtnode/util": "^0.6.4",
+    "@abtnode/util": "^0.6.29",
     "@arcblock/did": "^1.2.7",
     "@arcblock/forge-util": "^1.2.7",
     "@arcblock/gatsby-theme-www": "^7.22.0",

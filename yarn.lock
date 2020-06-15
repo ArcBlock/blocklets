@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@abtnode/util@^0.6.4":
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/@abtnode/util/-/util-0.6.4.tgz#4501b3ef1429e84f7216c0fd4e906e6eced88951"
-  integrity sha512-vRCQOmtIcjKV9MgaX9l8nO3n+uDcfW0vTiiQDDn1o2uA5mRLF31cq2XSGNE6CNuliK+U5PIIqXgHYbbnULXCXg==
+"@abtnode/util@^0.6.29":
+  version "0.6.29"
+  resolved "https://registry.yarnpkg.com/@abtnode/util/-/util-0.6.29.tgz#9b74ff7000b1a6165a236b8e756789c01b9b80b5"
+  integrity sha512-3lxP8ayVl332EEFy0VqqPqLDPSdWP0hSLoGsEe5JJr7zrVFF5fMNoiwX/e/K6q6cMbcrQDN4c/wRJgHCDvrQgQ==
   dependencies:
     debug "^4.1.1"
     lodash "^4.17.15"
