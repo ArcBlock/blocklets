@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const sortBy = require('lodash/sortBy');
+const uniqBy = require('lodash/uniqBy');
 const { types } = require('@arcblock/mcrypto');
 const { toHex } = require('@arcblock/forge-util');
 const { fromPublicKey } = require('@arcblock/did');
@@ -80,7 +81,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].dir = dir;
-      blocklets[dir].main = node;
+      blocklets[dir].blockletJson = node;
       blocklets[dir].repoName = node.npmMeta.repoName;
       blocklets[dir].gitUrl = node.npmMeta.repoHref;
       blocklets[dir].usages = config.usages || [];
@@ -92,7 +93,7 @@ exports.createPages = async ({ actions, graphql }) => {
       const dir = path.dirname(node.absolutePath);
 
       blocklets[dir] = blocklets[dir] || {};
-      blocklets[dir].npm = node;
+      blocklets[dir].packageJson = node;
     }
 
     // Append logo url
@@ -128,17 +129,17 @@ exports.createPages = async ({ actions, graphql }) => {
   // 2. merge blocklet config
   blocklets = Object.keys(blocklets)
     .map(x => {
-      const { main, npm } = blocklets[x];
-      if (!main && !npm) {
+      const { blockletJson, packageJson } = blocklets[x];
+      if (!blockletJson && !packageJson) {
         return null;
       }
 
       const rawAttrs = blocklets[x];
-      rawAttrs.main = main ? main.absolutePath : null;
-      rawAttrs.npm = npm ? npm.absolutePath : null;
+      rawAttrs.blockletJson = blockletJson ? blockletJson.absolutePath : null;
+      rawAttrs.packageJson = packageJson ? packageJson.absolutePath : null;
 
       try {
-        const selectedAttrs = readBlockletConfig(path.dirname(rawAttrs.main || rawAttrs.npm), {
+        const selectedAttrs = readBlockletConfig(path.dirname(rawAttrs.blockletJson || rawAttrs.packageJson), {
           forceRequireAttribute: false,
           attributes: { htmlAst: true, main: false },
           extraRawAttrs: rawAttrs,
@@ -152,6 +153,9 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     })
     .filter(Boolean);
+
+  // Remove duplicates
+  blocklets = uniqBy(blocklets, x => x.name);
 
   await Promise.all(
     blocklets.map(async blocklet => {
