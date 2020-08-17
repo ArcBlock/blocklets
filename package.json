@@ -2,6 +2,15 @@
   "name": "@arcblock/blocklets",
   "version": "0.20.3",
   "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "www/",
+    "screenshots/",
+    "blocklet.md",
+    "README.md"
+  ],
   "dependencies": {
     "@abtnode/util": "^0.6.29",
     "@arcblock/did": "^1.2.13",
@@ -62,5 +71,22 @@
     "eslint-plugin-react": "^7.18.3",
     "husky": "^1.3.0",
     "lint-staged": "^8.1.0"
+  },
+  "blocklet": {
+    "main": "www",
+    "description": "a blocklet registry dapp.",
+    "title": "Blocklets",
+    "group": "static",
+    "color": "primary",
+    "provider": "arcblock",
+    "documentation": "https://docs.arcblock.io",
+    "support": "support@arcblock.io",
+    "community": "https://gitter.im/ArcBlock/community",
+    "config_url": "",
+    "public_url": "/",
+    "admin_url": "",
+    "hooks": {
+      "pre-deploy": "npm run build"
+    }
   }
 }
