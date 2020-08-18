@@ -24,4 +24,7 @@ api/dist
 static/blocklets.json
 static/blocklet/*.json
 .env
-/_blocklet
+
+blocklets/*/static
+blocklet.js
+_blocklet

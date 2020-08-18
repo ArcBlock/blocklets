@@ -66,6 +66,14 @@ deploy:
 	@echo "Deploying the software..."
 	@netlify deploy
 
+build-blocklets-blocklet:
+	@echo "build blocklets blocklet..."
+	@yarn build
+	@node tools/pre-publish.js blocklets-blocklet
+	@rm -rf blocklets/blocklets-blocklet/static
+	@mv www blocklets/blocklets-blocklet/static
+	@cd blocklets/blocklets-blocklet && abtnode bundle
+
 include .makefiles/*.mk
 
 .PHONY: build init travis-init install dep pre-build post-build all test doc precommit travis clean watch run bump-version create-pr

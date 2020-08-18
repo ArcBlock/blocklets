@@ -1,0 +1,44 @@
+{
+  "name": "@arcblock/blocklets-blocklet",
+  "version": "0.20.3",
+  "description": "a blocklet for blocklets registry.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "static/",
+    "screenshots/",
+    "blocklet.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ArcBlock/blocklets.git"
+  },
+  "keywords": [
+    "blocklets",
+    "developer"
+  ],
+  "author": "wangshijun <shijun@arcblock.io> (http://github.com/wangshijun)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ArcBlock/blocklets/issues"
+  },
+  "homepage": "https://github.com/ArcBlock/blocklets",
+  "dependencies": {},
+  "scripts": {},
+  "devDependencies": {},
+  "blocklet": {
+    "main": "static",
+    "description": "a blocklet for blocklets registry.",
+    "title": "Blocklets",
+    "group": "static",
+    "color": "primary",
+    "provider": "arcblock",
+    "documentation": "https://docs.arcblock.io",
+    "support": "support@arcblock.io",
+    "community": "https://gitter.im/ArcBlock/community",
+    "config_url": "",
+    "public_url": "/",
+    "admin_url": ""
+  }
+}
