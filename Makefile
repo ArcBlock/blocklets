@@ -66,13 +66,13 @@ deploy:
 	@echo "Deploying the software..."
 	@netlify deploy
 
-build-blocklets-blocklet:
+build-blocklet-registry:
 	@echo "build blocklets blocklet..."
 	@yarn build
-	@node tools/pre-publish.js blocklets-blocklet
-	@rm -rf blocklets/blocklets-blocklet/static
-	@mv www blocklets/blocklets-blocklet/static
-	@cd blocklets/blocklets-blocklet && abtnode bundle
+	@node tools/pre-publish.js blocklet-registry
+	@rm -rf blocklets/blocklet-registry/static
+	@mv www blocklets/blocklet-registry/static
+	@cd blocklets/blocklet-registry && abtnode bundle
 
 include .makefiles/*.mk
 
