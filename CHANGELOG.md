@@ -1,3 +1,7 @@
+## 0.20.4 (August 18, 2020)
+  - add publish config
+  - add blocklet meta
+
 ## 0.20.3 (May 27, 2020)
 
 chore: refact read blocklet config function
