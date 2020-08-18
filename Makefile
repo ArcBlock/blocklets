@@ -68,7 +68,7 @@ deploy:
 
 build-blocklet-registry:
 	@echo "build blocklets blocklet..."
-	@yarn build
+	@yarn build-blocklet
 	@node tools/pre-publish.js blocklet-registry
 	@rm -rf blocklets/blocklet-registry/static
 	@mv www blocklets/blocklet-registry/static

@@ -50,6 +50,7 @@
     "clean": "rm -rf public",
     "build:gatsby": "gatsby build && rm -rf www && mv public www",
     "build": "npm run clean && npm-run-all build:*",
+    "build-blocklet": "npm run clean && gatsby build --prefix-paths && rm -rf www && mv public www",
     "start:gatsby": "gatsby develop --host 0.0.0.0",
     "start": "npm-run-all --parallel start:*"
   },
