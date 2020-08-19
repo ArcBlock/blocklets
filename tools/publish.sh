@@ -10,6 +10,7 @@ npm install -g @abtnode/cli
 
 echo "publishing blocklets blocklet..."
 yarn build-blocklet
+rm -f www/*.map
 rm -rf blocklets/blocklet-registry/static
 mv www blocklets/blocklet-registry/static
 node tools/pre-publish.js blocklet-registry
