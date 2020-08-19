@@ -39,4 +39,4 @@ const sendAlerts = packageDirs => {
   }
 })();
 
-sendAlerts(['../blocklets']);
+sendAlerts(['.']);

@@ -11,10 +11,6 @@ npm install -g @abtnode/cli
 echo "publishing blocklets blocklet..."
 yarn build-blocklet
 rm -f www/*.map
-rm -rf blocklets/blocklet-registry/static
-mv www blocklets/blocklet-registry/static
-node tools/pre-publish.js blocklet-registry
-cd blocklets/blocklet-registry && npm install && NODE_ENV=production abtnode bundle && npm publish _blocklet --access=public
-cd ../../
+NODE_ENV=production abtnode bundle && npm publish _blocklet
 
 node tools/post-publish.js

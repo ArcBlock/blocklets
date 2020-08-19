@@ -70,10 +70,7 @@ build-blocklet-registry:
 	@echo "build blocklets blocklet..."
 	@yarn build-blocklet
 	@rm -f www/*.map
-	@node tools/pre-publish.js blocklet-registry
-	@rm -rf blocklets/blocklet-registry/static
-	@mv www blocklets/blocklet-registry/static
-	@cd blocklets/blocklet-registry && abtnode bundle
+	@abtnode bundle
 
 include .makefiles/*.mk
 
