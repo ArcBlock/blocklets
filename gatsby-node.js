@@ -152,7 +152,7 @@ exports.createPages = async ({ actions, graphql }) => {
       try {
         const selectedAttrs = readBlockletConfig(path.dirname(rawAttrs.blockletJson || rawAttrs.packageJson), {
           enableDefaults: false,
-          attributes: { htmlAst: true, main: false },
+          extraAttrSpec: { htmlAst: true, main: false },
           extraRawAttrs: rawAttrs,
         });
         // Derive did from name
