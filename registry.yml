@@ -21,3 +21,4 @@
 - name: "abt-node-launcher"
 - name: "ocap-qldb-adapter"
 - name: "crypto-2048"
+# - name: "@arcblock/blocklet-registry"

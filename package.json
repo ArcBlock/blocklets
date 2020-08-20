@@ -1,7 +1,6 @@
 {
   "name": "@arcblock/blocklet-registry",
   "version": "0.20.7",
-  "private": true,
   "publishConfig": {
     "access": "public"
   },
@@ -56,9 +55,8 @@
     "lint": "eslint src",
     "test": "exit 0",
     "clean": "rm -rf public",
-    "build:gatsby": "gatsby build && rm -rf www && mv public www",
+    "build:gatsby": "gatsby build && rm -rf www && mv public www && rm -f www/*.map",
     "build": "npm run clean && npm-run-all build:*",
-    "build-blocklet": "npm run clean && gatsby build --prefix-paths && rm -rf www && mv public www",
     "start:gatsby": "gatsby develop --host 0.0.0.0",
     "start": "npm-run-all --parallel start:*"
   },
@@ -74,8 +72,8 @@
   },
   "blocklet": {
     "main": "www",
-    "description": "a blocklet for blocklets registry.",
-    "title": "Blocklets",
+    "description": "The official blocklet registry blocklet which can be used to make things decentralized",
+    "title": "Blocklet Registry",
     "group": "static",
     "color": "primary",
     "provider": "arcblock",
@@ -84,7 +82,12 @@
     "community": "https://gitter.im/ArcBlock/community",
     "config_url": "",
     "public_url": "/",
-    "admin_url": ""
+    "admin_url": "",
+    "hooks": {
+      "pre-deploy": "npm run build"
+    },
+    "capabilities": {
+      "dynamicPathPrefix": false
+    }
   }
-
 }
