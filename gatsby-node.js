@@ -126,6 +126,17 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   });
 
+  // Ensure we have only 1 blocklet under a directory
+  const keys = Object.keys(blocklets).sort((a, b) => a.length - b.length);
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    for (let j = 0; j < i; j++) {
+      if (key.indexOf(keys[j]) > -1) {
+        delete blocklets[key];
+      }
+    }
+  }
+
   // 2. merge blocklet config
   blocklets = Object.keys(blocklets)
     .map(x => {
@@ -140,7 +151,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
       try {
         const selectedAttrs = readBlockletConfig(path.dirname(rawAttrs.blockletJson || rawAttrs.packageJson), {
-          forceRequireAttribute: false,
+          enableDefaults: false,
           attributes: { htmlAst: true, main: false },
           extraRawAttrs: rawAttrs,
         });
