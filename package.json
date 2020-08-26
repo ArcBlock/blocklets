@@ -1,6 +1,6 @@
 {
   "name": "@arcblock/blocklet-registry",
-  "version": "0.21.0",
+  "version": "0.21.1",
   "publishConfig": {
     "access": "public"
   },
@@ -10,7 +10,7 @@
     "blocklet.md"
   ],
   "dependencies": {
-    "@abtnode/util": "^0.6.29",
+    "@abtnode/util": "^0.9.7",
     "@arcblock/did": "^1.3.3",
     "@arcblock/forge-util": "^1.2.13",
     "@arcblock/gatsby-theme-www": "^7.28.0",

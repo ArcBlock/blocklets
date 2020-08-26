@@ -1,3 +1,7 @@
+## 0.21.1 (August 26, 2020)
+
+- fix: bump abtnode/util version to latest
+
 ## 0.21.0 (August 20, 2020)
 
 ## 0.20.8 (August 26, 2020)
