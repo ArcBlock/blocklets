@@ -21,7 +21,6 @@ const npmSources = registry.map(({ name }) => ({
 }));
 
 module.exports = {
-  pathPrefix: '/z8iZybVvuEz4N9wf3CfGGP5uERMFhziuxGEqe',
   plugins: npmSources.concat([
     {
       resolve: require.resolve('@arcblock/www'),

@@ -9,7 +9,7 @@ npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
 npm install -g @abtnode/cli
 
 echo "publishing blocklets blocklet..."
-yarn build-blocklet
+yarn build
 rm -f www/*.map
 NODE_ENV=production abtnode bundle && npm publish _blocklet
 
