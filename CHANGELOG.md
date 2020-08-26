@@ -1,3 +1,7 @@
+## 0.20.8 (August 26, 2020)
+
+- add @arcblock/abtnode-docs, @arcblock/universal-explorer, @arcblock/blocklet-registry
+
 ## 0.20.7 (August 19, 2020)
 
 
