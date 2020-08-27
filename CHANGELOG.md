@@ -1,3 +1,7 @@
+## 0.21.2 (August 27, 2020)
+
+- add www-wallet blocklet
+
 ## 0.21.1 (August 26, 2020)
 
 - fix: bump abtnode/util version to latest
