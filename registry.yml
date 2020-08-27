@@ -24,3 +24,4 @@
 - name: "@arcblock/abtnode-docs"
 - name: "@arcblock/universal-explorer"
 - name: "@arcblock/blocklet-registry"
+- name: "@arcblock/www-wallet"
