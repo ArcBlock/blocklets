@@ -2,8 +2,8 @@
 
 export function getBlockletLogo(blocklet) {
   const defaults = {
-    official: './images/official.svg',
-    community: './images/community.svg',
+    official: '/images/official.svg',
+    community: '/images/community.svg',
   };
 
   // TODO: uncomment this to use blocklet logo after shanghai event
