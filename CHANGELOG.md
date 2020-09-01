@@ -1,3 +1,7 @@
+## 0.21.3 (September 01, 2020)
+
+- fix blocklet detail page image broken
+
 ## 0.21.2 (August 27, 2020)
 
 - add www-wallet blocklet
