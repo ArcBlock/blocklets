@@ -22,7 +22,6 @@
 - name: "ocap-qldb-adapter"
 - name: "crypto-2048"
 - name: "@arcblock/abtnode-docs"
-- name: "@arcblock/universal-explorer"
 - name: "@arcblock/blocklet-registry"
 - name: "@arcblock/www-wallet"
 - name: "@arcblock/did-kyc"
