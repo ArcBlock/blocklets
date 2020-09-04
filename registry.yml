@@ -25,5 +25,4 @@
 - name: "@arcblock/universal-explorer"
 - name: "@arcblock/blocklet-registry"
 - name: "@arcblock/www-wallet"
-- name: "@arcblock/i-did-it"
 - name: "@arcblock/did-kyc"
