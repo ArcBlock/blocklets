@@ -1,3 +1,7 @@
+## 0.21.7 (September 10, 2020)
+
+- replace wallet playground with blocklet wallet playground
+
 ## 0.21.6 (September 04, 2020)
 
 - remove universal explorer blocklet
