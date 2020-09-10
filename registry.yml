@@ -14,7 +14,7 @@
 - name: "@arcblock/graphql-playground"
 - name: "static-demo-blocklet"
 - name: "blockchain-manager"
-- name: "wallet-playground"
+- name: "blocklet-wallet-playground"
 - name: "did-connect"
 - name: "kitchen-sink-blocklet"
 - name: "blockchain-boarding-gate"
