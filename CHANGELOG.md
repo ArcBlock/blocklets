@@ -1,3 +1,7 @@
+## 0.21.7 (September 16, 2020)
+
+- remove kitchen sink blocklet
+
 ## 0.21.6 (September 04, 2020)
 
 - remove universal explorer blocklet
