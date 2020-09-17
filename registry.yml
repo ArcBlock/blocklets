@@ -24,3 +24,4 @@
 - name: "@arcblock/blocklet-registry"
 - name: "@arcblock/www-wallet"
 - name: "@arcblock/did-kyc"
+- name: "uniswap-blocklet"
