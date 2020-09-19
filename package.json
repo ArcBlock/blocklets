@@ -1,6 +1,6 @@
 {
   "name": "@arcblock/blocklet-registry",
-  "version": "0.21.9",
+  "version": "0.21.10",
   "publishConfig": {
     "access": "public"
   },
@@ -54,7 +54,7 @@
   "scripts": {
     "lint": "eslint src",
     "test": "exit 0",
-    "clean": "rm -rf public",
+    "clean": "rm -rf public .cache",
     "build:gatsby": "gatsby build && rm -rf www && mv public www && rm -f www/*.map",
     "build": "npm run clean && npm-run-all build:*",
     "start:gatsby": "gatsby develop --host 0.0.0.0",
