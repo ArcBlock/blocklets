@@ -29,8 +29,10 @@ if [ -f $VERSION ]; then
     V_MINOR=$((V_MINOR + 1))
     V_PATCH=0
     SUGGESTED_VERSION="$V_MAJOR.$V_MINOR.$V_PATCH"
-    echo -ne "${QUESTION_FLAG} ${CYAN}Enter a version number [${WHITE}$SUGGESTED_VERSION${CYAN}]: "
-    read INPUT_STRING
+    if [ "$SKIP_INPUT" = "" ]; then
+        echo -ne "${QUESTION_FLAG} ${CYAN}Enter a version number [${WHITE}$SUGGESTED_VERSION${CYAN}]: "
+        read INPUT_STRING
+    fi
     if [ "$INPUT_STRING" = "" ]; then
         INPUT_STRING=$SUGGESTED_VERSION
     fi
@@ -43,6 +45,8 @@ if [ -f $VERSION ]; then
     cat CHANGELOG.md >> tmpfile
     mv tmpfile CHANGELOG.md
     echo -e "$ADJUSTMENTS_MSG"
-    read
+    if [ "$SKIP_INPUT" = "" ]; then
+        read
+    fi
     git add CHANGELOG.md $VERSION package.json
 fi
