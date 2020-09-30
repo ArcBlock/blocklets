@@ -1,6 +1,6 @@
 {
   "name": "@arcblock/blocklet-registry",
-  "version": "0.21.24",
+  "version": "0.21.25",
   "publishConfig": {
     "access": "public"
   },
