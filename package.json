@@ -1,6 +1,6 @@
 {
   "name": "@arcblock/blocklet-registry",
-  "version": "0.21.36",
+  "version": "0.21.37",
   "publishConfig": {
     "access": "public"
   },
@@ -8,6 +8,11 @@
     "www/",
     "screenshots/",
     "blocklet.md"
+  ],
+  "keywords": [
+    "Registry",
+    "Blocklet",
+    "ABTNode"
   ],
   "dependencies": {
     "@abtnode/util": "^1.0.18",
