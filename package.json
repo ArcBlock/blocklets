@@ -9,6 +9,11 @@
     "screenshots/",
     "blocklet.md"
   ],
+  "keywords": [
+    "Registry",
+    "Blocklet",
+    "ABTNode"
+  ],
   "dependencies": {
     "@abtnode/util": "^1.0.18",
     "@arcblock/did": "^1.4.2",
