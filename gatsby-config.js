@@ -28,6 +28,8 @@ module.exports = {
     {
       resolve: require.resolve('@arcblock/gatsby-theme-www'),
       options: {
+        showGetStarted: true,
+        defaultBanner: '/og-banner.png',
         excludeI18n: () => true,
         excludeMd: ({ fileAbsolutePath }) => fileAbsolutePath.endsWith('/blocklet.md'),
       },
