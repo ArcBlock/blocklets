@@ -40,7 +40,7 @@ const getNpmInfo = async name => {
     const { dist = {} } = view;
     const { modified } = view.time;
     return {
-      status: {
+      stats: {
         updated_at: modified.trim(),
       },
       dist,
