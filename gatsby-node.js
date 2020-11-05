@@ -33,10 +33,18 @@ const getNpmDownloadCount = async name => {
   }
 };
 
-const getNpmStats = async name => {
+const getNpmInfo = async name => {
   try {
-    const updatedAt = childProcess.execSync(`npm view ${name} time.modified`, { encoding: 'utf8' }) || '';
-    return { updated_at: updatedAt.trim() };
+    const viewStr = childProcess.execSync(`npm view ${name} --json`, { encoding: 'utf8' }) || '';
+    const view = JSON.parse(viewStr);
+    const { dist = {} } = view;
+    const { modified } = view.time;
+    return {
+      status: {
+        updated_at: modified.trim(),
+      },
+      dist,
+    };
   } catch (error) {
     return {};
   }
@@ -171,9 +179,10 @@ exports.createPages = async ({ actions, graphql }) => {
   await Promise.all(
     blocklets.map(async blocklet => {
       const downloads = await getNpmDownloadCount(blocklet.name);
-      const stats = await getNpmStats(blocklet.name);
+      const { stats = {}, dist = {} } = await getNpmInfo(blocklet.name);
       debug('downloadCount.done', { name: blocklet.name, downloads });
       blocklet.stats = { downloads, updated_at: stats.updated_at };
+      blocklet.dist = dist;
     })
   );
 
