@@ -38,6 +38,7 @@ const getNpmInfo = async name => {
     const viewStr = childProcess.execSync(`npm view ${name} --json`, { encoding: 'utf8' }) || '';
     const view = JSON.parse(viewStr);
     const { dist = {} } = view;
+    delete dist['npm-signature'];
     const { modified } = view.time;
     return {
       stats: {

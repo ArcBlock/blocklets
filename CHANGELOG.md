@@ -1,3 +1,5 @@
+## 0.21.54 (November 05, 2020)
+
 ## 0.21.53 (November 05, 2020)
   - Update blocklet meta: add dist info
 
