@@ -84,7 +84,15 @@ function BlockletDetail({ location, pageContext }) {
     support,
     color = 'primary',
     usages = [],
+    did,
   } = pageContext.blocklet;
+
+  const onInstall = () => {
+    const registerUrl = 'https://install.arcblock.io';
+    const w = window.open('about:blank');
+    const metaUrl = `https://blocklet.arcblock.io/blocklet/${did}.json`;
+    w.location.href = `${registerUrl}?action=blocklet-install&meta_url=${encodeURIComponent(metaUrl)}`;
+  };
 
   return (
     <Layout location={location} title={name}>
@@ -156,7 +164,7 @@ function BlockletDetail({ location, pageContext }) {
                       variant="contained"
                       size="large"
                       className="use-button"
-                      onClick={onOpen}>
+                      onClick={['dapp', 'static'].includes(group) ? onInstall : onOpen}>
                       Use Blocklet
                     </Button>
                   </div>
@@ -225,9 +233,6 @@ function BlockletDetail({ location, pageContext }) {
               }}>
               <Popup>
                 {group === 'starter' && <Steps name={name} usages={usages} />}
-                {['dapp', 'static'].includes(group) && (
-                  <Typography gutterBottom>This blocklet should be used in ABT Node</Typography>
-                )}
                 {gitUrl && (
                   <Typography className="code-github">
                     Checkout source code:
