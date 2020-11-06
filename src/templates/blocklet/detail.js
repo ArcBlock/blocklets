@@ -90,7 +90,8 @@ function BlockletDetail({ location, pageContext }) {
   const onInstall = () => {
     const registerUrl = 'https://install.arcblock.io';
     const w = window.open('about:blank');
-    const metaUrl = `https://blocklet.arcblock.io/blocklet/${did}.json`;
+    const { protocol, host } = window.location;
+    const metaUrl = `${protocol}://${host}/blocklet/${did}.json`;
     w.location.href = `${registerUrl}?action=blocklet-install&meta_url=${encodeURIComponent(metaUrl)}`;
   };
 
@@ -165,7 +166,7 @@ function BlockletDetail({ location, pageContext }) {
                       size="large"
                       className="use-button"
                       onClick={['dapp', 'static'].includes(group) ? onInstall : onOpen}>
-                      Use Blocklet
+                      {['dapp', 'static'].includes(group) ? 'Install On ABT Node' : 'Use Blocklet'}
                     </Button>
                   </div>
                   <Typography component="ul" className="meta-info">
