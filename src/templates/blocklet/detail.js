@@ -91,7 +91,7 @@ function BlockletDetail({ location, pageContext }) {
     const registerUrl = 'https://install.arcblock.io';
     const w = window.open('about:blank');
     const { protocol, host } = window.location;
-    const metaUrl = `${protocol}://${host}/blocklet/${did}.json`;
+    const metaUrl = `${protocol}//${host}/blocklet/${did}.json`;
     w.location.href = `${registerUrl}?action=blocklet-install&meta_url=${encodeURIComponent(metaUrl)}`;
   };
 
