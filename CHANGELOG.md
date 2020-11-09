@@ -1,14 +1,14 @@
-## 0.21.59 (November 06, 2020)
+## 0.22.0 (November 09, 2020)
 
+- chore: rename requiredEnvironments to environments
+
+## 0.21.59 (November 06, 2020)
 
 ## 0.21.58 (November 06, 2020)
 
-
 ## 0.21.57 (十一月 06, 2020)
 
-
 ## 0.21.56 (十一月 06, 2020)
-
 
 ## 0.21.55 (November 05, 2020)
 
@@ -17,144 +17,106 @@
 ## 0.21.54 (November 05, 2020)
 
 ## 0.21.53 (November 05, 2020)
-  - Update blocklet meta: add dist info
+
+- Update blocklet meta: add dist info
 
 ## 0.21.52 (November 05, 2020)
 
-
 ## 0.21.51 (November 04, 2020)
-
 
 ## 0.21.50 (November 02, 2020)
 
-
 ## 0.21.49 (November 02, 2020)
-
 
 ## 0.21.48 (November 02, 2020)
 
-
 ## 0.21.47 (November 02, 2020)
-  - update header
+
+- update header
 
 ## 0.21.46 (November 02, 2020)
 
-
 ## 0.21.45 (November 02, 2020)
-
 
 ## 0.21.44 (November 01, 2020)
 
-
 ## 0.21.43 (October 28, 2020)
-
 
 ## 0.21.42 (October 27, 2020)
 
-
 ## 0.21.41 (October 27, 2020)
-
 
 ## 0.21.40 (October 27, 2020)
 
-
 ## 0.21.39 (October 23, 2020)
-
 
 ## 0.21.38 (October 23, 2020)
 
-
 ## 0.21.37 (October 22, 2020)
-  - update keywords
+
+- update keywords
 
 ## 0.21.36 (October 22, 2020)
 
-
 ## 0.21.35 (October 21, 2020)
-
 
 ## 0.21.34 (October 20, 2020)
 
-
 ## 0.21.33 (October 20, 2020)
-
 
 ## 0.21.32 (October 20, 2020)
 
-
 ## 0.21.31 (October 20, 2020)
-
 
 ## 0.21.30 (October 20, 2020)
 
-
 ## 0.21.29 (October 20, 2020)
-
 
 ## 0.21.28 (October 14, 2020)
 
-
 ## 0.21.27 (October 10, 2020)
-
 
 ## 0.21.26 (October 10, 2020)
 
-
 ## 0.21.25 (September 30, 2020)
-
 
 ## 0.21.24 (September 30, 2020)
 
-
 ## 0.21.23 (September 30, 2020)
-
 
 ## 0.21.22 (September 30, 2020)
 
-
 ## 0.21.21 (September 30, 2020)
-
 
 ## 0.21.20 (September 29, 2020)
 
-
 ## 0.21.19 (September 29, 2020)
-
 
 ## 0.21.18 (September 29, 2020)
 
-
 ## 0.21.17 (September 29, 2020)
-
 
 ## 0.21.16 (September 29, 2020)
 
-
 ## 0.21.15 (September 28, 2020)
-  - ci: auto send notification to slack; remove netily hook (#61)
+
+- ci: auto send notification to slack; remove netily hook (#61)
 
 ## 0.21.14 (September 25, 2020)
 
-
 ## 0.21.13 (September 24, 2020)
-
 
 ## 0.21.12 (September 24, 2020)
 
-
 ## 0.21.11 (September 24, 2020)
 
-
 ## 0.21.10 (September 20, 2020)
-
 
 ## 0.21.9 (September 18, 2020)
 
 ci: auto deploy to ABT Node
 
-
 ## 0.21.8 (September 17, 2020)
-
 
 ## 0.21.7 (September 16, 2020)
 
@@ -166,9 +128,7 @@ ci: auto deploy to ABT Node
 
 ## 0.21.5 (September 04, 2020)
 
-
 ## 0.21.4 (September 03, 2020)
-
 
 ## 0.21.3 (September 01, 2020)
 
@@ -190,16 +150,14 @@ ci: auto deploy to ABT Node
 
 ## 0.20.7 (August 19, 2020)
 
-
 ## 0.20.6 (August 19, 2020)
-
 
 ## 0.20.5 (August 18, 2020)
 
-
 ## 0.20.4 (August 18, 2020)
-  - add publish config
-  - add blocklet meta
+
+- add publish config
+- add blocklet meta
 
 ## 0.20.3 (May 27, 2020)
 
@@ -215,39 +173,27 @@ chore: refact read blocklet config function
 
 ## 0.20.0 (April 23, 2020)
 
-
 ## 0.19.0 (April 22, 2020)
-
 
 ## 0.18.0 (April 22, 2020)
 
-
 ## 0.17.0 (April 16, 2020)
-
 
 ## 0.16.0 (April 14, 2020)
 
-
 ## 0.15.0 (April 07, 2020)
-
 
 ## 0.14.1 (March 31, 2020)
 
-
 ## 0.14.0 (March 31, 2020)
-
 
 ## 0.13.0 (March 27, 2020)
 
-
 ## 0.12.0 (March 24, 2020)
-
 
 ## 0.11.1 (March 24, 2020)
 
-
 ## 0.11.0 (March 20, 2020)
-
 
 ## 0.10.4 (March 20, 2020)
 
@@ -263,18 +209,13 @@ chore: refact read blocklet config function
 
 ## 0.10.1 (March 03, 2020)
 
-
 ## 0.10.0 (March 03, 2020)
-
 
 ## 0.9.0 (February 12, 2020)
 
-
 ## 0.8.0 (February 11, 2020)
 
-
 ## 0.7.0 (January 06, 2020)
-
 
 ## 0.6.1 (November 29, 2019)
 
