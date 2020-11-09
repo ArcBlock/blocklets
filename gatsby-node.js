@@ -14,7 +14,7 @@ const debug = require('debug')(require('./package.json').name);
 
 const { blocked } = require('./config');
 
-const toBlockletDid = name => {
+const toBlockletDid = (name) => {
   const pk = toHex(name);
   return fromPublicKey(pk, { role: types.RoleType.ROLE_ANY });
 };
@@ -24,7 +24,7 @@ const templates = {
   detail: require.resolve('./src/templates/blocklet/detail.js'),
 };
 
-const getNpmDownloadCount = async name => {
+const getNpmDownloadCount = async (name) => {
   try {
     const res = await axios.get(`https://api.npmjs.org/downloads/point/last-year/${name}`);
     return res.data.downloads;
@@ -33,7 +33,7 @@ const getNpmDownloadCount = async name => {
   }
 };
 
-const getNpmInfo = async name => {
+const getNpmInfo = async (name) => {
   try {
     const viewStr = childProcess.execSync(`npm view ${name} --json`, { encoding: 'utf8' }) || '';
     const view = JSON.parse(viewStr);
@@ -96,6 +96,11 @@ exports.createPages = async ({ actions, graphql }) => {
       blocklets[dir].usages = config.usages || [];
       blocklets[dir].hooks = config.hooks;
       blocklets[dir].requiredEnvironments = config.requiredEnvironments;
+      if (typeof config.environments === 'undefined') {
+        blocklets[dir].environments = config.requiredEnvironments;
+      } else {
+        blocklets[dir].environments = config.environments;
+      }
     }
 
     if (node.base === 'package.json') {
@@ -148,7 +153,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // 2. merge blocklet config
   blocklets = Object.keys(blocklets)
-    .map(x => {
+    .map((x) => {
       const { blockletJson, packageJson } = blocklets[x];
       if (!blockletJson && !packageJson) {
         return null;
@@ -175,10 +180,10 @@ exports.createPages = async ({ actions, graphql }) => {
     .filter(Boolean);
 
   // Remove duplicates
-  blocklets = uniqBy(blocklets, x => x.name);
+  blocklets = uniqBy(blocklets, (x) => x.name);
 
   await Promise.all(
-    blocklets.map(async blocklet => {
+    blocklets.map(async (blocklet) => {
       const downloads = await getNpmDownloadCount(blocklet.name);
       const { stats = {}, dist = {} } = await getNpmInfo(blocklet.name);
       debug('downloadCount.done', { name: blocklet.name, downloads });
@@ -188,15 +193,15 @@ exports.createPages = async ({ actions, graphql }) => {
   );
 
   // Exclude blocklet that's blocked by config
-  blocklets = sortBy(blocklets, x => x.stats.downloads)
+  blocklets = sortBy(blocklets, (x) => x.stats.downloads)
     .reverse()
-    .filter(x => blocked.includes(x.name) === false);
+    .filter((x) => blocked.includes(x.name) === false);
 
   // Write blocklet list to json file
   fs.writeFileSync(
     path.join(__dirname, './static/blocklets.json'),
     JSON.stringify(
-      blocklets.map(x => {
+      blocklets.map((x) => {
         const tmp = Object.assign({}, x);
         delete tmp.htmlAst;
         return tmp;
@@ -212,7 +217,7 @@ exports.createPages = async ({ actions, graphql }) => {
     fs.mkdirSync(dataDir, { recursive: true });
   }
 
-  blocklets.forEach(x => {
+  blocklets.forEach((x) => {
     const jsonPath = path.join(dataDir, `${x.did}.json`);
     console.log('Write detail data to disk', jsonPath);
     fs.writeFileSync(jsonPath, JSON.stringify(x));
@@ -232,7 +237,7 @@ exports.createPages = async ({ actions, graphql }) => {
   });
 
   // 4. create blocklet detail page
-  blocklets.forEach(x => {
+  blocklets.forEach((x) => {
     actions.createPage({
       path: x.path,
       component: templates.detail,
