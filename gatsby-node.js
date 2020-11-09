@@ -96,11 +96,6 @@ exports.createPages = async ({ actions, graphql }) => {
       blocklets[dir].usages = config.usages || [];
       blocklets[dir].hooks = config.hooks;
       blocklets[dir].requiredEnvironments = config.requiredEnvironments;
-      if (typeof config.environments === 'undefined') {
-        blocklets[dir].environments = config.requiredEnvironments;
-      } else {
-        blocklets[dir].environments = config.environments;
-      }
     }
 
     if (node.base === 'package.json') {
@@ -171,6 +166,10 @@ exports.createPages = async ({ actions, graphql }) => {
         });
         // Derive did from name
         selectedAttrs.did = toBlockletDid(selectedAttrs.name);
+
+        if (typeof selectedAttrs.environments === 'undefined') {
+          selectedAttrs.environments = selectedAttrs.requiredEnvironments || [];
+        }
         return selectedAttrs;
       } catch (error) {
         console.warn('Read blocklet config failed.', error.message);
