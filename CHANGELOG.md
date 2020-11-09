@@ -1,3 +1,7 @@
+## 0.22.1 (November 09, 2020)
+
+- update abtnode bundle
+
 ## 0.22.0 (November 09, 2020)
 
 - chore: rename requiredEnvironments to environments
