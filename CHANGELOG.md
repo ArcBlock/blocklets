@@ -1,3 +1,7 @@
+## 0.22.2 (November 09, 2020)
+
+- fix: environments not properly set
+
 ## 0.22.1 (November 09, 2020)
 
 - update abtnode bundle
