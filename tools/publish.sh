@@ -41,7 +41,7 @@ npm install -g @abtnode/cli
 echo "publishing blocklets blocklet..."
 yarn build
 rm -f www/*.map
-NODE_ENV=production abtnode bundle && npm publish _blocklet
+NODE_ENV=production abtnode bundle && npm publish .blocklet/bundle
 
 node tools/post-publish.js
 
@@ -50,7 +50,7 @@ set +e
 NAME=$(cat package.json | grep name |  awk '{print $2}' | sed 's/"//g' | sed 's/,//g')
 VERSION=$(cat package.json | grep version |  awk '{print $2}' | sed 's/"//g' | sed 's/,//g')
 if [ "${ALIYUN_ENDPOINT}" != "" ]; then
-  abtnode deploy . --endpoint ${ALIYUN_ENDPOINT} --access-key ${ALIYUN_ACCESS_KEY} --access-secret ${ALIYUN_ACCESS_SECRET} --skip-hooks
+  abtnode deploy .blocklet/bundle --endpoint ${ALIYUN_ENDPOINT} --access-key ${ALIYUN_ACCESS_KEY} --access-secret ${ALIYUN_ACCESS_SECRET} --skip-hooks
   if [ $? == 0 ]; then
     echo "deploy to ${ALIYUN_ENDPOINT} success"
     curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"${NAME} v${VERSION} was successfully deployed to ${ALIYUN_ENDPOINT}\"}" ${SLACK_WEBHOOK}
@@ -60,7 +60,7 @@ if [ "${ALIYUN_ENDPOINT}" != "" ]; then
   fi
 fi
 if [ "${AWS_ENDPOINT}" != "" ]; then
-  abtnode deploy . --endpoint ${AWS_ENDPOINT} --access-key ${AWS_ACCESS_KEY} --access-secret ${AWS_ACCESS_SECRET} --skip-hooks
+  abtnode deploy .blocklet/bundle --endpoint ${AWS_ENDPOINT} --access-key ${AWS_ACCESS_KEY} --access-secret ${AWS_ACCESS_SECRET} --skip-hooks
   if [ $? == 0 ]; then
     echo "deploy to ${AWS_ENDPOINT} success"
     curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"${NAME} v${VERSION} was successfully deployed to ${AWS_ENDPOINT}\"}" ${SLACK_WEBHOOK}

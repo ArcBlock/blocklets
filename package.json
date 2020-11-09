@@ -2,7 +2,8 @@
   "name": "@arcblock/blocklet-registry",
   "version": "0.22.0",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": ".blocklet/bundle"
   },
   "files": [
     "www/",
