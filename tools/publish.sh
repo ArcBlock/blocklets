@@ -9,7 +9,7 @@ NPM_VERSION=$(npm view @arcblock/blocklet-registry version)
 if [ "$VERSION" = "$NPM_VERSION" ]; then
   echo "current version $VERSION is the latest published version, will bump to new version"
   git remote remove origin
-  git remote add origin "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
+  git remote add origin "https://$GIT_HUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
   git remote -v
   git pull origin master
   git checkout master
@@ -27,7 +27,7 @@ if [ "$VERSION" = "$NPM_VERSION" ]; then
   cat CHANGELOG.md
   git push origin master
   VERSION=$(cat version)
-  echo "version $VERSION pushed, next travis build will be trigger"
+  echo "version $VERSION pushed, next build will be trigger"
   echo "done"
   exit
 fi
@@ -36,7 +36,7 @@ echo "publish version ${VERSION}"
 
 make release
 npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-npm install -g @abtnode/cli
+sudo npm install -g @abtnode/cli
 
 echo "publishing blocklets blocklet..."
 yarn build

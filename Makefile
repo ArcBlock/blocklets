@@ -16,9 +16,6 @@ deploy-aliyun:
 init: install dep
 	@echo "Initializing the repo..."
 
-travis-init: install dep
-	@echo "Initialize software required for travis (normally ubuntu software)"
-
 install:
 	@echo "Install software required for this repo..."
 	@git submodule update --init
@@ -48,11 +45,7 @@ doc:
 
 precommit: lint doc build test
 
-travis: precommit
-
-travis-deploy:
-	@echo "Deploy the software by travis"
-	@.makefiles/build.sh
+github-action-test: precommit
 
 clean:
 	@echo "Cleaning the build..."
@@ -68,4 +61,4 @@ deploy:
 
 include .makefiles/*.mk
 
-.PHONY: build init travis-init install dep pre-build post-build all test doc precommit travis clean watch run bump-version create-pr
+.PHONY: build init install dep pre-build post-build all test doc precommit github-action-test clean watch run bump-version create-pr
