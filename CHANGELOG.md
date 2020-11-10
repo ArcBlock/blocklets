@@ -1,3 +1,6 @@
+## 0.22.3 (November 10, 2020)
+
+
 ## 0.22.2 (November 09, 2020)
 
 - fix: environments not properly set
