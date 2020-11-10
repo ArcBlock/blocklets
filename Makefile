@@ -19,7 +19,7 @@ init: install dep
 install:
 	@echo "Install software required for this repo..."
 	@git submodule update --init
-	@npm install -g gatsby-cli netlify-cli yarn
+	@npm install -g gatsby-cli yarn
 
 dep:
 	@echo "Install npm dependencies required for this repo..."
@@ -43,7 +43,7 @@ lint:
 doc:
 	@echo "Building the documenation..."
 
-precommit: lint doc build test
+precommit: dep lint doc test
 
 github-action-test: precommit
 
