@@ -27,7 +27,15 @@ if [ "$VERSION" = "$NPM_VERSION" ]; then
   cat CHANGELOG.md
   git push origin master
   VERSION=$(cat version)
-  echo "version $VERSION pushed, next build will be trigger"
+  echo "version $VERSION pushed"
+  echo "make a trigger to github actions"
+  curl \
+    -X POST \
+    -H "Accept: application/vnd.github.v3+json" \
+    -H "Authorization: token $GIT_HUB_TOKEN" \
+    https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/main.yml/dispatches \
+    -d '{"ref":"master"}'
+  echo "next build will be trigger"
   echo "done"
   exit
 fi
