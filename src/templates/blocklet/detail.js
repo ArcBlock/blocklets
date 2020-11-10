@@ -70,7 +70,6 @@ function BlockletDetail({ location, pageContext }) {
   const {
     name,
     version,
-    provider,
     keywords,
     group,
     htmlAst,
@@ -130,9 +129,6 @@ function BlockletDetail({ location, pageContext }) {
               <Stats stats={stats} className="blocklet__stats" />
               <Typography component="p" className="tags">
                 <Tag className="tag" type="reverse">
-                  {provider}
-                </Tag>
-                <Tag className="tag" type="reverse">
                   v{version}
                 </Tag>
                 {Array.isArray(keywords) &&
@@ -170,14 +166,6 @@ function BlockletDetail({ location, pageContext }) {
                     </Button>
                   </div>
                   <Typography component="ul" className="meta-info">
-                    {!!provider && (
-                      <li className="meta-info__row">
-                        <span className="info-row__key">Provider</span>
-                        <span className="info-row__value">
-                          {provider.toLowerCase() === 'official' ? 'ArcBlock Inc.' : provider}
-                        </span>
-                      </li>
-                    )}
                     {!!author && (
                       <li className="meta-info__row">
                         <span className="info-row__key">Author</span>

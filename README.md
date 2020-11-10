@@ -50,8 +50,6 @@ This is the key file when defining a blocklet, may contain the following fields:
   // Can be primary|secondary|error
   "color": "primary",
 
-  // provider information
-  "provider": "ArcBlock",
   "documentation": "https://docs.arcblock.io",
   "support": "support@arcblock.io",
   "community": "https://gitter.im/arcblock/cummonity",
@@ -136,4 +134,3 @@ Initialize a blocklet config with `forge blocklet:create`, will be supported soo
 3. Change `registry.yml` to include your repo
 4. Send a pull request to this repository
 5. Your blocklet is listed on official registry once your pull request is accepted and merged
-

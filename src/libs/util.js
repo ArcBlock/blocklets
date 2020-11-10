@@ -11,9 +11,5 @@ export function getBlockletLogo(blocklet) {
   //   return blocklet.logoUrl;
   // }
 
-  if (['official', 'arcblock'].includes(blocklet.provider.toLowerCase())) {
-    return defaults.official;
-  }
-
-  return defaults.community;
+  return defaults.official;
 }
