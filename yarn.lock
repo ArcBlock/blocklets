@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@abtnode/util@1.0.32-beta.1":
-  version "1.0.32-beta.1"
-  resolved "https://registry.yarnpkg.com/@abtnode/util/-/util-1.0.32-beta.1.tgz#b5f988dcdf0eca20fcbf6f3a0266f027359f828d"
-  integrity sha512-xZX8PY7IIs2yLAR0OiuNz+Tags6tv35tLl/Njh2yUDukhU95NLUr/Cdi4YFdOIMuu4YqXo1tvdGK915AyMmUvQ==
+"@abtnode/util@1.0.32-beta.2":
+  version "1.0.32-beta.2"
+  resolved "https://registry.yarnpkg.com/@abtnode/util/-/util-1.0.32-beta.2.tgz#8e63b312514e1abe39d15d61c109acbfd38a69ba"
+  integrity sha512-/yZKD+hbfNqTgA+9qg06VUAqHCLe3R6wmF/2FmZf8sOQEDRsPYKc8BdkuaoM0neY0knJblLfGcGyL0Deaxycqw==
   dependencies:
     "@arcblock/did" "^1.4.2"
     axios "^0.21.0"

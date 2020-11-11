@@ -16,7 +16,7 @@
     "ABTNode"
   ],
   "dependencies": {
-    "@abtnode/util": "1.0.32-beta.1",
+    "@abtnode/util": "1.0.32-beta.2",
     "@arcblock/did": "^1.4.2",
     "@arcblock/forge-util": "^1.4.2",
     "@arcblock/gatsby-theme-www": "^7.28.16",
