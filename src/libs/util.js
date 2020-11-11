@@ -1,6 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-
-export function getBlockletLogo(blocklet) {
+export function getBlockletLogo() {
   const defaults = {
     official: '/images/official.svg',
     community: '/images/community.svg',
