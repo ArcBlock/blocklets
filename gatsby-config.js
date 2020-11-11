@@ -11,6 +11,8 @@ const npmSources = registry.map(({ name }) => ({
     name,
     cache: true,
     patterns: [
+      '**/blocklet.yml',
+      '**/blocklet.yaml',
       '**/blocklet.json',
       '**/blocklet.md',
       '**/logo.{jpeg,jpg,png,gif,svg}',

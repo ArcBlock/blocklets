@@ -73,9 +73,6 @@ export default function BlockletList({ blocklets, group, ...rest }) {
                   </Typography>
                   <Typography component="div" className="blocklet__tags">
                     <Tag className="blocklet__tag" type="default">
-                      {x.provider}
-                    </Tag>
-                    <Tag className="blocklet__tag" type="default">
                       v{x.version}
                     </Tag>
                   </Typography>
