@@ -11,7 +11,7 @@ const { toHex } = require('@arcblock/forge-util');
 const { fromPublicKey } = require('@arcblock/did');
 const { languages } = require('@arcblock/www/src/libs/locale');
 const parseBlockletMeta = require('@abtnode/util/lib/parse_blocklet_meta');
-const { BLOCKLET_META_FILE, BLOCKLET_META_FILE_OLD } = require('@abtnode/util/lib/constants');
+const { BLOCKLET_META_FILE, BLOCKLET_META_FILE_ALT, BLOCKLET_META_FILE_OLD } = require('@abtnode/util/lib/constants');
 const debug = require('debug')(require('./package.json').name);
 
 const { blocked } = require('./config');
@@ -90,6 +90,13 @@ exports.createPages = async ({ actions, graphql }) => {
       const dir = path.dirname(node.absolutePath);
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].dir = dir;
+      blocklets[dir].blockletYml = node;
+      blocklets[dir].repoName = node.npmMeta.repoName;
+      blocklets[dir].gitUrl = node.npmMeta.repoHref;
+    } else if (node.base === BLOCKLET_META_FILE_ALT) {
+      const dir = path.dirname(node.absolutePath);
+      blocklets[dir] = blocklets[dir] || {};
+      blocklets[dir].dir = dir;
       blocklets[dir].blockletYaml = node;
       blocklets[dir].repoName = node.npmMeta.repoName;
       blocklets[dir].gitUrl = node.npmMeta.repoHref;
@@ -151,18 +158,21 @@ exports.createPages = async ({ actions, graphql }) => {
   // 2. merge blocklet config
   blocklets = Object.keys(blocklets)
     .map((x) => {
-      const { blockletYaml, blockletJson, packageJson } = blocklets[x];
-      if (!blockletYaml && !blockletJson && !packageJson) {
+      const { blockletYml, blockletYaml, blockletJson, packageJson } = blocklets[x];
+      if (!blockletYml && !blockletYaml && !blockletJson && !packageJson) {
         return null;
       }
 
       const rawAttrs = blocklets[x];
+      rawAttrs.blockletYml = blockletYml ? blockletYml.absolutePath : null;
       rawAttrs.blockletYaml = blockletYaml ? blockletYaml.absolutePath : null;
       rawAttrs.blockletJson = blockletJson ? blockletJson.absolutePath : null;
       rawAttrs.packageJson = packageJson ? packageJson.absolutePath : null;
 
       try {
-        const blockletDir = path.dirname(rawAttrs.blockletYaml || rawAttrs.blockletJson || rawAttrs.packageJson);
+        const blockletDir = path.dirname(
+          rawAttrs.blockletYml || rawAttrs.blockletYaml || rawAttrs.blockletJson || rawAttrs.packageJson
+        );
         const selectedAttrs = parseBlockletMeta(blockletDir, {
           enableDefaults: false,
           extraAttrSpec: { htmlAst: true, main: false },
