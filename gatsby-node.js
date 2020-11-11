@@ -184,6 +184,9 @@ exports.createPages = async ({ actions, graphql }) => {
         if (typeof selectedAttrs.environments === 'undefined') {
           selectedAttrs.environments = selectedAttrs.requiredEnvironments || [];
         }
+        if (typeof selectedAttrs.requiredEnvironments === 'undefined' && selectedAttrs.environments) {
+          selectedAttrs.requiredEnvironments = selectedAttrs.environments;
+        }
 
         return selectedAttrs;
       } catch (error) {
