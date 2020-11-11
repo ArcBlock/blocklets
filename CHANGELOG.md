@@ -1,3 +1,6 @@
+## 0.23.1 (November 11, 2020)
+
+
 ## 0.23.0 (November 11, 2020)
 
 - chore: make registry work with blocklet.yml
