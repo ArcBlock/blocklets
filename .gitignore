@@ -27,5 +27,4 @@ static/blocklet/*.json
 
 blocklets/*/static
 blocklet.js
-_blocklet
 .blocklet
