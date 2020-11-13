@@ -1,3 +1,8 @@
+## 0.25.0 (November 13, 2020)
+  - chore: bump @abtnode/util version
+  - chore: bump @abtnode/util version
+  - chore: delist starter blocklets
+
 ## 0.24.5 (November 13, 2020)
 
 
