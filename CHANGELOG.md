@@ -1,3 +1,6 @@
+## 0.25.1 (November 13, 2020)
+
+
 ## 0.25.0 (November 13, 2020)
   - chore: bump @abtnode/util version
   - chore: bump @abtnode/util version
