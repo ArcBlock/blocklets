@@ -60,7 +60,7 @@
   "scripts": {
     "lint": "eslint src",
     "test": "exit 0",
-    "clean": "rm -rf public .cache",
+    "clean": "rm -rf public .cache .blocklet",
     "build:gatsby": "gatsby build && rm -rf www && mv public www && rm -f www/*.map",
     "build": "npm run clean && npm-run-all build:*",
     "start:gatsby": "gatsby develop --host 0.0.0.0",
