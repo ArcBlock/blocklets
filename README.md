@@ -1,7 +1,3 @@
-![Blocklets](https://www.arcblock.io/.netlify/functions/badge/?text=Blocklets)
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e5a09e68-ebdb-4115-aa55-1d9b05e2f150/deploy-status)](https://app.netlify.com/sites/blocklets/deploys)
-
 ## What are blocklets?
 
 **Blocklets** are reusable building blocks to help developers and community users to build things on [ArcBlock](https://www.arcblock.io) platform. A blocklet serves one and only one purpose, reusability is the core design philosophy of blocklets. Reusability makes it easy to compose multiple blocklets to build a more complex application.
