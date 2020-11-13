@@ -1,11 +1,14 @@
-## 0.23.3 (November 11, 2020)
+## 0.24.0 (November 13, 2020)
 
+- chore: support bump blocklet version
+- chore: update gitignore
+- chore: migrate to blocklet.yml
+
+## 0.23.3 (November 11, 2020)
 
 ## 0.23.2 (November 11, 2020)
 
-
 ## 0.23.1 (November 11, 2020)
-
 
 ## 0.23.0 (November 11, 2020)
 
@@ -13,15 +16,11 @@
 
 ## 0.22.6 (November 10, 2020)
 
-
 ## 0.22.5 (November 10, 2020)
-
 
 ## 0.22.4 (November 10, 2020)
 
-
 ## 0.22.3 (November 10, 2020)
-
 
 ## 0.22.2 (November 09, 2020)
 
