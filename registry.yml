@@ -1,15 +1,15 @@
 ---
-- name: forge-python-starter
-- name: forge-java-starter
-- name: forge-currency-starter
-- name: forge-keystone-starter
-- name: forge-next-starter
-- name: forge-react-starter
-- name: forge-xmark-starter
-- name: xmark-currency-starter
-- name: xmark-swap-starter
-- name: xmark-docsite-starter
-- name: xmark-website-starter
+# - name: forge-python-starter
+# - name: forge-java-starter
+# - name: forge-currency-starter
+# - name: forge-keystone-starter
+# - name: forge-next-starter
+# - name: forge-react-starter
+# - name: forge-xmark-starter
+# - name: xmark-currency-starter
+# - name: xmark-swap-starter
+# - name: xmark-docsite-starter
+# - name: xmark-website-starter
 - name: "@arcblock/block-explorer"
 - name: "@arcblock/graphql-playground"
 - name: "static-demo-blocklet"
