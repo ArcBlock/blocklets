@@ -1,3 +1,6 @@
+## 0.24.1 (November 13, 2020)
+
+
 ## 0.24.0 (November 13, 2020)
 
 - chore: support bump blocklet version
