@@ -1,3 +1,6 @@
+## 0.25.4 (November 16, 2020)
+  - remove meta color, use primary default
+
 ## 0.25.3 (November 13, 2020)
 
 
