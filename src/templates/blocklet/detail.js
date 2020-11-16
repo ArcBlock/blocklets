@@ -81,7 +81,6 @@ function BlockletDetail({ location, pageContext }) {
     documentation,
     community,
     support,
-    color = 'primary',
     usages = [],
     did,
   } = pageContext.blocklet;
@@ -96,7 +95,7 @@ function BlockletDetail({ location, pageContext }) {
 
   return (
     <Layout location={location} title={name}>
-      <Div color={color}>
+      <Div color="primary">
         <div className={`header header--${group}`}>
           <Container className="header__inner">
             <Link to="/">
