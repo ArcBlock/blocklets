@@ -25,4 +25,3 @@
 - name: "@arcblock/www-wallet"
 - name: "@arcblock/did-kyc"
 - name: "uniswap-blocklet"
-- name: "arcblock-simple-dns"
