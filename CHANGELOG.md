@@ -1,3 +1,6 @@
+## 0.25.5 (November 16, 2020)
+  - remove simple dns
+
 ## 0.25.4 (November 16, 2020)
   - remove meta color, use primary default
 
