@@ -1,3 +1,6 @@
+## 0.25.6 (十一月 18, 2020)
+  - fix: blocklet title overflow when too long
+
 ## 0.25.5 (November 16, 2020)
   - remove simple dns
 
