@@ -153,6 +153,7 @@ const Blocklet = styled.div`
     line-height: 1.5rem;
     max-height: 1.5rem;
     width: 100%;
+    white-space: nowrap;
   }
 
   .blocklet__stats {
