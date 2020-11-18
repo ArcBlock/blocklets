@@ -1,3 +1,6 @@
+## 0.25.6 (November 18, 2020)
+
+
 ## 0.25.5 (November 16, 2020)
   - remove simple dns
 
