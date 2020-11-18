@@ -6,20 +6,12 @@ const path = require('path');
 const axios = require('axios');
 const sortBy = require('lodash/sortBy');
 const uniqBy = require('lodash/uniqBy');
-const { types } = require('@arcblock/mcrypto');
-const { toHex } = require('@arcblock/forge-util');
-const { fromPublicKey } = require('@arcblock/did');
 const { languages } = require('@arcblock/www/src/libs/locale');
 const parseBlockletMeta = require('@abtnode/util/lib/parse_blocklet_meta');
 const { BLOCKLET_META_FILE, BLOCKLET_META_FILE_ALT, BLOCKLET_META_FILE_OLD } = require('@abtnode/util/lib/constants');
 const debug = require('debug')(require('./package.json').name);
 
 const { blocked } = require('./config');
-
-const toBlockletDid = name => {
-  const pk = toHex(name);
-  return fromPublicKey(pk, { role: types.RoleType.ROLE_ANY });
-};
 
 const templates = {
   list: require.resolve('./src/templates/blocklet/list.js'),
@@ -69,10 +61,6 @@ exports.createPages = async ({ actions, graphql }) => {
             }
             base
             publicURL
-            npmMeta {
-              repoName
-              repoHref
-            }
             childMarkdownRemark {
               htmlAst
             }
@@ -91,22 +79,16 @@ exports.createPages = async ({ actions, graphql }) => {
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].dir = dir;
       blocklets[dir].blockletYml = node;
-      blocklets[dir].repoName = node.npmMeta.repoName;
-      blocklets[dir].gitUrl = node.npmMeta.repoHref;
     } else if (node.base === BLOCKLET_META_FILE_ALT) {
       const dir = path.dirname(node.absolutePath);
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].dir = dir;
       blocklets[dir].blockletYaml = node;
-      blocklets[dir].repoName = node.npmMeta.repoName;
-      blocklets[dir].gitUrl = node.npmMeta.repoHref;
     } else if (node.base === BLOCKLET_META_FILE_OLD) {
       const dir = path.dirname(node.absolutePath);
       blocklets[dir] = blocklets[dir] || {};
       blocklets[dir].dir = dir;
       blocklets[dir].blockletJson = node;
-      blocklets[dir].repoName = node.npmMeta.repoName;
-      blocklets[dir].gitUrl = node.npmMeta.repoHref;
     } else if (node.base === 'package.json') {
       const dir = path.dirname(node.absolutePath);
 
@@ -178,8 +160,6 @@ exports.createPages = async ({ actions, graphql }) => {
           extraAttrSpec: { htmlAst: true, main: false },
           extraRawAttrs: rawAttrs,
         });
-        // Derive did from name
-        selectedAttrs.did = toBlockletDid(selectedAttrs.name);
 
         if (typeof selectedAttrs.environments === 'undefined') {
           selectedAttrs.environments = selectedAttrs.requiredEnvironments || [];
