@@ -1,40 +1,42 @@
-## 0.25.6 (十一月 18, 2020)
-  - fix: blocklet title overflow when too long
+## 0.25.8 (十一月 19, 2020)
+
+- bump version
+- chore: bump version
+- fix: blocklet title overflow when too long
+
+## 0.25.7 (November 18, 2020)
+
+## 0.25.6 (November 18, 2020)
 
 ## 0.25.5 (November 16, 2020)
-  - remove simple dns
+
+- remove simple dns
 
 ## 0.25.4 (November 16, 2020)
-  - remove meta color, use primary default
+
+- remove meta color, use primary default
 
 ## 0.25.3 (November 13, 2020)
 
-
 ## 0.25.2 (November 13, 2020)
-
 
 ## 0.25.1 (November 13, 2020)
 
-
 ## 0.25.0 (November 13, 2020)
-  - chore: bump @abtnode/util version
-  - chore: bump @abtnode/util version
-  - chore: delist starter blocklets
+
+- chore: bump @abtnode/util version
+- chore: bump @abtnode/util version
+- chore: delist starter blocklets
 
 ## 0.24.5 (November 13, 2020)
 
-
 ## 0.24.4 (November 13, 2020)
-
 
 ## 0.24.3 (November 13, 2020)
 
-
 ## 0.24.2 (November 13, 2020)
 
-
 ## 0.24.1 (November 13, 2020)
-
 
 ## 0.24.0 (November 13, 2020)
 
