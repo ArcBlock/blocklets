@@ -148,12 +148,12 @@ const Blocklet = styled.div`
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     line-height: 1.5rem;
     max-height: 1.5rem;
     width: 100%;
-    white-space: nowrap;
   }
 
   .blocklet__stats {
