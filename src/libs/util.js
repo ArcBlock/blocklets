@@ -12,3 +12,20 @@ export function getBlockletLogo() {
 
   return defaults.official;
 }
+
+export const formatPerson = person => {
+  if (!person) {
+    return '-';
+  }
+  if (typeof person === 'string') {
+    return person;
+  }
+
+  const name = person.name || '';
+  const u = person.url || person.web;
+  const url = u ? ` (${u})` : '';
+  const e = person.email || person.mail;
+  const email = e ? ` <${e}>` : '';
+
+  return name + email + url;
+};

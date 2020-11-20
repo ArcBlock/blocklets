@@ -43,9 +43,6 @@ This is the key file when defining a blocklet, may contain the following fields:
   // Can be starter|dapp|contract
   "group": "starter",
 
-  // Can be primary|secondary|error
-  "color": "primary",
-
   "documentation": "https://docs.arcblock.io",
   "support": "support@arcblock.io",
   "community": "https://gitter.im/arcblock/cummonity",
@@ -55,9 +52,6 @@ This is the key file when defining a blocklet, may contain the following fields:
     "price": 10,
     "receiver": "z1en6dudVmqsP1P2ZG1R8DdBZoYPnzw46T1",
   },
-
-  // Can the blocklet be used with another blocklet?
-  "composable": false,
 
   // Following fields can be inherited from package.json
   "name": "forge-react-starter",
@@ -71,15 +65,12 @@ This is the key file when defining a blocklet, may contain the following fields:
   },
 
   // Customize the install pipeline of the blocklet
-  "hooks": {
+  "scripts": {
     "pre-copy": "",
     "post-copy": "",
     "configure": "",
     "complete": ""
-  },
-  "install-scripts": {
-    "dependency": ""
-  },
+  }
 }
 ```
 

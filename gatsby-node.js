@@ -7,8 +7,8 @@ const axios = require('axios');
 const sortBy = require('lodash/sortBy');
 const uniqBy = require('lodash/uniqBy');
 const { languages } = require('@arcblock/www/src/libs/locale');
-const parseBlockletMeta = require('@abtnode/util/lib/parse_blocklet_meta');
-const { BLOCKLET_META_FILE, BLOCKLET_META_FILE_ALT, BLOCKLET_META_FILE_OLD } = require('@abtnode/util/lib/constants');
+const parseBlockletMeta = require('@blocklet/meta/lib/parse');
+const { BLOCKLET_META_FILE, BLOCKLET_META_FILE_ALT, BLOCKLET_META_FILE_OLD } = require('@blocklet/meta/lib/constants');
 const debug = require('debug')(require('./package.json').name);
 
 const { blocked } = require('./config');
@@ -155,15 +155,13 @@ exports.createPages = async ({ actions, graphql }) => {
         const blockletDir = path.dirname(
           rawAttrs.blockletYml || rawAttrs.blockletYaml || rawAttrs.blockletJson || rawAttrs.packageJson
         );
-        const selectedAttrs = parseBlockletMeta(blockletDir, {
-          enableDefaults: false,
-          extraAttrSpec: { htmlAst: true, main: false },
-          extraRawAttrs: rawAttrs,
-        });
+        const selectedAttrs = parseBlockletMeta(blockletDir, { extraRawAttrs: rawAttrs });
 
         if (typeof selectedAttrs.environments === 'undefined') {
           selectedAttrs.environments = selectedAttrs.requiredEnvironments || [];
         }
+
+        // TODO: this only exist for backward compatibility
         if (typeof selectedAttrs.requiredEnvironments === 'undefined' && selectedAttrs.environments) {
           selectedAttrs.requiredEnvironments = selectedAttrs.environments;
         }

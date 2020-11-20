@@ -20,7 +20,7 @@ import 'github-markdown-css/github-markdown.css';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
 import { translations } from '../../libs/constant';
-import { getBlockletLogo } from '../../libs/util';
+import { getBlockletLogo, formatPerson } from '../../libs/util';
 import renderAst from '../../components/renderAst';
 import Stats from '../../components/stats';
 
@@ -168,7 +168,7 @@ function BlockletDetail({ location, pageContext }) {
                     {!!author && (
                       <li className="meta-info__row">
                         <span className="info-row__key">Author</span>
-                        <span className="info-row__value">{author}</span>
+                        <span className="info-row__value">{formatPerson(author)}</span>
                       </li>
                     )}
                     {!!community && (

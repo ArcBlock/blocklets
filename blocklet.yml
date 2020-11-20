@@ -28,4 +28,4 @@ interfaces:
 environments: []
 screenshots: []
 scripts:
-  preDeploy: npm run build
+  dev: npm run dev
