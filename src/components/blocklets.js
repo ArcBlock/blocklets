@@ -64,8 +64,8 @@ export default function BlockletList({ blocklets, group, ...rest }) {
                   <span className="blocklet__group">{x.group}</span>
                 </div>
                 <div className="blocklet__info">
-                  <Typography component="h2" className="blocklet__title" title={x.name}>
-                    {x.name}
+                  <Typography component="h2" className="blocklet__title" title={x.name || x.title}>
+                    {x.name || x.title}
                   </Typography>
                   <Stats stats={x.stats} className="blocklet__stats" />
                   <Typography component="p" className="blocklet__description" title={x.description}>
@@ -148,6 +148,7 @@ const Blocklet = styled.div`
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     line-height: 1.5rem;

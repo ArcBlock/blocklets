@@ -3,7 +3,7 @@ description: >-
   The official blocklet registry blocklet which can be used to make things
   decentralized
 group: static
-version: 0.25.4
+version: 0.25.8
 main: www
 title: Blocklet Registry
 publicUrl: /
