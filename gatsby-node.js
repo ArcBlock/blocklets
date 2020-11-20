@@ -8,6 +8,7 @@ const sortBy = require('lodash/sortBy');
 const uniqBy = require('lodash/uniqBy');
 const { languages } = require('@arcblock/www/src/libs/locale');
 const parseBlockletMeta = require('@blocklet/meta/lib/parse');
+const { fixInterfaces } = require('@blocklet/meta/lib/fix');
 const { BLOCKLET_META_FILE, BLOCKLET_META_FILE_ALT, BLOCKLET_META_FILE_OLD } = require('@blocklet/meta/lib/constants');
 const debug = require('debug')(require('./package.json').name);
 
@@ -155,18 +156,18 @@ exports.createPages = async ({ actions, graphql }) => {
         const blockletDir = path.dirname(
           rawAttrs.blockletYml || rawAttrs.blockletYaml || rawAttrs.blockletJson || rawAttrs.packageJson
         );
-        const selectedAttrs = parseBlockletMeta(blockletDir, { extraRawAttrs: rawAttrs });
+        const meta = parseBlockletMeta(blockletDir, { extraRawAttrs: rawAttrs });
 
-        if (typeof selectedAttrs.environments === 'undefined') {
-          selectedAttrs.environments = selectedAttrs.requiredEnvironments || [];
+        if (typeof meta.environments === 'undefined') {
+          meta.environments = meta.requiredEnvironments || [];
         }
 
         // TODO: this only exist for backward compatibility
-        if (typeof selectedAttrs.requiredEnvironments === 'undefined' && selectedAttrs.environments) {
-          selectedAttrs.requiredEnvironments = selectedAttrs.environments;
+        if (typeof meta.requiredEnvironments === 'undefined' && meta.environments) {
+          meta.requiredEnvironments = meta.environments;
         }
 
-        return selectedAttrs;
+        return fixInterfaces(meta, false);
       } catch (error) {
         console.warn('Read blocklet config failed.', error.message);
         return null;

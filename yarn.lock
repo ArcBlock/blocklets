@@ -1365,10 +1365,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@blocklet/meta@^1.0.32":
-  version "1.0.32"
-  resolved "https://registry.yarnpkg.com/@blocklet/meta/-/meta-1.0.32.tgz#0c63a15e0f2059f44c72b52cb52516afe8eea3e1"
-  integrity sha512-KYPjPsw0nDfA15ZduNufcfgdBiOuBdVK7CyDWxV5ZCF1XVK7uZMgZO42ZlMf0uKujmsoJCEfe3NXT/X1JMKTag==
+"@blocklet/meta@1.0.33-beta.0":
+  version "1.0.33-beta.0"
+  resolved "https://registry.yarnpkg.com/@blocklet/meta/-/meta-1.0.33-beta.0.tgz#a4258515c53538a9153f8ed89f42a74ddc29447e"
+  integrity sha512-+1VJ+gHXjDuYy1OrtDeC7/ho6ppkdHE3MoQY3qGFueYRdLIYwMVXb12iHtqV2RNBBNRlRhwn1WO67FnJON+qig==
   dependencies:
     "@arcblock/did" "^1.4.2"
     "@arcblock/forge-util" "^1.4.2"
