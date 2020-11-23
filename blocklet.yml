@@ -19,8 +19,13 @@ scripts:
   dev: npm run dev
 specVersion: 1.0.1
 color: primary
-capabilities:
-  dynamicPathPrefix: true
+interfaces:
+  - type: web
+    name: publicUrl
+    path: /
+    prefix: /
+    port: BLOCKLET_PORT
+    protocol: tcp
 charging:
   price: 0
 did: z8iZybVvuEz4N9wf3CfGGP5uERMFhziuxGEqe
