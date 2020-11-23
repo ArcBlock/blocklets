@@ -63,13 +63,13 @@
     react-use "^13.22.4"
     styled-components "^5.0.0"
 
-"@arcblock/did@^1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@arcblock/did/-/did-1.4.2.tgz#bae1b4084da6986dca32659ba599880676f6740e"
-  integrity sha512-YWxVytWJ5LNQa8+OLiODWfOeeJBIjAGIKc60Z7XqqraB5cr4erIlXVrWKdke/kIO+UIm/hqTZ+wxkNtZ3Uw66A==
+"@arcblock/did@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@arcblock/did/-/did-1.4.3.tgz#cb8a1e53233063a6011ee694f8b07437ce8ea53a"
+  integrity sha512-bQfQmqwHV8cLoMvBrb3b8HIxRkVcPgnDtyzmfVu1JztllQtq2SEZ3w+UdNa94YE/jxCn74m8zTTyP4CwSKniXw==
   dependencies:
-    "@arcblock/forge-util" "^1.4.2"
-    "@arcblock/mcrypto" "^1.4.2"
+    "@arcblock/forge-util" "^1.4.3"
+    "@arcblock/mcrypto" "^1.4.3"
     bn.js "^5.0.0"
     debug "^4.1.1"
     lodash "^4.17.14"
@@ -85,10 +85,10 @@
     wolfy87-eventemitter "^5.2.5"
     ws "^7.2.0"
 
-"@arcblock/forge-util@^1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@arcblock/forge-util/-/forge-util-1.4.2.tgz#051f2ef6a0f2848c8009a3c93ca16942934a0d95"
-  integrity sha512-vN8zNYsCvto72OA9sc70XMfrf2Mg0BbXhLfVSspp2N75Ta7aoyRuNrnwkVw8vqTeR6npMfTyoMvGIBKjmJZj1A==
+"@arcblock/forge-util@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@arcblock/forge-util/-/forge-util-1.4.3.tgz#228ea393abfca60e5f96291a903456aadff056b7"
+  integrity sha512-KPFp5t1u+e1yEquyE1wqYRp9glgwLsWG0Jm3w4+5+GLAi1j9LWjor8Dz2uSjSKWtlXyV59dnnycbGLYB9xArBQ==
   dependencies:
     base64-url "^2.3.2"
     bn.js "4.11.6"
@@ -97,13 +97,13 @@
     number-to-bn "^1.7.0"
     utf8 "^3.0.0"
 
-"@arcblock/forge-wallet@^1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@arcblock/forge-wallet/-/forge-wallet-1.4.2.tgz#dc77ce51a47e4bd10503c6af5d2b2ff5854e4a00"
-  integrity sha512-J7XA/H0zmQf5OZcIlA7+0Lw0/28Wq6CJG1BcoNp5XJAcSwmDXd9OwJlogqsCLjeKVS0tcbAYX0/q2rqvULR0FQ==
+"@arcblock/forge-wallet@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@arcblock/forge-wallet/-/forge-wallet-1.4.3.tgz#e9339a2e845bbd173c064856d1f965629f9a3f96"
+  integrity sha512-5WcagH6t3UH6ydhfuL9DuOnUz0vaBJw/1zm7WUjQ9F9E6tMmaDbq77CGkhih4+p/h/t2NbPIC6l2zTVA0yIekA==
   dependencies:
-    "@arcblock/did" "^1.4.2"
-    "@arcblock/mcrypto" "^1.4.2"
+    "@arcblock/did" "^1.4.3"
+    "@arcblock/mcrypto" "^1.4.3"
     lodash.upperfirst "^4.3.1"
 
 "@arcblock/gatsby-awesome-pagination@^0.3.4":
@@ -217,12 +217,12 @@
     lodash "^4.17.15"
     unist-util-select "^1.5.0"
 
-"@arcblock/mcrypto@^1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@arcblock/mcrypto/-/mcrypto-1.4.2.tgz#f447d76ab1133006ad946fe3ce2ac2f7530ee289"
-  integrity sha512-qIvS6pVQ8pw76/mOduZ2aOSrQ7KsfPPne18anSn80uyL6Wg11eWZSvUtcWMqj8y8KqzqUm7BitJOcO9HwGIOiA==
+"@arcblock/mcrypto@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@arcblock/mcrypto/-/mcrypto-1.4.3.tgz#16dcac03e296e9dc5d54479aacb527e1e1531367"
+  integrity sha512-fUlURlXwFzqK5yn0JISnQohhIda0WlcRwPgkOD/4JlKBGP3eG0ZDyfK0KE/R/Ci8Y8bXO5YGWcTjZ2f2mYMUGw==
   dependencies:
-    "@arcblock/forge-util" "^1.4.2"
+    "@arcblock/forge-util" "^1.4.3"
     bn.js "4.11.8"
     crypto-js "^3.1.9-1"
     elliptic "^6.4.1"
@@ -1365,15 +1365,15 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@blocklet/meta@1.0.33-beta.0":
-  version "1.0.33-beta.0"
-  resolved "https://registry.yarnpkg.com/@blocklet/meta/-/meta-1.0.33-beta.0.tgz#a4258515c53538a9153f8ed89f42a74ddc29447e"
-  integrity sha512-+1VJ+gHXjDuYy1OrtDeC7/ho6ppkdHE3MoQY3qGFueYRdLIYwMVXb12iHtqV2RNBBNRlRhwn1WO67FnJON+qig==
+"@blocklet/meta@1.0.34":
+  version "1.0.34"
+  resolved "https://registry.yarnpkg.com/@blocklet/meta/-/meta-1.0.34.tgz#53fe5104a1a5184f85cfcd43dac55f7fa028fd56"
+  integrity sha512-XNsDyg5pqQv1aPx82CKtZ6/5idNOdnTN1Di1j943aZUwGr4EKk5yGk+xL+bWbrWEYg3hYBHN4hfKSg29ds9i8w==
   dependencies:
-    "@arcblock/did" "^1.4.2"
-    "@arcblock/forge-util" "^1.4.2"
-    "@arcblock/forge-wallet" "^1.4.2"
-    "@arcblock/mcrypto" "^1.4.2"
+    "@arcblock/did" "^1.4.3"
+    "@arcblock/forge-util" "^1.4.3"
+    "@arcblock/forge-wallet" "^1.4.3"
+    "@arcblock/mcrypto" "^1.4.3"
     "@wangshijun/hdkey" "^2.0.3"
     axios "^0.21.0"
     debug "^4.2.0"

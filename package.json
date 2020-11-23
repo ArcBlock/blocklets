@@ -16,7 +16,7 @@
     "ABTNode"
   ],
   "dependencies": {
-    "@blocklet/meta": "1.0.33-beta.0",
+    "@blocklet/meta": "1.0.34",
     "@arcblock/gatsby-theme-www": "^7.28.18",
     "@arcblock/ux": "^0.78.19",
     "@arcblock/www": "^7.28.18",

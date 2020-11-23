@@ -162,11 +162,6 @@ exports.createPages = async ({ actions, graphql }) => {
           meta.environments = meta.requiredEnvironments || [];
         }
 
-        // TODO: this only exist for backward compatibility
-        if (typeof meta.requiredEnvironments === 'undefined' && meta.environments) {
-          meta.requiredEnvironments = meta.environments;
-        }
-
         return fixInterfaces(meta, false);
       } catch (error) {
         console.warn('Read blocklet config failed.', error.message);
