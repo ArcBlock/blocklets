@@ -1,3 +1,6 @@
+## 1.0.1 (November 23, 2020)
+
+
 ## 1.0.0 (November 20, 2020)
 
 - fix: use @blocklet/meta 1.0.33-beta.0
