@@ -1,14 +1,11 @@
-## 0.25.12 (November 23, 2020)
+## 1.0.0 (November 20, 2020)
 
-
-## 0.25.11 (November 23, 2020)
-
-
-## 0.25.10 (November 23, 2020)
-
+- fix: use @blocklet/meta 1.0.33-beta.0
+- chore: use @blocklet/meta to parse emta
+- chore: migrate blocklet meta to 1.0.1
+- chore: cleanup useless fields and dependencies
 
 ## 0.25.9 (November 19, 2020)
-
 
 ## 0.25.8 (十一月 19, 2020)
 

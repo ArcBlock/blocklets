@@ -3,25 +3,28 @@ description: >-
   The official blocklet registry blocklet which can be used to make things
   decentralized
 group: static
-version: 0.25.8
+version: 1.0.0
 main: www
 title: Blocklet Registry
-publicUrl: /
-adminUrl: ''
-configUrl: ''
-charging:
-  price: 0
-color: primary
 community: 'https://gitter.im/ArcBlock/community'
 documentation: 'https://docs.arcblock.io'
+homepage: ''
 keywords:
   - Registry
   - Blocklet
-  - ABTNode
+screenshots: []
 support: support@arcblock.io
-hooks:
-  pre-deploy: npm run build
-capabilities:
-  dynamicPathPrefix: false
-specVersion: 1.0.0
+environments: []
+scripts:
+  dev: npm run dev
+specVersion: 1.0.1
 did: z8iZybVvuEz4N9wf3CfGGP5uERMFhziuxGEqe
+files:
+  - www/
+  - screenshots/
+  - blocklet.md
+interfaces:
+  - type: web
+    name: publicUrl
+    path: /
+    prefix: /

@@ -43,9 +43,6 @@ This is the key file when defining a blocklet, may contain the following fields:
   // Can be starter|dapp|contract
   "group": "starter",
 
-  // Can be primary|secondary|error
-  "color": "primary",
-
   "documentation": "https://docs.arcblock.io",
   "support": "support@arcblock.io",
   "community": "https://gitter.im/arcblock/cummonity",
@@ -55,9 +52,6 @@ This is the key file when defining a blocklet, may contain the following fields:
     "price": 10,
     "receiver": "z1en6dudVmqsP1P2ZG1R8DdBZoYPnzw46T1",
   },
-
-  // Can the blocklet be used with another blocklet?
-  "composable": false,
 
   // Following fields can be inherited from package.json
   "name": "forge-react-starter",
@@ -71,16 +65,12 @@ This is the key file when defining a blocklet, may contain the following fields:
   },
 
   // Customize the install pipeline of the blocklet
-  "hooks": {
+  "scripts": {
     "pre-copy": "",
     "post-copy": "",
     "configure": "",
     "complete": ""
-  },
-  "install-scripts": {
-    "dependency": ""
-  },
-  "usages": ['basic', 'local_chain']
+  }
 }
 ```
 
@@ -99,13 +89,6 @@ The logo of the blocklet, can be any valid image, png recommended, will be displ
 ### KeyInfo: `screenshots`
 
 The screenshots folder should contain several images of what's the output of the blocklet so that users can easily grasp the idea behind the blocklet.
-
-### KeyInfo: `usages`
-
-`usages` delcares the steps required to use the blocklet, `basic` is default to all blocklets, currently:
-
-- basic: the basic steps required by all blocklets
-- local_chain: include the steps starting a local chain by forge
 
 ### Other Info
 
