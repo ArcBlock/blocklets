@@ -1,17 +1,21 @@
 name: '@arcblock/blocklet-registry'
+version: 1.0.5
+files:
+  - www/
+  - screenshots/
+  - blocklet.md
+keywords:
+  - Registry
+  - Blocklet
 description: >-
   The official blocklet registry blocklet which can be used to make things
   decentralized
 group: static
-version: 1.0.0
 main: www
 title: Blocklet Registry
 community: 'https://gitter.im/ArcBlock/community'
 documentation: 'https://docs.arcblock.io'
 homepage: ''
-keywords:
-  - Registry
-  - Blocklet
 screenshots: []
 support: support@arcblock.io
 environments: []
@@ -19,12 +23,15 @@ scripts:
   dev: npm run dev
 specVersion: 1.0.1
 did: z8iZybVvuEz4N9wf3CfGGP5uERMFhziuxGEqe
-files:
-  - www/
-  - screenshots/
-  - blocklet.md
 interfaces:
   - type: web
     name: publicUrl
     path: /
     prefix: /
+    protocol: tcp
+    port: BLOCKLET_PORT
+license: ''
+timeout:
+  start: 10
+capabilities:
+  dynamicPathPrefix: true
