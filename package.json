@@ -1,6 +1,6 @@
 {
   "name": "@arcblock/blocklet-registry",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publishConfig": {
     "access": "public",
     "directory": ".blocklet/bundle"
@@ -16,7 +16,7 @@
     "ABTNode"
   ],
   "dependencies": {
-    "@blocklet/meta": "1.0.34",
+    "@blocklet/meta": "1.0.44",
     "@arcblock/gatsby-theme-www": "^7.28.18",
     "@arcblock/ux": "^0.78.19",
     "@arcblock/www": "^7.28.18",
