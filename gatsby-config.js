@@ -1,4 +1,5 @@
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const yaml = require('js-yaml');
 
@@ -10,6 +11,7 @@ const npmSources = registry.map(({ name }) => ({
   options: {
     name,
     cache: true,
+    cacheDir: os.tmpdir(),
     patterns: [
       '**/blocklet.yml',
       '**/blocklet.yaml',
