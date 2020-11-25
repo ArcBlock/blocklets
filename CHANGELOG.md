@@ -1,32 +1,29 @@
+## 1.0.11 (November 25, 2020)
+
+- chore: bump blocklet meta lib version
+- feat: customize cacheDir for npm source plugin
+
 ## 1.0.10 (November 25, 2020)
--  update extension lib
+
+- update extension lib
 
 ## 1.0.9 (November 24, 2020)
 
-
 ## 1.0.8 (November 24, 2020)
-
 
 ## 1.0.7 (November 24, 2020)
 
-
 ## 1.0.6 (November 24, 2020)
-
 
 ## 1.0.5 (November 24, 2020)
 
-
 ## 1.0.4 (November 24, 2020)
-
 
 ## 1.0.3 (November 24, 2020)
 
-
 ## 1.0.2 (November 24, 2020)
 
-
 ## 1.0.1 (November 23, 2020)
-
 
 ## 1.0.0 (November 20, 2020)
 

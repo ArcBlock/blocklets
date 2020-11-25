@@ -1,5 +1,5 @@
 name: '@arcblock/blocklet-registry'
-version: 1.0.10
+version: 1.0.11
 files:
   - www/
   - screenshots/
@@ -28,6 +28,10 @@ interfaces:
     name: publicUrl
     path: /
     prefix: /
+    protocol: tcp
+    port: BLOCKLET_PORT
 license: ''
 timeout:
   start: 10
+capabilities:
+  dynamicPathPrefix: true
