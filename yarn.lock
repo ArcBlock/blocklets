@@ -2073,10 +2073,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@blocklet/meta@1.0.35":
-  version "1.0.35"
-  resolved "https://registry.yarnpkg.com/@blocklet/meta/-/meta-1.0.35.tgz#6dc7bc3ae4c761e31c4d5227af1f2d101c0eb20f"
-  integrity sha512-E1GIP3ws8tYXEXf6xABNqQWlKwydZTI0ewxoq0uOqF2hE6n1rHtiRGh1PdbVg0SLm7eQOvpALFxE9Fs7G2DbYA==
+"@blocklet/meta@1.0.36-beta.0":
+  version "1.0.36-beta.0"
+  resolved "https://registry.yarnpkg.com/@blocklet/meta/-/meta-1.0.36-beta.0.tgz#cf9cb4f926cd14bdfb7d51b4ae513a3a677438ac"
+  integrity sha512-+ZdAGFwHloi9Yq0Uh2aQXdKtXlhvtmc2IPK6SyDzPY2T4UxvZBwAukHfwcBhB2kHpBnpko5FG+/RgnE/GKToSQ==
   dependencies:
     "@arcblock/did" "^1.4.3"
     "@arcblock/forge-util" "^1.4.3"
