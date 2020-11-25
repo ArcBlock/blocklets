@@ -28,10 +28,6 @@ interfaces:
     name: publicUrl
     path: /
     prefix: /
-    protocol: tcp
-    port: BLOCKLET_PORT
 license: ''
 timeout:
   start: 10
-capabilities:
-  dynamicPathPrefix: true
