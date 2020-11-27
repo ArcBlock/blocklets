@@ -18,7 +18,7 @@ export default class HTML extends React.Component {
           <meta name="msvalidate.01" content="9FE85FD962F331A6F8900C9602BC5A64" />
           <meta name="google-site-verification" content="8nNdIdMRDKBtI-Ue-EWxaVazbzOZxT8_gIBUJyUdYFE" />
           <link rel="stylesheet" type="text/css" href="/icons/css/all.css" />
-          <script src="/api/env.js" />
+          <script type="text/javascript" src="/get_env_script.js" />
           {this.props.headComponents}
         </head>
         <body>
