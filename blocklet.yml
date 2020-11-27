@@ -1,5 +1,5 @@
 name: '@arcblock/blocklet-registry'
-version: 1.0.11
+version: 1.0.12
 files:
   - www/
   - screenshots/
@@ -33,5 +33,3 @@ interfaces:
 license: ''
 timeout:
   start: 10
-capabilities:
-  dynamicPathPrefix: true
