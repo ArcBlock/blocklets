@@ -1,3 +1,6 @@
+## 1.0.12 (November 27, 2020)
+  - update env js
+
 ## 1.0.11 (November 25, 2020)
 
 - chore: bump blocklet meta lib version
