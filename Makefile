@@ -45,7 +45,7 @@ doc:
 
 precommit: dep lint doc test
 
-github-action-test: precommit
+github-action-init: precommit
 
 clean:
 	@echo "Cleaning the build..."
