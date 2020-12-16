@@ -1,3 +1,6 @@
+## 1.1.1 (December 16, 2020)
+
+
 ## 1.1.0 (December 16, 2020)
   - chore: bump blocklet meta lib version
 
