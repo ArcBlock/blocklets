@@ -11,7 +11,7 @@ const npmSources = registry.map(({ name }) => ({
   options: {
     name,
     cache: true,
-    cacheDir: os.tmpdir(),
+    // cacheDir: os.tmpdir(),
     patterns: [
       '**/blocklet.yml',
       '**/blocklet.yaml',
