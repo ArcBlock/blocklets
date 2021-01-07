@@ -58,8 +58,8 @@
     "lint": "eslint src",
     "clean": "rm -rf public .cache .blocklet",
     "build": "npm run clean && gatsby build && rm -rf www && mv public www && rm -f www/*.map",
-    "bundle": "npm run build && abtnode bundle --create-release",
-    "deploy": "npm run bundle && abtnode deploy .blocklet/bundle",
+    "bundle": "npm run build && blocklet bundle --create-release",
+    "deploy": "npm run bundle && blocklet deploy .blocklet/bundle",
     "dev": "gatsby develop --host 0.0.0.0"
   },
   "devDependencies": {

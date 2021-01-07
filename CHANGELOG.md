@@ -1,5 +1,6 @@
 ## 1.1.12 (January 07, 2021)
 
+- replace abtnode command with blocklet command
 
 ## 1.1.11 (January 07, 2021)
 
