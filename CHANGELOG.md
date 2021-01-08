@@ -1,3 +1,7 @@
+## 1.1.27 (January 08, 2021)
+
+- upgrade dep
+
 ## 1.1.26 (January 08, 2021)\n
 
 
