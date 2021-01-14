@@ -49,7 +49,7 @@ sudo npm install -g @abtnode/cli
 echo "publishing blocklets blocklet..."
 yarn build
 rm -f www/*.map
-NODE_ENV=production blocklet bundle && npm publish .blocklet/bundle
+NODE_ENV=production blocklet bundle --create-release && npm publish .blocklet/bundle
 
 echo "publishing to blocklet registry"
 blocklet config registry ${BLOCKLET_REGISTRY}
