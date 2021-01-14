@@ -1,8 +1,8 @@
 set -e
 
 VERSION=$(cat version | awk '{$1=$1;print}')
-git config --local user.name "wangshijun"
-git config --local user.email "wangshijun2010@gmail.com"
+git config --local user.name "bot"
+git config --local user.email "bot@arcblock.io"
 
 echo "check version ${VERSION}"
 NPM_VERSION=$(npm view @arcblock/blocklet-registry version)
@@ -51,6 +51,10 @@ yarn build
 rm -f www/*.map
 NODE_ENV=production blocklet bundle && npm publish .blocklet/bundle
 
+echo "publishing to blocklet registry"
+blocklet config registry ${BLOCKLET_REGISTRY}
+blocklet publish --developer-sk ${ABTNODE_DEV_SK}
+
 node tools/post-publish.js
 
 # deploy to remote ABT Node
@@ -77,3 +81,5 @@ if [ "${AWS_NODE_ENDPOINT}" != "" ]; then
     curl -X POST -H 'Content-type: application/json' --data "{\"text\":\":x: Faild to deploy ${NAME} v${VERSION} to ${AWS_NODE_ENDPOINT}\"}" ${SLACK_WEBHOOK}
   fi
 fi
+
+curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"${NAME} v${VERSION} was successfully published\"}" ${SLACK_WEBHOOK}

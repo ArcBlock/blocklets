@@ -1,5 +1,5 @@
 name: '@arcblock/blocklet-registry'
-version: 1.1.27
+version: 1.1.30
 files:
   - www/
   - screenshots/
