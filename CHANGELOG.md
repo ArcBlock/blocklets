@@ -1,3 +1,7 @@
+## 1.1.32 (January 15, 2021)
+
+
+
 ## 1.1.31 (January 14, 2021)
 
 - fix publish script

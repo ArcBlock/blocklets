@@ -1,5 +1,5 @@
 name: '@arcblock/blocklet-registry'
-version: 1.1.31
+version: 1.1.32
 files:
   - www/
   - screenshots/
@@ -33,3 +33,7 @@ interfaces:
 license: ''
 timeout:
   start: 10
+requirements:
+  abtnode: '>=1.1.0'
+  os: '*'
+  cpu: '*'
