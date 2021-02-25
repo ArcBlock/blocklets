@@ -1,3 +1,7 @@
+## 1.1.37 (February 25, 2021)
+
+- chore: try to fix style flashing by lock material-ui deps version
+
 ## 1.1.36 (February 09, 2021)\n
 
 
