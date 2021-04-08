@@ -1,5 +1,5 @@
 name: '@arcblock/blocklet-registry'
-version: 1.1.38
+version: 1.1.39
 files:
   - www/
   - screenshots/
@@ -37,3 +37,8 @@ requirements:
   abtnode: '>=1.1.0'
   os: '*'
   cpu: '*'
+charging:
+  price: 0
+  tokens: []
+  shares: []
+children: []
